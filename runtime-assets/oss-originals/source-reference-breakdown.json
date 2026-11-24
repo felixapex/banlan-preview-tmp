@@ -1,0 +1,42 @@
+[
+  {
+    "file": "src/data/banlan.json",
+    "occurrences": 166
+  },
+  {
+    "file": "src/data/home-runtime-assets.json",
+    "occurrences": 39
+  },
+  {
+    "file": "src/data/home.json",
+    "occurrences": 1
+  },
+  {
+    "file": "src/data/membership-levels.json",
+    "occurrences": 5
+  },
+  {
+    "file": "src/data/product-engagement.json",
+    "occurrences": 116
+  },
+  {
+    "file": "src/data/product-navigation.json",
+    "occurrences": 64
+  },
+  {
+    "file": "src/data/products.json",
+    "occurrences": 2414
+  },
+  {
+    "file": "src/data/service-flow.js",
+    "occurrences": 22
+  },
+  {
+    "file": "src/data/sofa-showcase.json",
+    "occurrences": 130
+  },
+  {
+    "file": "src/data/store-catalog.js",
+    "occurrences": 41
+  }
+]

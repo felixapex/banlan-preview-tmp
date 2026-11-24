@@ -1,0 +1,441 @@
+{
+  "generatedAt": "2026-11-24T12:42:21.843Z",
+  "saved": 62,
+  "failed": 0,
+  "results": [
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1730550194486_%24%24_%E5%B9%BF%E5%B7%9E%E9%97%A8%E5%BA%97%E5%BD%A2%E8%B1%A1%E7%85%A7-241102.jpg",
+      "localPath": "/static/banlan/stores/48b1bcdb75b649fe9e22f26c8be062cd-01.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1730550194486_$$_广州门店形象照-241102.jpg",
+      "bytes": 283495,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1735180936598_%24%24_10%E5%8E%A6%E9%97%A8%E8%81%9A%E5%90%88%E9%A1%B5.jpg",
+      "localPath": "/static/banlan/stores/d4baf08e09e3451f8075f241a1690de2-01.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1735180936598_$$_10厦门聚合页.jpg",
+      "bytes": 167993,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1775002700994_%24%24_%E6%AD%A6%E6%B1%89%E7%8F%AD%E5%85%B0-%E9%97%A8%E5%BA%97%E5%A4%B4%E5%9B%BE-20260401.png",
+      "localPath": "/static/banlan/stores/4db0324c310b45ecb76d2d03331c5e49-01.png",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1775002700994_$$_武汉班兰-门店头图-20260401.png",
+      "bytes": 791696,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1715139552041_%24%24_05%E6%B8%A9%E5%B7%9E-%E8%81%9A%E5%90%88%E9%A1%B5-20240508.jpg",
+      "localPath": "/static/banlan/stores/771a22de9fe446daa2be2811f9ebf482-01.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1715139552041_$$_05温州-聚合页-20240508.jpg",
+      "bytes": 265176,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1715140221470_%24%24_05%E6%B8%A9%E5%B7%9E-1-20240508.jpg",
+      "localPath": "/static/banlan/stores/771a22de9fe446daa2be2811f9ebf482-02.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1715140221470_$$_05温州-1-20240508.jpg",
+      "bytes": 153274,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1715140221483_%24%24_05%E6%B8%A9%E5%B7%9E-2-20240508.jpg",
+      "localPath": "/static/banlan/stores/771a22de9fe446daa2be2811f9ebf482-03.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1715140221483_$$_05温州-2-20240508.jpg",
+      "bytes": 154079,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1715140221495_%24%24_05%E6%B8%A9%E5%B7%9E-3-20240508.jpg",
+      "localPath": "/static/banlan/stores/771a22de9fe446daa2be2811f9ebf482-04.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1715140221495_$$_05温州-3-20240508.jpg",
+      "bytes": 189495,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1739182538441_%24%24_06%20%E5%8F%B0%E5%B7%9E%E8%81%9A%E5%90%88%E9%A1%B5.jpg",
+      "localPath": "/static/banlan/stores/68ee6adeb51841a4a738ec7f9acb66e9-01.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1739182538441_$$_06 台州聚合页.jpg",
+      "bytes": 153764,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1653713639165_%24%24_06%E5%8F%B0%E5%B7%9E1.jpg",
+      "localPath": "/static/banlan/stores/68ee6adeb51841a4a738ec7f9acb66e9-02.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1653713639165_$$_06台州1.jpg",
+      "bytes": 321746,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1653713639201_%24%24_06%E5%8F%B0%E5%B7%9E2.jpg",
+      "localPath": "/static/banlan/stores/68ee6adeb51841a4a738ec7f9acb66e9-03.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1653713639201_$$_06台州2.jpg",
+      "bytes": 268436,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1653713639182_%24%24_06%E5%8F%B0%E5%B7%9E3.jpg",
+      "localPath": "/static/banlan/stores/68ee6adeb51841a4a738ec7f9acb66e9-04.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1653713639182_$$_06台州3.jpg",
+      "bytes": 314711,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1741002771335_%24%24_09%E5%90%88%E8%82%A5%E8%81%9A%E5%90%88%E9%A1%B5.jpg",
+      "localPath": "/static/banlan/stores/fdcc6029f6e84e859c6044fdc95ae317-01.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1741002771335_$$_09合肥聚合页.jpg",
+      "bytes": 150778,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1605693720926_%24%24_09%E5%90%88%E8%82%A52.jpg",
+      "localPath": "/static/banlan/stores/fdcc6029f6e84e859c6044fdc95ae317-02.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1605693720926_$$_09合肥2.jpg",
+      "bytes": 163598,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1605693720923_%24%24_09%E5%90%88%E8%82%A51.jpg",
+      "localPath": "/static/banlan/stores/fdcc6029f6e84e859c6044fdc95ae317-03.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1605693720923_$$_09合肥1.jpg",
+      "bytes": 173855,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1605693720934_%24%24_09%E5%90%88%E8%82%A53.jpg",
+      "localPath": "/static/banlan/stores/fdcc6029f6e84e859c6044fdc95ae317-04.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1605693720934_$$_09合肥3.jpg",
+      "bytes": 146035,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1668673046836_%24%24_%E6%9D%AD%E5%B7%9E-01.jpg",
+      "localPath": "/static/banlan/stores/c48b797b3d914f458658e7dcf067117a-01.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1668673046836_$$_杭州-01.jpg",
+      "bytes": 2671437,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1668673046857_%24%24_%E6%9D%AD%E5%B7%9E-02.jpg",
+      "localPath": "/static/banlan/stores/c48b797b3d914f458658e7dcf067117a-02.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1668673046857_$$_杭州-02.jpg",
+      "bytes": 2529244,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1668673046869_%24%24_%E6%9D%AD%E5%B7%9E-03.jpg",
+      "localPath": "/static/banlan/stores/c48b797b3d914f458658e7dcf067117a-03.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1668673046869_$$_杭州-03.jpg",
+      "bytes": 2332228,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1668673046891_%24%24_%E6%9D%AD%E5%B7%9E-04.jpg",
+      "localPath": "/static/banlan/stores/c48b797b3d914f458658e7dcf067117a-04.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1668673046891_$$_杭州-04.jpg",
+      "bytes": 3030842,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1717670132132_%24%24_%E5%AE%81%E6%B3%A2%E8%81%9A%E5%90%88%E9%A1%B5.jpg",
+      "localPath": "/static/banlan/stores/46a3219739ef4ad4a41d773b7ce1a5c6-01.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1717670132132_$$_宁波聚合页.jpg",
+      "bytes": 142198,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1714899848687_%24%24_04%E5%AE%81%E6%B3%A21-2024.jpg",
+      "localPath": "/static/banlan/stores/46a3219739ef4ad4a41d773b7ce1a5c6-02.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1714899848687_$$_04宁波1-2024.jpg",
+      "bytes": 196794,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1714899848698_%24%24_04%E5%AE%81%E6%B3%A22-2024.jpg",
+      "localPath": "/static/banlan/stores/46a3219739ef4ad4a41d773b7ce1a5c6-03.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1714899848698_$$_04宁波2-2024.jpg",
+      "bytes": 226642,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1714899848710_%24%24_04%E5%AE%81%E6%B3%A23-2024.jpg",
+      "localPath": "/static/banlan/stores/46a3219739ef4ad4a41d773b7ce1a5c6-04.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1714899848710_$$_04宁波3-2024.jpg",
+      "bytes": 202375,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E7%94%A8%E6%88%B7%E5%88%86%E4%BA%AB%E8%8E%B7%E5%8F%96%E5%85%B0%E9%80%9A%E5%AE%9D/1706760183012_%24%24_%E8%8B%8F%E5%B7%9E%E9%97%A8%E5%BA%97%E5%BD%A2%E8%B1%A1%E7%85%A7.jpg",
+      "localPath": "/static/banlan/stores/8be36e069910444ebd46ee5390b27e02-01.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\用户分享获取兰通宝\\1706760183012_$$_苏州门店形象照.jpg",
+      "bytes": 1539533,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1716522189626_%24%24_%E8%8B%8F%E5%B7%9E-%E4%B8%BB%E5%9B%BE1.jpg",
+      "localPath": "/static/banlan/stores/8be36e069910444ebd46ee5390b27e02-02.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1716522189626_$$_苏州-主图1.jpg",
+      "bytes": 1427725,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1716522189641_%24%24_%E8%8B%8F%E5%B7%9E-%E4%B8%BB%E5%9B%BE2.jpg",
+      "localPath": "/static/banlan/stores/8be36e069910444ebd46ee5390b27e02-03.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1716522189641_$$_苏州-主图2.jpg",
+      "bytes": 1285248,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1716522189662_%24%24_%E8%8B%8F%E5%B7%9E-%E4%B8%BB%E5%9B%BE3.jpg",
+      "localPath": "/static/banlan/stores/8be36e069910444ebd46ee5390b27e02-04.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1716522189662_$$_苏州-主图3.jpg",
+      "bytes": 949896,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1724062866732_%24%24_%E4%B8%8A%E6%B5%B7%E8%81%9A%E5%90%88%E9%A1%B5.jpg",
+      "localPath": "/static/banlan/stores/91d0b521adf548bbb4adf236941e7e3a-01.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1724062866732_$$_上海聚合页.jpg",
+      "bytes": 517587,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1770288823015_%24%24_%E6%88%90%E9%83%BD%E7%8F%AD%E5%85%B0-260205.png",
+      "localPath": "/static/banlan/stores/a6348520be744d1e961c7f48c23016bc-01.png",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1770288823015_$$_成都班兰-260205.png",
+      "bytes": 300429,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1758279872425_%24%24_01%E8%A5%BF%E5%AE%89%E9%AB%98%E6%96%B0%E5%BA%97.png",
+      "localPath": "/static/banlan/stores/8b8158719242447490edbec6f7ed0235-01.png",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1758279872425_$$_01西安高新店.png",
+      "bytes": 305373,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1680052184479_%24%24_%E8%A5%BF%E5%AE%89%E9%92%BB%E7%9F%B3-01.png",
+      "localPath": "/static/banlan/stores/46804ce4f8d44b7fbd58fa2e86b21ac5-01.png",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1680052184479_$$_西安钻石-01.png",
+      "bytes": 1033883,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1680052830751_%24%24_%E8%A5%BF%E5%AE%89%E9%92%BB%E7%9F%B3-02.png",
+      "localPath": "/static/banlan/stores/46804ce4f8d44b7fbd58fa2e86b21ac5-02.png",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1680052830751_$$_西安钻石-02.png",
+      "bytes": 1219893,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1680052854645_%24%24_%E8%A5%BF%E5%AE%89%E9%92%BB%E7%9F%B3-03.jpg",
+      "localPath": "/static/banlan/stores/46804ce4f8d44b7fbd58fa2e86b21ac5-03.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1680052854645_$$_西安钻石-03.jpg",
+      "bytes": 1819903,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1680052854662_%24%24_%E8%A5%BF%E5%AE%89%E9%92%BB%E7%9F%B3-04.png",
+      "localPath": "/static/banlan/stores/46804ce4f8d44b7fbd58fa2e86b21ac5-04.png",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1680052854662_$$_西安钻石-04.png",
+      "bytes": 1815985,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1680052854705_%24%24_%E8%A5%BF%E5%AE%89%E9%92%BB%E7%9F%B3-05.png",
+      "localPath": "/static/banlan/stores/46804ce4f8d44b7fbd58fa2e86b21ac5-05.png",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1680052854705_$$_西安钻石-05.png",
+      "bytes": 1520026,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1743503770834_%24%24_%E7%9F%B3%E5%AE%B6%E5%BA%8420250401.jpg",
+      "localPath": "/static/banlan/stores/50a8a3ef37694c2387e2a24c173da6c4-01.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1743503770834_$$_石家庄20250401.jpg",
+      "bytes": 228387,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1645758671931_%24%24_%E7%9F%B3%E5%AE%B6%E5%BA%84-02.jpg",
+      "localPath": "/static/banlan/stores/50a8a3ef37694c2387e2a24c173da6c4-02.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1645758671931_$$_石家庄-02.jpg",
+      "bytes": 4866487,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1645758671948_%24%24_%E7%9F%B3%E5%AE%B6%E5%BA%84-03.jpg",
+      "localPath": "/static/banlan/stores/50a8a3ef37694c2387e2a24c173da6c4-03.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1645758671948_$$_石家庄-03.jpg",
+      "bytes": 3294347,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1645758671966_%24%24_%E7%9F%B3%E5%AE%B6%E5%BA%84-04.jpg",
+      "localPath": "/static/banlan/stores/50a8a3ef37694c2387e2a24c173da6c4-04.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1645758671966_$$_石家庄-04.jpg",
+      "bytes": 3919595,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1724459577594_%24%24_%E5%8C%97%E4%BA%AC%E5%BA%97750470.jpg",
+      "localPath": "/static/banlan/stores/adaaab0420a04a8ea841bfba79d5754d-01.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1724459577594_$$_北京店750470.jpg",
+      "bytes": 72665,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%BA%97%E9%93%BA%E9%A1%B5%E7%94%A8%E5%9B%BE/1733705058116_%24%24_13%E6%B2%88%E9%98%B3%E8%81%9A%E5%90%88%E9%A1%B5.jpg",
+      "localPath": "/static/banlan/stores/b5d3c2b16bdf480596701db61dc03667-01.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1733705058116_$$_13沈阳聚合页.jpg",
+      "bytes": 250909,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/关于班兰/1792062368743_$$_01-关于班兰-品牌简介-20261015.jpg",
+      "localPath": "/static/banlan/service-pages/brand-intro.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\关于班兰\\1792062368743_$$_01-关于班兰-品牌简介-20261015.jpg",
+      "bytes": 623614,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/关于班兰/1792062387828_$$_01关于班兰-班兰理念-20261015.jpg",
+      "localPath": "/static/banlan/service-pages/philosophy.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\关于班兰\\1792062387828_$$_01关于班兰-班兰理念-20261015.jpg",
+      "bytes": 670070,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/关于班兰/1792062398663_$$_01关于班兰-中国现代风格-20261015.jpg",
+      "localPath": "/static/banlan/service-pages/modern-chinese.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\关于班兰\\1792062398663_$$_01关于班兰-中国现代风格-20261015.jpg",
+      "bytes": 589869,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/自定义页素材合集/1783931994874_$$_260713变更-石材篇-材质与工艺页_01.jpg",
+      "localPath": "/static/banlan/service-pages/materials-stone.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\自定义页素材合集\\1783931994874_$$_260713变更-石材篇-材质与工艺页_01.jpg",
+      "bytes": 679625,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/自定义页素材合集/1789809593650_$$_02 木材篇-20260919.jpg",
+      "localPath": "/static/banlan/service-pages/materials-wood.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\自定义页素材合集\\1789809593650_$$_02 木材篇-20260919.jpg",
+      "bytes": 1243247,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/自定义页素材合集/1760522112870_$$_云店铺-关于班兰-材质与工艺独立页-20251015_03.jpg",
+      "localPath": "/static/banlan/service-pages/materials-metal.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\自定义页素材合集\\1760522112870_$$_云店铺-关于班兰-材质与工艺独立页-20251015_03.jpg",
+      "bytes": 918933,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/自定义页素材合集/1790065841901_$$_04-皮革篇-材质与工艺独立页-20260922.jpg",
+      "localPath": "/static/banlan/service-pages/materials-leather.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\自定义页素材合集\\1790065841901_$$_04-皮革篇-材质与工艺独立页-20260922.jpg",
+      "bytes": 1365392,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/自定义页素材合集/1787566089239_$$_05面料篇-材质与工艺页_20260824.jpg",
+      "localPath": "/static/banlan/service-pages/materials-fabric.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\自定义页素材合集\\1787566089239_$$_05面料篇-材质与工艺页_20260824.jpg",
+      "bytes": 1687851,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/自定义页素材合集/1783912897617_$$_260713变更-鹅羽绒篇-材质与工艺页_06.jpg",
+      "localPath": "/static/banlan/service-pages/materials-goose-down.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\自定义页素材合集\\1783912897617_$$_260713变更-鹅羽绒篇-材质与工艺页_06.jpg",
+      "bytes": 430797,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/自定义页素材合集/1792220090007_$$_小程序-关于班兰-十年质保独立页-20261017.jpg",
+      "localPath": "/static/banlan/service-pages/warranty.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\自定义页素材合集\\1792220090007_$$_小程序-关于班兰-十年质保独立页-20261017.jpg",
+      "bytes": 667188,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/5星服务漫画/1734683779402_$$_5星店铺-01.jpg",
+      "localPath": "/static/banlan/service-pages/advisor.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\5星服务漫画\\1734683779402_$$_5星店铺-01.jpg",
+      "bytes": 3740891,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/5星服务漫画/1709891206920_$$_5星店铺-03.jpg",
+      "localPath": "/static/banlan/service-pages/transparent.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\5星服务漫画\\1709891206920_$$_5星店铺-03.jpg",
+      "bytes": 407837,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/5星服务漫画/1702274694055_$$_准时交付_5星店铺_新LOGO20231212.jpg",
+      "localPath": "/static/banlan/service-pages/delivery.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\5星服务漫画\\1702274694055_$$_准时交付_5星店铺_新LOGO20231212.jpg",
+      "bytes": 318362,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/5星服务漫画/1709891206916_$$_5星店铺-02.jpg",
+      "localPath": "/static/banlan/service-pages/installation.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\5星服务漫画\\1709891206916_$$_5星店铺-02.jpg",
+      "bytes": 1043559,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/5星服务漫画/1734684149080_$$_店铺_03.jpg",
+      "localPath": "/static/banlan/service-pages/card-advisor.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\5星服务漫画\\1734684149080_$$_店铺_03.jpg",
+      "bytes": 26643,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/店铺聚合页用图/1605701671720_$$_透明选购-5星服务.jpg",
+      "localPath": "/static/banlan/service-pages/card-transparent.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺聚合页用图\\1605701671720_$$_透明选购-5星服务.jpg",
+      "bytes": 12033,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/店铺聚合页用图/1605701671869_$$_准时交付-5星服务.jpg",
+      "localPath": "/static/banlan/service-pages/card-delivery.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺聚合页用图\\1605701671869_$$_准时交付-5星服务.jpg",
+      "bytes": 11180,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/店铺聚合页用图/1605701671697_$$_精益安装-5星服务.jpg",
+      "localPath": "/static/banlan/service-pages/card-installation.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺聚合页用图\\1605701671697_$$_精益安装-5星服务.jpg",
+      "bytes": 12153,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/店铺聚合页用图/1605701671708_$$_十年质保-5星服务.jpg",
+      "localPath": "/static/banlan/service-pages/card-warranty.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺聚合页用图\\1605701671708_$$_十年质保-5星服务.jpg",
+      "bytes": 11794,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/用户分享获取兰通宝/1702373787951_$$_店铺一级页面2023_20231212-1.jpg",
+      "localPath": "/static/banlan/service-pages/store-main.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\用户分享获取兰通宝\\1702373787951_$$_店铺一级页面2023_20231212-1.jpg",
+      "bytes": 107527,
+      "status": "saved"
+    },
+    {
+      "source": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/店铺页用图/1616211569139_$$_店铺页文字.jpg",
+      "localPath": "/static/banlan/service-pages/store-copy.jpg",
+      "destination": "E:\\文档\\ChatGPT\\拆网站与一键发布\\GitHub上传\\banlan-miniapp-latest-fix-worktree\\src\\static\\banlan\\oss-originals\\mp-banlan-product\\店铺页用图\\1616211569139_$$_店铺页文字.jpg",
+      "bytes": 73108,
+      "status": "saved"
+    }
+  ]
+}

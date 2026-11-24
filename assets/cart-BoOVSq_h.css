@@ -1,0 +1,39 @@
+
+.cart-page[data-v-0613550d] { width: 100%; max-width: 23.4375rem; min-height: 100vh; margin: 0 auto; padding-bottom: 3.4375rem; box-sizing: border-box; color: #111; background: #f6f6f6; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+}.cart-nav[data-v-0613550d] { position: sticky; z-index: 30; top: 0; height: 3.125rem; display: flex; align-items: center; justify-content: space-between; background: #fff;
+}.nav-left[data-v-0613550d], .wechat-capsule[data-v-0613550d] { height: 1.75rem; border: 0.03125rem solid #e5e5e5; border-radius: 1.0625rem; display: flex; align-items: center; background: #fff;
+}.nav-left[data-v-0613550d] { width: 5.5625rem; margin-left: 0.4375rem; justify-content: space-around;
+}.nav-left uni-text[data-v-0613550d] { width: 1.9375rem; font-size: 1.625rem; line-height: 1.40625rem; text-align: center;
+}.nav-left uni-view[data-v-0613550d], .wechat-capsule uni-view[data-v-0613550d] { width: 0.03125rem; height: 1rem; background: #ddd;
+}.nav-left uni-image[data-v-0613550d] { width: 1.125rem; height: 1.125rem; margin-right: 0.375rem;
+}.nav-title[data-v-0613550d] { position: absolute; left: 50%; transform: translateX(-50%); font-size: 1.0625rem;
+}.wechat-capsule[data-v-0613550d] { width: 6.625rem; margin-right: 0.4375rem; justify-content: space-around; font-size: 0.75rem;
+}.clear-row[data-v-0613550d] { height: 1.6875rem; padding-right: 0.9375rem; color: #aaa; background: #fff; font-size: 0.71875rem; line-height: 1.6875rem; text-align: right;
+}.clear-row .armed[data-v-0613550d] { color: #b43b32;
+}.cart-lines[data-v-0613550d] { background: #fff;
+}.cart-line[data-v-0613550d] { min-height: 6.5625rem; padding: 0.75rem 0.875rem; display: grid; grid-template-columns: 1.25rem 4.0625rem 1fr; gap: 0.5625rem; align-items: center; border-top: 0.03125rem solid #eee; box-sizing: border-box;
+}.check[data-v-0613550d] { width: 1.0625rem; height: 1.0625rem; border: 0.0625rem solid #c9c9c9; border-radius: 50%; color: #fff; font-size: 0.6875rem; line-height: 1.0625rem; text-align: center;
+}.check.checked[data-v-0613550d] { border-color: #9e815d; background: #9e815d;
+}.line-image[data-v-0613550d] { width: 4.0625rem; height: 4.375rem;
+}.line-info[data-v-0613550d] { min-width: 0;
+}.title-price[data-v-0613550d] { display: flex; justify-content: space-between; gap: 0.3125rem;
+}.line-title[data-v-0613550d] { font-size: 0.875rem;
+}.line-price[data-v-0613550d] { color: #9e815d; white-space: nowrap; font-size: 0.75rem;
+}.line-specs[data-v-0613550d] { display: block; height: 2.0625rem; margin-top: 0.25rem; overflow: hidden; color: #777; font-size: 0.625rem; line-height: 1.5;
+}.line-actions[data-v-0613550d] { display: flex; align-items: center; justify-content: space-between;
+}.quantity[data-v-0613550d] { display: flex; align-items: center; gap: 0.625rem;
+}.quantity uni-text[data-v-0613550d]:first-child, .quantity uni-text[data-v-0613550d]:last-child { width: 1.3125rem; height: 1.3125rem; border-radius: 50%; background: #d7d7d7; color: #fff; font-size: 0.9375rem; line-height: 1.25rem; text-align: center;
+}.quantity uni-text[data-v-0613550d]:last-child { background: #9e815d;
+}.delete[data-v-0613550d] { color: #9e815d; font-size: 1rem;
+}.empty-cart[data-v-0613550d] { padding-top: 9.375rem; color: #999; text-align: center;
+}.empty-cart uni-view[data-v-0613550d] { width: 7.5rem; height: 2.1875rem; margin: 1.09375rem auto 0; border: 0.03125rem solid #111; color: #111; line-height: 2.1875rem;
+}.cart-bottom[data-v-0613550d] { position: fixed; z-index: 40; right: 0; bottom: 0; left: 0; width: 100%; max-width: 23.4375rem; height: 3.4375rem; margin: 0 auto; padding: 0.4375rem 1rem; display: flex; align-items: center; justify-content: space-between; box-sizing: border-box; background: #fff; box-shadow: 0 -0.125rem 0.5rem rgba(0,0,0,.06);
+}.total-select[data-v-0613550d] { display: flex; align-items: center; gap: 0.25rem; font-size: 0.875rem;
+}.total-price[data-v-0613550d] { color: #9e815d;
+}.order-button[data-v-0613550d] { width: 6.40625rem; height: 2.4375rem; color: #fff; background: #000; line-height: 2.4375rem; text-align: center;
+}.order-button.disabled[data-v-0613550d] { opacity: .45;
+}
+@media (min-width: 751px) {
+.cart-page[data-v-0613550d] { box-shadow: 0 0 30px rgba(0,0,0,.12);
+}
+}

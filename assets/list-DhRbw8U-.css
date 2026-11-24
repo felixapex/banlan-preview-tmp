@@ -1,0 +1,15 @@
+
+.five-star-page[data-v-9c43b937] { box-sizing: border-box; min-height: 100vh; padding-bottom: 3.5rem; background: #f6f6f6;
+}
+.main-image[data-v-9c43b937], .text-image[data-v-9c43b937] { display: block; width: 100%;
+}
+.text-image[data-v-9c43b937] { margin-top: 0.625rem;
+}
+.five-star-grid[data-v-9c43b937] { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.625rem; box-sizing: border-box; padding: 0.875rem 0.75rem 1.5rem;
+}
+.five-star-card[data-v-9c43b937] { min-width: 0; overflow: hidden; background: #fff;
+}
+.five-star-card uni-image[data-v-9c43b937], .five-star-card img[data-v-9c43b937] { display: block; width: 100%;
+}
+.five-star-card[data-v-9c43b937]:nth-child(n+4) { grid-column: span 1;
+}
