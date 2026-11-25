@@ -11,3 +11,5 @@
 }
 .active[data-v-04879505] { color: var(--color-strong-ink);
 }
+.tab[data-action-id="tab:banlan"] .icon[data-v-04879505] { width: 2.4rem; height: 2.4rem; margin-top: -1.15rem; margin-bottom: 0.05rem; padding: 0.15rem; box-sizing: border-box; border-radius: 50%; background: var(--color-white); box-shadow: 0 -0.125rem 0.375rem rgba(0,0,0,0.06); }
+.tab[data-action-id="tab:products"] .icon[data-v-04879505] { width: 1.45rem; }

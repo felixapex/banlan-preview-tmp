@@ -7,6 +7,10 @@ function findProduct(index, productId) {
 function resolveCombination(product, selectedIds) {
   var _a;
   const wanted = [...selectedIds].map(String).sort().join(",");
+  if (product && product.openCombination) {
+    const n = (product.specifications || []).length;
+    return [...selectedIds].length === n ? { ids: [...selectedIds], status: "valid", priceYuan: product.priceYuan, rebate: 100, image: product.coverImage } : null;
+  }
   return ((_a = product == null ? void 0 : product.combinations) == null ? void 0 : _a.find((item) => [...item.ids].map(String).sort().join(",") === wanted)) ?? null;
 }
 const checkoutImageFallbacks = {
@@ -26,6 +30,13 @@ function createCartLine(product, selectedIds = []) {
     return null;
   const specifications = [];
   for (const group of product.specifications) {
+    if (group.multi) {
+      const entry = ids.find((id) => id.split("|").some((x) => group.choices.some((c) => String(c.id) === x)));
+      if (!entry) return null;
+      const picks = group.choices.filter((c) => entry.split("|").includes(String(c.id)));
+      specifications.push({ groupId: String(group.id), groupName: group.name, choiceId: entry, name: picks.map((c) => c.name).join("、"), description: "" });
+      continue;
+    }
     const choice = group.choices.find((item) => ids.includes(String(item.id)));
     if (!choice)
       return null;

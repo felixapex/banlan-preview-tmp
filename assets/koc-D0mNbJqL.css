@@ -1,1 +1,14 @@
-.page[data-v-0949469f]{min-height:100vh;background:#f6f6f6}.nav[data-v-0949469f]{height:3.25rem;padding:0 0.875rem;display:grid;grid-template-columns:2.8125rem 1fr 2.8125rem;align-items:center;background:#fff;text-align:center}.nav uni-view[data-v-0949469f]:first-child{text-align:left;font-size:1.625rem}.body[data-v-0949469f]{padding:1rem}.row[data-v-0949469f]{height:2.875rem;padding:0 0.75rem;display:flex;align-items:center;justify-content:space-between;background:#fff}.uploads[data-v-0949469f]{display:grid;grid-template-columns:1fr 1fr;gap:0.6875rem;margin-top:0.75rem}.uploads>uni-view[data-v-0949469f]{height:8.125rem;padding:0.75rem;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#fff;text-align:center;color:#777}.uploads uni-image[data-v-0949469f]{width:4.0625rem;height:4.0625rem;margin-bottom:0.5rem}uni-button[data-v-0949469f]{margin-top:1.40625rem;background:#111;color:#fff}.status[data-v-0949469f]{display:block;margin-top:0.75rem;color:#8a6d3b;text-align:center;font-size:0.6875rem}
+.fp-page[data-v-6f7a2b10] { min-height: 100vh; background: #f6f6f6; font-family: var(--font-body, sans-serif); }
+.fp-nav[data-v-6f7a2b10] { position: sticky; top: 0; z-index: 5; height: 2.75rem; display: grid; grid-template-columns: 3rem 1fr 3rem; align-items: center; background: #fff; border-bottom: 1px solid #eee; }
+.fp-back[data-v-6f7a2b10] { font-size: 1.6rem; text-align: center; }
+.fp-title[data-v-6f7a2b10] { text-align: center; font-size: 1rem; color: #111; }
+.fp-clear[data-v-6f7a2b10] { font-size: 0.8rem; color: #888; text-align: center; }
+.fp-list[data-v-6f7a2b10] { padding: 0.75rem; display: flex; flex-direction: column; gap: 0.6rem; }
+.fp-item[data-v-6f7a2b10] { display: flex; gap: 0.75rem; background: #fff; padding: 0.6rem; }
+.fp-img[data-v-6f7a2b10] { width: 6.5rem; height: 4.5rem; flex: none; background: #eee; }
+.fp-copy[data-v-6f7a2b10] { display: flex; flex-direction: column; justify-content: center; gap: 0.25rem; min-width: 0; }
+.fp-name[data-v-6f7a2b10] { font-size: 0.9rem; color: #111; }
+.fp-en[data-v-6f7a2b10] { font-size: 0.65rem; color: #999; letter-spacing: 0.03rem; }
+.fp-price[data-v-6f7a2b10] { font-size: 0.85rem; color: #9e815d; }
+.fp-empty[data-v-6f7a2b10] { padding-top: 8rem; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: #666; font-size: 0.9rem; }
+.fp-empty-sub[data-v-6f7a2b10] { font-size: 0.75rem; color: #aaa; }

@@ -40,6 +40,17 @@ function createActionRouter(adapter, messages = {}) {
     history.push({ action: safeAction, context, at: (/* @__PURE__ */ new Date()).toISOString() });
     if (safeAction.type === "none")
       return { status: "no-action" };
+    if (safeAction.type === "external" && safeAction.target) {
+      const w = 420, h = Math.min(900, screen.availHeight || 900);
+      let win = null;
+      try { win = window.open(safeAction.target, "yuhuSite", `popup=yes,width=${w},height=${h},left=${(screen.availWidth || w) - w},top=0`); } catch (e) {}
+      if (!win) {
+        const a = document.createElement("a");
+        a.href = safeAction.target; a.target = "_blank"; a.rel = "noopener";
+        document.body.appendChild(a); a.click(); a.remove();
+      }
+      return { status: "handled" };
+    }
     if (safeAction.type === "member-offer") {
       adapter.notify(messages.memberOffer ?? "");
       return { status: "previewed" };

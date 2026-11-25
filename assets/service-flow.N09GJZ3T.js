@@ -1,14 +1,14 @@
 const capturedStores = [
   {
     "id": "48b1bcdb75b649fe9e22f26c8be062cd",
-    "name": "广州御虎",
+    "name": "佛山御虎",
     "province": "广东省",
-    "city": "广州市",
-    "address": "广州市海珠区新港东路1000号琶洲吉盛伟邦1楼1018号-1019号",
+    "city": "佛山市",
+    "address": "广东省佛山市南海区九江镇大谷村东谷工业区康佳莱斯工业园内",
     "latitude": 23.1,
     "longitude": 113.37,
-    "telephone": "020-34329084",
-    "serviceHours": "周一到周五10:00-18:30 | 周六周日和节假日10:00-19:00",
+    "telephone": "18566301998",
+    "serviceHours": "周一至周六 上午9:00-12:00，下午14:00-18:00",
     "images": [
       "/static/banlan/stores/48b1bcdb75b649fe9e22f26c8be062cd-01.jpg"
     ],
@@ -324,12 +324,14 @@ const capturedStores = [
 ];
 const sourceEndpoint = "/store/getCustomizePage";
 const customPages = {
-  "48e6ec34c5284801833cff353a0209b5": { id: "48e6ec34c5284801833cff353a0209b5", title: "境自东方，中国御虎", backgroundColor: "#F6F6F6", sourceEndpoint, components: [
-    { type: "video", source: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/video_group/1712135943468_$$_240403nihaobanlan.mp4" },
-    { type: "image", source: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/关于班兰/1792062368743_$$_01-关于班兰-品牌简介-20261015.jpg", localSource: "/static/banlan/service-pages/brand-intro.jpg" }
+  "yuhu-care": { id: "yuhu-care", title: "臻护指南", backgroundColor: "#FFFFFF", sourceEndpoint, components: [
+    { type: "image", source: "./static/yuhu/pages/care.jpg", localSource: "/static/yuhu/pages/care.jpg" }
   ] },
-  "f3da1be24a984384a0c181f4b4c72927": { id: "f3da1be24a984384a0c181f4b4c72927", title: "御虎理念", backgroundColor: "#F6F6F6", sourceEndpoint, components: [
-    { type: "image", source: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/关于班兰/1792062387828_$$_01关于班兰-班兰理念-20261015.jpg", localSource: "/static/banlan/service-pages/philosophy.jpg" }
+  "48e6ec34c5284801833cff353a0209b5": { id: "48e6ec34c5284801833cff353a0209b5", title: "品牌溯源", backgroundColor: "#FFFFFF", sourceEndpoint, components: [
+    { type: "image", source: "./static/yuhu/pages/brand.jpg", localSource: "/static/yuhu/pages/brand.jpg" }
+  ] },
+  "f3da1be24a984384a0c181f4b4c72927": { id: "f3da1be24a984384a0c181f4b4c72927", title: "风向纪事", backgroundColor: "#FFFFFF", sourceEndpoint, components: [
+    { type: "image", source: "./static/yuhu/pages/news.jpg", localSource: "/static/yuhu/pages/news.jpg" }
   ] },
   "1e6cf178e9a84b2081aab74a0cd0240d": { id: "1e6cf178e9a84b2081aab74a0cd0240d", title: "中国现代风格", backgroundColor: "#F6F6F6", sourceEndpoint, components: [
     { type: "image", source: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/关于班兰/1792062398663_$$_01关于班兰-中国现代风格-20261015.jpg", localSource: "/static/banlan/service-pages/modern-chinese.jpg" }
@@ -342,8 +344,8 @@ const customPages = {
     { type: "image", tag: "img_t4", source: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/自定义页素材合集/1787566089239_$$_05面料篇-材质与工艺页_20260824.jpg", localSource: "/static/banlan/service-pages/materials-fabric.jpg" },
     { type: "image", tag: "img_t5", source: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/自定义页素材合集/1783912897617_$$_260713变更-鹅羽绒篇-材质与工艺页_06.jpg", localSource: "/static/banlan/service-pages/materials-goose-down.jpg" }
   ] },
-  "affe4ffa063246f29e2a67f5e80e950c": { id: "affe4ffa063246f29e2a67f5e80e950c", title: "十年质保", backgroundColor: "#F6F6F6", sourceEndpoint, components: [
-    { type: "image", source: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/自定义页素材合集/1792220090007_$$_小程序-关于班兰-十年质保独立页-20261017.jpg", localSource: "/static/banlan/service-pages/warranty.jpg" }
+  "affe4ffa063246f29e2a67f5e80e950c": { id: "affe4ffa063246f29e2a67f5e80e950c", title: "尊享服务", backgroundColor: "#FFFFFF", sourceEndpoint, components: [
+    { type: "image", source: "./static/yuhu/pages/service.jpg", localSource: "/static/yuhu/pages/service.jpg" }
   ] },
   "c6a05119d2d34737b61ae888c5eee41f": { id: "c6a05119d2d34737b61ae888c5eee41f", title: "产品顾问", backgroundColor: "#F6F6F6", sourceEndpoint, components: [{ type: "image", source: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/5星服务漫画/1734683779402_$$_5星店铺-01.jpg", localSource: "/static/banlan/service-pages/advisor.jpg" }] },
   "cd9c283ab5d941eea18197af03f57192": { id: "cd9c283ab5d941eea18197af03f57192", title: "透明选购", backgroundColor: "#F6F6F6", sourceEndpoint, components: [{ type: "image", source: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/5星服务漫画/1709891206920_$$_5星店铺-03.jpg", localSource: "/static/banlan/service-pages/transparent.jpg" }] },
@@ -369,17 +371,13 @@ const storeLanding = {
   localTextImage: "/static/banlan/service-pages/store-copy.jpg",
   sourceEndpoint: "/xcx/custom/login/getRoomListJson"
 };
-const capturedGuangzhouAdvisor = {
-  id: "guangzhou-lai-haoran",
-  name: "赖浩然",
-  constellation: "双鱼座",
-  zodiac: "戌狗",
-  motto: "慎思 明辨 笃行",
-  avatar: "/static/banlan/stores/advisor-default.png"
-};
+const capturedGuangzhouAdvisor = [
+  { id: "yuhu-advisor-1", name: "御虎产品顾问", constellation: "", zodiac: "", motto: "让科技与艺术共生", avatar: "./static/yuhu/advisor/a1.jpg" },
+  { id: "yuhu-advisor-2", name: "御虎产品顾问", constellation: "", zodiac: "", motto: "把好家居带入每个家庭", avatar: "./static/yuhu/advisor/a2.jpg" }
+];
 const stores = capturedStores.map((store) => ({
   ...store,
-  advisors: store.name === "广州御虎" ? [capturedGuangzhouAdvisor] : []
+  advisors: store.name === "佛山御虎" ? capturedGuangzhouAdvisor : []
 }));
 function findCustomPage(id) {
   return customPages[id] || null;

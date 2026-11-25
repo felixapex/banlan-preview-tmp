@@ -114,14 +114,14 @@ const services = [
     label: "臻护指南",
     image: "/static/banlan/home/service-04.jpg",
     action: {
-      type: "route",
-      target: "/pages/store/list/list"
+      type: "content",
+      target: "yuhu-care"
     }
   }
 ];
 const store = {
   city: "佛山御虎",
-  label: "切换门店",
+  label: "总部展厅",
   arrowLabel: "〉",
   icon: "/static/banlan/icons/location.png",
   detailAction: {
@@ -138,9 +138,24 @@ const bestSellers = {
   subtitle: "BEST SELLERS",
   items: [
     {
-      id: "c146e331cd91424c886840abd2b8be1b",
-      title: "简牍沙发",
-      englishTitle: "JIANDU SOFA",
+      id: "yuhu-bs-2",
+      title: "弧形影厅沙发",
+      englishTitle: "CURVED THEATER SOFA",
+      priceCents: 215e4,
+      categoryNames: [
+        "2024新品",
+        "餐桌"
+      ],
+      image: "/static/banlan/home/best-seller-02.jpg",
+      action: {
+        type: "product",
+        target: "yuhu-bs-2"
+      }
+    },
+    {
+      id: "yuhu-bs-1",
+      title: "影厅座椅 · 三人位",
+      englishTitle: "HOME THEATER SEATING",
       priceCents: 289e4,
       categoryNames: [
         "户外",
@@ -150,28 +165,13 @@ const bestSellers = {
       image: "/static/banlan/home/best-seller-01.jpg",
       action: {
         type: "product",
-        target: "c146e331cd91424c886840abd2b8be1b"
+        target: "yuhu-bs-1"
       }
     },
     {
-      id: "c9e3557d48bb457dba5f1759cf8690ff",
-      title: "四喜餐桌",
-      englishTitle: "SIXI DINING TABLE",
-      priceCents: 215e4,
-      categoryNames: [
-        "2024新品",
-        "餐桌"
-      ],
-      image: "/static/banlan/home/best-seller-02.jpg",
-      action: {
-        type: "product",
-        target: "c9e3557d48bb457dba5f1759cf8690ff"
-      }
-    },
-    {
-      id: "dd551b3f54aa4d4aad7ce1866221d632",
-      title: "长宁床",
-      englishTitle: "CHANG NING BED",
+      id: "yuhu-bs-3",
+      title: "转角功能沙发",
+      englishTitle: "SECTIONAL RECLINER",
       priceCents: 1914e3,
       categoryNames: [
         "床"
@@ -179,13 +179,13 @@ const bestSellers = {
       image: "/static/banlan/home/best-seller-03.jpg",
       action: {
         type: "product",
-        target: "dd551b3f54aa4d4aad7ce1866221d632"
+        target: "yuhu-bs-3"
       }
     },
     {
-      id: "52869af37d0c4baea598a3c58c5abaf4",
-      title: "约翰·波森系列 长凳",
-      englishTitle: "John Pawson Series Bench",
+      id: "yuhu-bs-4",
+      title: "典藏功能沙发 · 三人位",
+      englishTitle: "POWER RECLINER SOFA",
       priceCents: 204e4,
       categoryNames: [
         "2024新品",
@@ -194,85 +194,110 @@ const bestSellers = {
       image: "/static/banlan/home/best-seller-04.jpg",
       action: {
         type: "product",
-        target: "52869af37d0c4baea598a3c58c5abaf4"
-      }
-    },
-    {
-      id: "5b179c27792b44abaa63c18822ef6139",
-      title: "诺塔床边柜",
-      englishTitle: "NOTA NIGHTSTAND",
-      priceCents: 932e3,
-      categoryNames: [
-        "床边柜",
-        "2024新品"
-      ],
-      image: "/static/banlan/home/best-seller-05.jpg",
-      action: {
-        type: "product",
-        target: "5b179c27792b44abaa63c18822ef6139"
+        target: "yuhu-bs-4"
       }
     }
   ]
 };
 const categories = [
   {
-    id: "37",
-    label: "沙发",
-    englishLabel: "SOFA",
-    image: "/static/banlan/home/category-01.jpg",
-    action: {
-      type: "category",
-      target: "37"
+    "id": "yh1",
+    "label": "影院沙发",
+    "englishLabel": "CINEMA SOFA",
+    "image": "/static/banlan/home/category-01.jpg",
+    "action": {
+      "type": "category",
+      "target": "yh1"
     }
   },
   {
-    id: "51",
-    label: "床",
-    englishLabel: "BED",
-    image: "/static/banlan/home/category-02.jpg",
-    action: {
-      type: "category",
-      target: "51"
+    "id": "yh2",
+    "label": "影K沙发",
+    "englishLabel": "CINEMA & KTV SOFA",
+    "image": "/static/banlan/home/category-02.jpg",
+    "action": {
+      "type": "category",
+      "target": "yh2"
     }
   },
   {
-    id: "38",
-    label: "椅榻",
-    englishLabel: "CHAIR",
-    image: "/static/banlan/home/category-03.jpg",
-    action: {
-      type: "category",
-      target: "38"
+    "id": "yh3",
+    "label": "功能沙发",
+    "englishLabel": "FUNCTIONAL SOFA",
+    "image": "/static/banlan/home/category-03.jpg",
+    "action": {
+      "type": "category",
+      "target": "yh3"
     }
   },
   {
-    id: "53",
-    label: "桌几",
-    englishLabel: "TABLE",
-    image: "/static/banlan/home/category-04.jpg",
-    action: {
-      type: "category",
-      target: "53"
+    "id": "yh4",
+    "label": "功能椅",
+    "englishLabel": "FUNCTIONAL CHAIR",
+    "image": "/static/banlan/home/category-04.jpg",
+    "action": {
+      "type": "category",
+      "target": "yh4"
     }
   },
   {
-    id: "57",
-    label: "柜架",
-    englishLabel: "CABINET &\nSHELVING",
-    image: "/static/banlan/home/category-05.jpg",
-    action: {
-      type: "category",
-      target: "57"
+    "id": "yh5",
+    "label": "沙发床",
+    "englishLabel": "SOFA BED",
+    "image": "/static/banlan/home/category-05.jpg",
+    "action": {
+      "type": "category",
+      "target": "yh5"
     }
   },
   {
-    id: "122",
-    label: "户外",
-    englishLabel: "OUTDOOR",
-    image: "/static/banlan/home/category-06.jpg",
-    action: {
-      type: "category",
-      target: "122"
+    "id": "yh6",
+    "label": "按摩椅",
+    "englishLabel": "MASSAGE CHAIR",
+    "image": "/static/banlan/home/category-06.jpg",
+    "action": {
+      "type": "category",
+      "target": "yh6"
+    }
+  },
+  {
+    "id": "yh7",
+    "label": "KTV沙发",
+    "englishLabel": "KTV SOFA",
+    "image": "/static/banlan/home/category-07.jpg",
+    "action": {
+      "type": "category",
+      "target": "yh7"
+    }
+  },
+  {
+    "id": "yh8",
+    "label": "KTV茶几",
+    "englishLabel": "KTV TABLE",
+    "image": "/static/banlan/home/category-08.jpg",
+    "action": {
+      "type": "category",
+      "target": "yh8"
+    }
+  },
+  {
+    "id": "yh9",
+    "label": "设计师定制",
+    "englishLabel": "DESIGNER CUSTOM",
+    "image": "/static/banlan/home/category-09.jpg",
+    "action": {
+      "type": "category",
+      "target": "yh9"
+    }
+  },
+  {
+    "id": "yh10",
+    "label": "功能选配",
+    "englishLabel": "OPTIONAL FEATURES",
+    "image": "/static/banlan/home/category-10.jpg",
+    "action": {
+      "type": "category",
+      "target": "yh10"
     }
   }
 ];
@@ -486,16 +511,6 @@ const tabs = [
     }
   },
   {
-    id: "banlan",
-    label: "Banlan",
-    iconNormal: "/static/banlan/icons/tab-2-normal.png",
-    iconActive: "/static/banlan/icons/tab-2-active.png",
-    action: {
-      type: "tab",
-      target: "/pages/fans/fans/fans"
-    }
-  },
-  {
     id: "products",
     label: "产品",
     iconNormal: "/static/banlan/icons/tab-3-normal.png",
@@ -506,13 +521,23 @@ const tabs = [
     }
   },
   {
+    id: "banlan",
+    label: "案例",
+    iconNormal: "/static/banlan/icons/tab-2-normal.png",
+    iconActive: "/static/banlan/icons/tab-2-active.png",
+    action: {
+      type: "tab",
+      target: "/pages/fans/fans/fans"
+    }
+  },
+  {
     id: "stores",
-    label: "店铺",
+    label: "官网",
     iconNormal: "/static/banlan/icons/tab-4-normal.png",
     iconActive: "/static/banlan/icons/tab-4-active.png",
     action: {
-      type: "tab",
-      target: "/pages/store/list/list"
+      type: "external",
+      target: "https://royaltiger-casa.com"
     }
   },
   {
