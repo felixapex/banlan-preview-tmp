@@ -139,31 +139,17 @@ const bestSellers = {
   "subtitle": "BEST SELLERS",
   "items": [
     {
-      "id": "yuhu-g311",
-      "title": "G311 塔兰特",
-      "englishTitle": "TALENT",
-      "priceCents": 1880000,
+      "id": "yuhu-g325",
+      "title": "G325 飞翼",
+      "englishTitle": "FLYING WINGS",
+      "priceCents": 1945500,
       "categoryNames": [
         "影院沙发"
       ],
-      "image": "./static/yuhu/g311/main.jpg",
+      "image": "./static/yuhu/home/bs-g325.jpg",
       "action": {
         "type": "product",
-        "target": "yuhu-g311"
-      }
-    },
-    {
-      "id": "yuhu-g555",
-      "title": "G555 卡斯特罗",
-      "englishTitle": "CASTRO",
-      "priceCents": 2418500,
-      "categoryNames": [
-        "影院沙发"
-      ],
-      "image": "./static/yuhu/models/g555.jpg",
-      "action": {
-        "type": "product",
-        "target": "yuhu-g555"
+        "target": "yuhu-g325"
       }
     },
     {
@@ -181,17 +167,59 @@ const bestSellers = {
       }
     },
     {
-      "id": "yuhu-rt168",
-      "title": "RT168 徽章",
-      "englishTitle": "EMBLEM",
-      "priceCents": 3540000,
+      "id": "yuhu-g396",
+      "title": "G396 阿罗纳",
+      "englishTitle": "ARONA",
+      "priceCents": 2724500,
       "categoryNames": [
         "影院沙发"
       ],
-      "image": "./static/yuhu/models/rt168.jpg",
+      "image": "./static/yuhu/models/g396.jpg",
       "action": {
         "type": "product",
-        "target": "yuhu-rt168"
+        "target": "yuhu-g396"
+      }
+    },
+    {
+      "id": "yuhu-g807",
+      "title": "G807",
+      "englishTitle": "HOME CINEMA",
+      "priceCents": 3020000,
+      "categoryNames": [
+        "影院沙发"
+      ],
+      "image": "./static/yuhu/home/bs-g807.jpg",
+      "action": {
+        "type": "product",
+        "target": "yuhu-g807"
+      }
+    },
+    {
+      "id": "yuhu-g806",
+      "title": "G806",
+      "englishTitle": "HOME CINEMA",
+      "priceCents": 1932000,
+      "categoryNames": [
+        "影院沙发"
+      ],
+      "image": "./static/yuhu/models/g806.jpg",
+      "action": {
+        "type": "product",
+        "target": "yuhu-g806"
+      }
+    },
+    {
+      "id": "yuhu-gr1532",
+      "title": "GR1532",
+      "englishTitle": "HOME CINEMA",
+      "priceCents": 2837500,
+      "categoryNames": [
+        "影院沙发"
+      ],
+      "image": "./static/yuhu/models/gr1532.jpg",
+      "action": {
+        "type": "product",
+        "target": "yuhu-gr1532"
       }
     }
   ]
