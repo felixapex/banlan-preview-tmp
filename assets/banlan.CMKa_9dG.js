@@ -16,7 +16,7 @@ const tabs = [
   },
   {
     id: "news",
-    label: "新鲜事"
+    label: "风物志"
   },
   {
     id: "about",

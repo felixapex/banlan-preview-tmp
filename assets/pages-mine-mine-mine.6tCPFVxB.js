@@ -2,6 +2,7 @@ import { c as createBlock, w as withCtx, d as index$g, o as openBlock, a as crea
 import { B as BottomTabs } from "./BottomTabs.B9Xq1Uo2.js";
 import { c as createActionRouter } from "./action-router.DmGvHpfL.js";
 import { _ as _export_sfc } from "./_plugin-vue_export-helper.1tPrXgE0.js";
+import { openOrderList } from "./yh-order.js";
 const schemaVersion$1 = 1;
 const header = {
   backgroundImage: "/static/banlan/mine/member-background.png",
@@ -319,7 +320,7 @@ const _sfc_main = {
     }
     const YH = {
       grid: [
-        { id: "orders", label: "我的订单", icon: "/static/yuhu/mine/order.png", action: { type: "route", target: "/pages/order/myOrder/myOrder?type=0" } },
+        { id: "orders", label: "我的订货单", icon: "/static/yuhu/mine/order.png", action: { type: "yh-orders" } },
         { id: "footprint", label: "我的足迹", icon: "/static/yuhu/mine/footprint.png", action: { type: "route", target: "/pages/mine/koc/koc" } },
         { id: "favorites", label: "我的收藏", icon: "/static/yuhu/mine/favorite.png", action: { type: "route", target: "/pages/mine/collection/collection" } },
         { id: "showroom", label: "展厅地址", icon: "/static/yuhu/mine/showroom.png", action: { type: "route", target: "/pages/store/initList/initList" } },
@@ -338,7 +339,7 @@ const _sfc_main = {
       const V = (cls, kids, extra) => createVNode(_component_v_uni_view, Object.assign({ class: cls }, extra || {}), { default: withCtx(() => kids), _: 2 }, 1024);
       const T = (cls, str) => createVNode(_component_v_uni_text, { class: cls }, { default: withCtx(() => [createTextVNode(str, 1)]), _: 2 }, 1024);
       const I = (cls, src) => createVNode(_component_v_uni_image, { class: cls, src: imageSource(src), mode: "aspectFit" }, null, 8, ["src"]);
-      const go = (action, src) => ({ onClick: () => dispatch(action, src) });
+      const go = (action, src) => ({ onClick: () => action && action.type === "yh-orders" ? openOrderList() : dispatch(action, src) });
       return openBlock(), createBlock(_component_v_uni_view, {
         class: "mine-page yh-mine",
         style: designStyle

@@ -3,6 +3,7 @@ import { a as onShow } from "./uni-app.es.oAhR1D-z.js";
 import { h as home } from "./home.D-6m3wa_.js";
 import { r as readStoredLines, C as CART_STORAGE_KEY, e as cartTotal, s as selectedCartLines, t as toggleAllCartLines, w as writeStoredLines, g as toggleCartLine, h as setCartQuantity, i as removeCartLine, j as CHECKOUT_STORAGE_KEY } from "./cart.BN6woblX.js";
 import { _ as _export_sfc } from "./_plugin-vue_export-helper.1tPrXgE0.js";
+import { openOrder } from "./yh-order.js";
 const _sfc_main = {
   __name: "cart",
   setup(__props) {
@@ -57,7 +58,7 @@ const _sfc_main = {
         return;
       }
       writeStoredLines(setStorage, chosen, CHECKOUT_STORAGE_KEY);
-      navigateTo({ url: "/pages/order/orderConfirm/orderConfirm" });
+      openOrder(chosen);
     }
     function specText(line) {
       return line.specifications.map((item) => `${item.name}${item.description ? ` ${item.description}` : ""}`).join("  ");

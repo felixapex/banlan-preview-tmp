@@ -56,3 +56,7 @@
 }.about-source-image[data-v-dcd1422e] { display: block; width: 100%; height: auto;
 }.about-hotspot[data-v-dcd1422e] { position: absolute; z-index: 2; background: transparent;
 }
+
+.section-tabs[data-v-dcd1422e]{display:none}
+.masonry-column.offset[data-v-dcd1422e]{padding-top:0}
+.show-panel[data-v-dcd1422e]{padding-top:0.625rem}

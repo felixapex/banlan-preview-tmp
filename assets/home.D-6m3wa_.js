@@ -304,90 +304,90 @@ const categories = [
 const categoryTitle = "御虎产品";
 const diaries = {
   title: "新居日记",
-  subtitle: "THEY AND THEIR BANLAN",
+  subtitle: "THEY AND THEIR ROYAL TIGER",
   viewAllLabel: "查看全部",
   logoImage: "/static/banlan/home/diary-logo.png",
   avatarImage: "/static/banlan/home/diary-avatar.png",
   previousIcon: "/static/banlan/home/diary-previous.png",
   nextIcon: "/static/banlan/home/diary-next.png",
   items: [
-    {
-      id: "3317ab224d484fdea768c8ce9d2a38db",
-      title: "庭院雅境，心栖四时之外",
-      byline: "石家庄 | 唐忠汉",
-      image: "/static/banlan/home/diary-01.png",
-      action: {
-        type: "diary",
-        target: "3317ab224d484fdea768c8ce9d2a38db"
-      }
-    },
-    {
-      id: "d3adab2172594dd68254f2aa082ce4c4",
-      title: "把家变成流动的艺术博物馆",
-      byline: "台州丨荷马设计·陈乐天",
-      image: "/static/banlan/home/diary-02.png",
-      action: {
-        type: "diary",
-        target: "d3adab2172594dd68254f2aa082ce4c4"
-      }
-    },
-    {
-      id: "1212577bd809498eb9b8d49cba272527",
-      title: "自然之息，500㎡极简别墅的松弛哲学",
-      byline: "台州丨倾城国际设计",
-      image: "/static/banlan/home/diary-03.png",
-      action: {
-        type: "diary",
-        target: "1212577bd809498eb9b8d49cba272527"
-      }
+  {
+    "id": "yh-diary-1",
+    "title": "别墅私人影院",
+    "byline": "别墅 | 私人影院定制",
+    "image": "/static/yuhu/fans/diary-01-0.jpg",
+    "action": {
+      "type": "route",
+      "target": "/pages/fans/diaryDetail/diaryDetail?id=yh-diary-1"
     }
-  ],
+  },
+  {
+    "id": "yh-diary-2",
+    "title": "美国杜比影音中国示范厅",
+    "byline": "示范厅 | 影院座椅系统",
+    "image": "/static/yuhu/fans/diary-02-0.jpg",
+    "action": {
+      "type": "route",
+      "target": "/pages/fans/diaryDetail/diaryDetail?id=yh-diary-2"
+    }
+  },
+  {
+    "id": "yh-diary-3",
+    "title": "佛山居然之家星空影院",
+    "byline": "佛山 | 星空影院项目",
+    "image": "/static/yuhu/fans/diary-03-0.jpg",
+    "action": {
+      "type": "route",
+      "target": "/pages/fans/diaryDetail/diaryDetail?id=yh-diary-3"
+    }
+  }
+],
   moreAction: {
     type: "route",
     target: "/pages/fans/fans/fans?tab=diary"
   }
 };
 const show = {
-  title: "兰影展",
+  title: "御虎影像",
   subtitle: "PHOTO GALLERY",
   viewAllLabel: "查看全部",
   items: [
-    {
-      id: "1694f03e35044f94b04a9869b049d125",
-      nickname: "鱼儿",
-      address: "西安市",
-      image: "/static/banlan/home/show-01.jpg",
-      avatar: "/static/banlan/home/show-01-avatar.jpg"
-    },
-    {
-      id: "49e5017c3a0043e9998dfce917e26db7",
-      nickname: "美媛儿",
-      address: "石家庄市",
-      image: "/static/banlan/home/show-02.jpg",
-      avatar: "/static/banlan/home/show-02-avatar.jpg"
-    },
-    {
-      id: "89bd1bf642044823b79fbf55305a0033",
-      nickname: "糖",
-      address: "广州市",
-      image: "/static/banlan/home/show-03.jpg",
-      avatar: "/static/banlan/home/show-03-avatar.jpg"
-    },
-    {
-      id: "7f0af35252c44f138476240c5a575a8f",
-      nickname: "美媛儿",
-      address: "石家庄市",
-      image: "/static/banlan/home/show-04.jpg",
-      avatar: "/static/banlan/home/show-04-avatar.jpg"
-    },
-    {
-      id: "18292",
-      nickname: "Cathy朱",
-      address: "",
-      image: "/static/banlan/home/show-05.jpg",
-      avatar: "/static/banlan/home/show-05-avatar.jpg"
-    }
-  ],
+  {
+    "id": "yh-show-1",
+    "nickname": "影院沙发 · 大型影厅组合",
+    "address": "佛山",
+    "image": "/static/yuhu/fans/show-01.jpg",
+    "avatar": "/static/banlan/icons/tab-2-active.png"
+  },
+  {
+    "id": "yh-show-2",
+    "nickname": "影院沙发 · 双排组合",
+    "address": "佛山",
+    "image": "/static/yuhu/fans/show-02.jpg",
+    "avatar": "/static/banlan/icons/tab-2-active.png"
+  },
+  {
+    "id": "yh-show-3",
+    "nickname": "功能沙发 · 白色系",
+    "address": "佛山",
+    "image": "/static/yuhu/fans/show-03.jpg",
+    "avatar": "/static/banlan/icons/tab-2-active.png"
+  },
+  {
+    "id": "yh-show-4",
+    "nickname": "私人影院座椅",
+    "address": "佛山",
+    "image": "/static/yuhu/fans/show-04.jpg",
+    "avatar": "/static/banlan/icons/tab-2-active.png"
+  },
+  {
+    "id": "yh-show-5",
+    "nickname": "影院沙发 · 展厅实景",
+    "address": "佛山",
+    "image": "/static/yuhu/fans/show-05.jpg",
+    "avatar": "/static/banlan/icons/tab-2-active.png"
+  }
+],
   action: {
     type: "route",
     target: "/pages/fans/fans/fans?tab=show"
@@ -395,11 +395,11 @@ const show = {
 };
 const about = {
   title: "关于御虎",
-  subtitle: "ABOUT BANLAN",
-  displayTitle: "中和之美",
+  subtitle: "ABOUT ROYAL TIGER",
+  displayTitle: "让科技与艺术共生",
   viewAllLabel: "查看全部",
   image: "/static/banlan/home/about.jpg",
-  text: "比例、材料、结构与空间，各\n得其所、彼此成全，在差异之\n间形成恰当的关系。\n\n有差异，但不过度；有力量，但不失衡；有表达，但有分寸。",
+  text: "将科技、智能与功能融入家居\n内核，专注墅级私人影院沙发\n与典藏级功能沙发。\n\n追寻舒适、机能与视觉之美，更是一种臻于理想的生活态度。",
   action: {
     type: "route",
     target: "/pages/fans/fans/fans?tab=about"
@@ -407,7 +407,7 @@ const about = {
 };
 const yours = {
   title: "您的店铺",
-  subtitle: "YOUR BANLAN STORE",
+  subtitle: "YOUR ROYAL TIGER STORE",
   image: "/static/banlan/home/your-store.jpg",
   action: {
     type: "route",
@@ -415,54 +415,54 @@ const yours = {
   }
 };
 const news = {
-  title: "新鲜事",
-  subtitle: "BANLAN NEWS",
+  title: "风物志",
+  subtitle: "ROYAL TIGER NEWS",
   items: [
-    {
-      id: "46d84fc067c84c9bbd5c5af3adf38248",
-      title: "“简牍”：这个世界还少一把椅子么？",
-      summary: "在竹子的文化记忆与当代生活之间，寻找一种新的生命力",
-      buttonLabel: "查看全文",
-      image: "/static/banlan/home/news-01.png",
-      action: {
-        type: "news",
-        target: "46d84fc067c84c9bbd5c5af3adf38248"
-      }
-    },
-    {
-      id: "11a44da45f11458ea1cb1ff64b43ff02",
-      title: "John Pawson 专访 | 时间会恰当地改变万物",
-      summary: "风雨留下的痕迹不是损耗，而是为家具注入了生命",
-      buttonLabel: "查看全文",
-      image: "/static/banlan/home/news-02.png",
-      action: {
-        type: "news",
-        target: "11a44da45f11458ea1cb1ff64b43ff02"
-      }
-    },
-    {
-      id: "b826f3bb1281439fbed1064494260b84",
-      title: "从一片竹，到一整套秩序",
-      summary: "一把椅子通常从“坐”开始，一张桌子从“承托”开始",
-      buttonLabel: "查看全文",
-      image: "/static/banlan/home/news-03.png",
-      action: {
-        type: "news",
-        target: "b826f3bb1281439fbed1064494260b84"
-      }
-    },
-    {
-      id: "03ea0c51a57e44fea539666b3e083044",
-      title: "解决问题的人｜一个不说假话的中国家具品牌如何生存？",
-      summary: "Banlan御虎所践行的“表里如一”",
-      buttonLabel: "查看全文",
-      image: "/static/banlan/home/news-04.png",
-      action: {
-        type: "news",
-        target: "03ea0c51a57e44fea539666b3e083044"
-      }
+  {
+    "id": "yh-news-1",
+    "title": "影K沙发系列上市",
+    "summary": "影音与KTV娱乐空间一体化座椅方案",
+    "buttonLabel": "查看全文",
+    "image": "/static/yuhu/fans/news-01.jpg",
+    "action": {
+      "type": "route",
+      "target": "/pages/fans/newsDetail/newsDetail?id=yh-news-1"
     }
-  ]
+  },
+  {
+    "id": "yh-news-2",
+    "title": "御虎亮相第55届中国家博会",
+    "summary": "新品影院沙发与功能沙发集中展出",
+    "buttonLabel": "查看全文",
+    "image": "/static/yuhu/fans/news-02.jpg",
+    "action": {
+      "type": "route",
+      "target": "/pages/fans/newsDetail/newsDetail?id=yh-news-2"
+    }
+  },
+  {
+    "id": "yh-news-3",
+    "title": "全新功能椅系列上市",
+    "summary": "休闲功能椅与康养功能椅两大系列",
+    "buttonLabel": "查看全文",
+    "image": "/static/yuhu/fans/news-03.jpg",
+    "action": {
+      "type": "route",
+      "target": "/pages/fans/newsDetail/newsDetail?id=yh-news-3"
+    }
+  },
+  {
+    "id": "yh-news-4",
+    "title": "荣获中国红棉设计奖",
+    "summary": "2024年度产品设计奖",
+    "buttonLabel": "查看全文",
+    "image": "/static/yuhu/fans/news-04.jpg",
+    "action": {
+      "type": "route",
+      "target": "/pages/fans/newsDetail/newsDetail?id=yh-news-4"
+    }
+  }
+]
 };
 const footerImage = {
   image: "/static/banlan/home/footer.jpg",

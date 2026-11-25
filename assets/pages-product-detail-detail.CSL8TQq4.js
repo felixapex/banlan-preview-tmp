@@ -4,6 +4,7 @@ import { h as home } from "./home.D-6m3wa_.js";
 import { c as createRuntimeProducts, s as sofaShowcase, p as productsData } from "./runtime-products.C3fIHjhg.js";
 import { c as createProductIndex, f as findProduct, r as readStoredLines, C as CART_STORAGE_KEY, a as resolveCombination, b as createCartLine, d as addCartLine, w as writeStoredLines } from "./cart.BN6woblX.js";
 import { _ as _export_sfc } from "./_plugin-vue_export-helper.1tPrXgE0.js";
+import { mountConfig, defaultState, cartLine as cfgCartLine, validate as cfgValidate } from "./yh-config.js";
 import "./runtime-assets.CAI08V4T.js";
 const meta = {
   kind: "miniapp-product-engagement",
@@ -1018,6 +1019,7 @@ const _sfc_main = {
       showToast({ title: "已加入预选清单", icon: "none" });
     }
     function openPreorder() {
+      if (product.value && product.value.config) return addToCart();
       if (!requireSelection())
         return;
       preorderOpen.value = true;
@@ -1038,7 +1040,17 @@ const _sfc_main = {
     function goCart() {
       navigateTo({ url: "/pages/product/cart/cart" });
     }
+    let cfgState = null;
     function addToCart() {
+      if (product.value && product.value.config) {
+        const err = cfgValidate(product.value.config, cfgState);
+        if (err) { showToast({ title: err, icon: "none" }); return; }
+        const lines = addCartLine(readStoredLines(getStorage, CART_STORAGE_KEY), cfgCartLine(product.value, cfgState));
+        writeStoredLines(setStorage, lines, CART_STORAGE_KEY);
+        cartCount.value = lines.reduce((sum, item) => sum + Number(item.quantity), 0);
+        navigateTo({ url: "/pages/product/cart/cart" });
+        return;
+      }
       if (!requireSelection())
         return;
       const line = createCartLine(product.value, selectedIds.value);
@@ -1312,7 +1324,7 @@ const _sfc_main = {
                 ]),
                 _: 1
               }),
-              createVNode(_component_v_uni_view, { class: "specs" }, {
+              product.value.config ? (openBlock(), createElementBlock("div", { key: "yc", class: "yc-wrap", style: "margin-top:0.5625rem;background:#fff", onVnodeMounted: (vn) => { if (!cfgState) cfgState = defaultState(product.value.config); mountConfig(vn.el, product.value, cfgState); } })) : createVNode(_component_v_uni_view, { class: "specs" }, {
                 default: withCtx(() => [
                   (openBlock(true), createElementBlock(Fragment, null, renderList(product.value.specifications.filter((g) => !g.embedIn), (group) => {
                     return openBlock(), createBlock(_component_v_uni_view, {
