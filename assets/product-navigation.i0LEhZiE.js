@@ -16,7 +16,7 @@ const design = {
     contentPaddingRpx: 20,
     cardGapRpx: 20,
     cardHeightRpx: 275,
-    activeColor: "#9e815d",
+    activeColor: "#9E815D",
     fontFamily: "-apple-system, BlinkMacSystemFont, PingFang SC, sans-serif",
     responsive: {
       strategy: "fluid-rpx",
@@ -30,7 +30,7 @@ const design = {
     cardWidthPercent: 49,
     titleFontSizeRpx: 30,
     priceFontSizeRpx: 30,
-    priceColor: "#9e815d",
+    priceColor: "#9E815D",
     imageObjectFit: "contain",
     responsive: {
       strategy: "fluid-rpx",

@@ -4,7 +4,7 @@ import { h as home } from "./home.D-6m3wa_.js";
 import { c as createRuntimeProducts, s as sofaShowcase, p as productsData } from "./runtime-products.C3fIHjhg.js";
 import { c as createProductIndex, f as findProduct, r as readStoredLines, C as CART_STORAGE_KEY, a as resolveCombination, b as createCartLine, d as addCartLine, w as writeStoredLines } from "./cart.BN6woblX.js";
 import { _ as _export_sfc } from "./_plugin-vue_export-helper.1tPrXgE0.js";
-import { mountConfig, defaultState, cartLine as cfgCartLine, validate as cfgValidate } from "./yh-config.js";
+import { mountConfig, defaultState, cartLine as cfgCartLine, validate as cfgValidate } from "./yh-config2.js";
 import "./runtime-assets.CAI08V4T.js";
 const meta = {
   kind: "miniapp-product-engagement",
@@ -1339,12 +1339,7 @@ const _sfc_main = {
                           onClick: ($event) => toggleSpec(group)
                         }, {
                           default: withCtx(() => [
-                            createVNode(_component_v_uni_text, { class: "spec-icon" }, {
-                              default: withCtx(() => [
-                                createTextVNode("▣")
-                              ]),
-                              _: 1
-                            }),
+                            createVNode("span", { class: "spec-icon", style: { backgroundImage: `url(./static/yuhu/spec-${/面料|颜色/.test(group.name) ? "fabric" : /配件|配置/.test(group.name) ? "gear" : "sofa"}.png)` } }),
                             createVNode(_component_v_uni_text, { class: "spec-name" }, {
                               default: withCtx(() => [
                                 createTextVNode(toDisplayString(group.name), 1)
@@ -1368,12 +1363,7 @@ const _sfc_main = {
                               ]),
                               _: 1
                             })),
-                            createVNode(_component_v_uni_text, { class: "chevron" }, {
-                              default: withCtx(() => [
-                                createTextVNode(toDisplayString(openSpecGroup.value === group.id ? "⌃" : "⌄"), 1)
-                              ]),
-                              _: 2
-                            }, 1024)
+                            createVNode("span", { class: normalizeClass(["chevron", { up: openSpecGroup.value === group.id }]) }, null, 2)
                           ]),
                           _: 2
                         }, 1032, ["data-action-id", "onClick"]),

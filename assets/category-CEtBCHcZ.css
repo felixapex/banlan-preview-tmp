@@ -9,9 +9,9 @@
 }
 .category-item uni-text[data-v-1be42934] { display: inline-block; padding-bottom: 0.3125rem; border-bottom: 0.125rem solid transparent;
 }
-.category-item.active[data-v-1be42934] { color: #9e815d;
+.category-item.active[data-v-1be42934] { color: #9E815D;
 }
-.category-item.active uni-text[data-v-1be42934] { border-color: #9e815d;
+.category-item.active uni-text[data-v-1be42934] { border-color: #9E815D;
 }
 .subcategory-panel[data-v-1be42934] { width: 16.5625rem; height: 100%; padding: 0.625rem; box-sizing: border-box;
 }

@@ -18,7 +18,7 @@ export function orderRows(lines) {
     const cn = `${titleCase(c.en)} ${c.cn}`.trim();
     const mat = c.material + (c.color ? ` ${c.color}` : "");
     const matStd = mat;
-    const std = () => (c.standard || []).forEach((name) => rows.push({ main: false, std: true, model: "标配", pic: "", name, qty: 0, unit: "/", price: 0 }));
+    const std = () => (c.standard || []).forEach((x) => { const it = typeof x === "string" ? { name: x, qty: null } : x; rows.push({ main: false, std: true, model: "标配", pic: "", name: it.name, sq: it.qty ? it.qty * n : null, qty: 0, unit: "/", price: 0 }); });
     if (c.set) {
       const sum = c.seats.reduce((t, x) => t + x.unit * x.qty, 0);
       rows.push({ main: true, model: c.model, pic: c.cover, combo: c.set.img, name: `${cn}\n${c.set.name}`, size: c.set.size.replace(/×/g, "*"), material: matStd, qty: n, unit: "套", price: sum, remark: c.seats.map((x) => `${x.desc}×${x.qty}`).join("、") });
@@ -27,7 +27,9 @@ export function orderRows(lines) {
       c.seats.forEach((x, k) => rows.push({ main: true, model: c.model, pic: c.cover, combo: x.img, name: `${cn}\n${x.desc}`, size: dim(x), material: k === 0 ? matStd : mat, qty: x.qty * n, unit: "位", price: x.unit, remark: x.func }));
       std();
     }
-    c.options.forEach((o) => rows.push({ main: false, model: "选配", pic: o.img, name: o.name, qty: o.qty * n, unit: o.per, price: o.unit }));
+    (c.power || []).forEach((x) => rows.push({ main: false, model: "电源", pic: "", name: x.name, qty: x.qty * n, unit: x.per, price: x.unit, remark: x.remark || "" }));
+    if (c.mod) rows.push({ main: false, mod: true, key: ln.key, model: "改版", pic: "", name: c.mod, qty: n, unit: "次", price: ln.modPrice ?? null });
+    c.options.forEach((o) => rows.push({ main: false, model: "选配", pic: o.img, name: o.name, qty: o.qty * n, unit: o.per, price: o.unit, remark: o.remark || "" }));
   }
   return rows;
 }
@@ -85,8 +87,9 @@ export async function buildXlsx(lines, form) {
     const has = x.price != null;
     const vals = x.main
       ? { A: i + 1, B: x.model, E: x.name, F: x.size, G: x.material, H: x.qty, I: x.unit, J: x.price, K: has ? { f: `H${r}*J${r}`, v: x.price * x.qty } : "", L: x.remark }
-      : x.std ? { A: i + 1, B: x.model, D: x.name, H: "/", I: "/", J: "/", K: "/" }
-      : { A: i + 1, B: x.model, D: x.name, H: x.qty, I: x.unit, J: x.price, K: { f: `H${r}*J${r}`, v: x.price * x.qty } };
+      : x.std ? { A: i + 1, B: x.model, D: x.name, H: x.sq || "/", I: x.sq ? "个" : "/", J: "/", K: "/" }
+      : x.mod && x.price == null ? { A: i + 1, B: x.model, D: x.name, H: x.qty, I: x.unit, J: "", K: "" }
+      : { A: i + 1, B: x.model, D: x.name, H: x.qty, I: x.unit, J: x.price, K: { f: `H${r}*J${r}`, v: x.price * x.qty }, L: x.remark || "" };
     for (const [col, v] of Object.entries(vals)) row = setCell(row, `${col}${r}`, v === undefined ? "" : v);
     if (x.std) row = row.replace(/ ht="[\d.]+"/, ' ht="30"');
     if (!x.main) merges.push(`D${r}:G${r}`);
@@ -98,7 +101,7 @@ export async function buildXlsx(lines, form) {
   sheet = sheet.replace(/<mergeCells( count="\d+")?>/, `<mergeCells count="${cnt}">`);
   // header, totals, deposit, date
   const last = FIRST + n - 1, T = 12 + d;
-  const total = rows.reduce((t, x) => t + x.price * x.qty, 0);
+  const total = rows.reduce((t, x) => t + (x.price || 0) * x.qty, 0);
   const dep = Math.round(total * 0.5);
   const dt = new Date();
   const set = { C5: form.customer, H5: form.orderDate || today(), C6: form.tel, H6: form.deliveryDate, C7: form.receiver, H7: form.address,
@@ -168,14 +171,14 @@ const css = `
 .yo-t th{background:#fff2cc;font-weight:500}
 .yo-t img{max-width:5rem;max-height:3.5rem;display:block;margin:0 auto}
 .yo-sum{display:flex;justify-content:space-between;padding:.25rem 0;color:#555}
-.yo-sum b{color:#9D7435;font-weight:600}
+.yo-sum b{color:#9E815D;font-weight:600}
 .yo-btns{display:flex;gap:.625rem;margin:1rem}
 .yo-btn{flex:1;height:2.75rem;line-height:2.75rem;text-align:center;background:#111;color:#fff;font-size:.875rem}
 .yo-btn.ghost{background:#fff;color:#111;border:.03125rem solid #111;box-sizing:border-box;line-height:2.6875rem}
 .yo-row{display:flex;align-items:center;gap:.75rem;padding:.875rem 1rem;background:#fff;border-bottom:.03125rem solid #eee}
 .yo-row .d{color:#888;font-size:.75rem;white-space:nowrap}
 .yo-row .n{flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
-.yo-row .m{color:#9D7435;font-weight:600;white-space:nowrap}
+.yo-row .m{color:#9E815D;font-weight:600;white-space:nowrap}
 .yo-row .a{color:#bbb}
 .yo-empty{padding:5rem 0;text-align:center;color:#999}
 .yo-pic{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.85);overflow:auto;-webkit-overflow-scrolling:touch}
@@ -191,7 +194,7 @@ const css = `
 function ensureStyle() { if (!document.getElementById("yo-style")) { const st = document.createElement("style"); st.id = "yo-style"; st.textContent = css; document.head.appendChild(st); } }
 
 function sheetHtml(rows, form) {
-  const total = rows.reduce((t, x) => t + x.price * x.qty, 0), dep = Math.round(total * 0.5);
+  const total = rows.reduce((t, x) => t + (x.price || 0) * x.qty, 0), dep = Math.round(total * 0.5);
   const d = new Date();
   return `<div style="display:flex;align-items:center;border-bottom:2px solid #000;padding-bottom:6px"><img src="./static/yuhu/order-logo.png" style="height:70px"><div style="flex:1;text-align:center"><div style="font-size:30px;font-weight:700">佛山市御虎智能家居科技有限公司</div><div style="font-size:15px;margin-top:4px">影院椅 / 功能沙发 / 高定家居</div><div style="font-size:11px;margin-top:4px">广东省佛山市南海区九江镇大谷村康佳莱斯工业园 TEL：400-876-3338 http:// www.royaltiger-casa.com</div></div></div>
 <div style="text-align:center;font-size:24px;font-weight:700;margin:14px 0">订货清单(代合同） CONTRACT</div>
@@ -199,7 +202,7 @@ function sheetHtml(rows, form) {
 <tr><td class="y">联系方式 Tel</td><td class="y">${esc(form.tel)}</td><td class="y">交货日期 Delivery date</td><td class="y">${esc(form.deliveryDate)}</td></tr>
 <tr><td class="y">收货人 Receiver</td><td class="y">${esc(form.receiver)}</td><td class="y">送货地址 Address</td><td class="y">${esc(form.address)}</td></tr></table>
 <table style="margin-top:-1px;table-layout:fixed"><colgroup><col style="width:3.4%"><col style="width:5.6%"><col style="width:14.6%"><col style="width:15%"><col style="width:8.4%"><col style="width:11.6%"><col style="width:13.6%"><col style="width:3.8%"><col style="width:3.9%"><col style="width:6.6%"><col style="width:7.7%"><col style="width:5.8%"></colgroup><tr style="font-size:12px"><td>序号<br>No.</td><td>产品型号<br>Product Code</td><td>产品图片<br>Product Picture</td><td>示意图<br>Sketch Map</td><td>名称<br>Description</td><td>产品尺寸 Size<br>长/L 宽/W 高/H</td><td>材质<br>Material</td><td>数量<br>Qty</td><td>单位<br>Unit</td><td>供货单价<br>Unit Pr</td><td>金额小计<br>Sum</td><td>备注<br>Remark</td></tr>
-${rows.map((x, i) => `<tr style="height:${x.main ? 130 : x.std ? 44 : 100}px"><td>${i + 1}</td><td>${esc(x.model)}</td><td>${x.pic ? `<img class="${x.main ? "p" : "s"}" src="${x.pic}">` : ""}</td>${x.main ? `<td>${x.combo ? `<img class="s" src="${x.combo}">` : ""}</td><td>${esc(x.name)}</td><td>${esc(x.size)}</td><td style="font-size:11px">${esc(x.material)}</td>` : `<td colspan="4">${esc(x.name)}</td>`}${x.std ? "<td>/</td><td>/</td><td>/</td><td>/</td><td></td>" : `<td>${x.qty}</td><td>${esc(x.unit)}</td><td>${x.price}</td><td>${x.price * x.qty}</td><td style="font-size:11px">${esc(x.remark || "")}</td>`}</tr>`).join("")}
+${rows.map((x, i) => `<tr style="height:${x.main ? 130 : x.std ? 44 : 100}px"><td>${i + 1}</td><td>${esc(x.model)}</td><td>${x.pic ? `<img class="${x.main ? "p" : "s"}" src="${x.pic}">` : ""}</td>${x.main ? `<td>${x.combo ? `<img class="s" src="${x.combo}">` : ""}</td><td>${esc(x.name)}</td><td>${esc(x.size)}</td><td style="font-size:11px">${esc(x.material)}</td>` : `<td colspan="4">${esc(x.name)}</td>`}${x.std ? `<td>${x.sq || "/"}</td><td>${x.sq ? "个" : "/"}</td><td>/</td><td>/</td><td></td>` : `<td>${x.qty}</td><td>${esc(x.unit)}</td><td>${x.price == null ? "待定" : x.price}</td><td>${x.price == null ? "待定" : x.price * x.qty}</td><td style="font-size:11px">${esc(x.remark || "")}</td>`}</tr>`).join("")}
 <tr><td colspan="7" style="text-align:right">合计数量：</td><td>${rows.reduce((t, x) => t + x.qty, 0)}</td><td></td><td>金额合计<br>Total：</td><td colspan="2" style="font-size:16px;font-weight:700">${total}</td></tr>
 <tr><td colspan="9" rowspan="2" style="text-align:left;vertical-align:top">备注Memo：图片仅限参考，组合以示意图为准。模块组合产品，测量误差士3CM属于正常范围。</td><td>定金</td><td colspan="2" style="font-size:16px">${dep}</td></tr>
 <tr><td>余款</td><td colspan="2" style="font-size:16px">${total - dep}</td></tr></table>
@@ -225,33 +228,49 @@ async function showPicture(rows, form) {
   document.body.appendChild(v);
 }
 
+function alertMsg(el, msg) {
+  const t = document.createElement("div");
+  t.textContent = msg;
+  t.style.cssText = "position:fixed;left:50%;top:45%;transform:translate(-50%,-50%);z-index:1001;background:rgba(0,0,0,.78);color:#fff;padding:.625rem 1rem;border-radius:.375rem;font-size:.8125rem";
+  el.appendChild(t); setTimeout(() => t.remove(), 1800);
+}
 export function openOrder(lines, saved) {
   ensureStyle();
   let form = {};
   try { form = saved ? { ...saved.form } : JSON.parse(localStorage.getItem(FORM_KEY) || "{}"); } catch {}
   if (!saved) form.orderDate = today();
   const id = saved ? saved.id : "o" + Date.now();
-  const rows = orderRows(lines);
-  const total = rows.reduce((t, x) => t + x.price * x.qty, 0);
+  let rows, total;
+  const calc = () => { rows = orderRows(lines); total = rows.reduce((t, x) => t + (x.price || 0) * x.qty, 0); };
+  calc();
   const keep = () => saveOrder({ id, created: saved ? saved.created : Date.now(), form, lines, total });
   const el = document.createElement("div");
   el.className = "yo";
   const f = (k, label, ph, type = "text") => `<div class="yo-f"><label>${label}</label><input data-k="${k}" type="${type}" value="${esc(form[k] || "")}" placeholder="${ph}"></div>`;
-  el.innerHTML = `<div class="yo-top"><span>订货清单</span><span data-close>×</span></div>
+  const draw = () => { calc(); el.innerHTML = `<div class="yo-top"><span>订货清单</span><span data-close>×</span></div>
 <div class="yo-card"><div class="yo-h">客户信息</div>
 ${f("customer", "客户名称", "请输入客户名称")}${f("tel", "联系方式", "请输入电话", "tel")}${f("receiver", "收货人", "请输入收货人")}${f("address", "送货地址", "请输入送货地址")}${f("deliveryDate", "交货日期", "", "date")}
 <div class="yo-f"><label>开单日期</label><span>${form.orderDate}</span></div></div>
+${rows.filter((x) => x.mod).map((x) => `<div class="yo-card"><div class="yo-h">改版（价格由产品顾问填写）</div><div style="color:#555;margin-bottom:.5rem;white-space:pre-line">${esc(x.name)}</div><div class="yo-f"><label>改版单价</label><input data-mp="${esc(x.key)}" type="number" inputmode="numeric" value="${x.price ?? ""}" placeholder="请输入金额（元/次）"></div></div>`).join("")}
 <div class="yo-card"><div class="yo-h">订货明细</div><div class="yo-sc"><table class="yo-t"><tr><th>序号</th><th>产品型号</th><th>产品图片</th><th>示意图</th><th>名称</th><th>产品尺寸</th><th>材质</th><th>数量</th><th>单位</th><th>供货单价</th><th>金额小计</th><th>备注</th></tr>
-${rows.map((x, i) => `<tr><td>${i + 1}</td><td>${esc(x.model)}</td><td>${x.pic ? `<img src="${x.pic}">` : ""}</td>${x.main ? `<td>${x.combo ? `<img src="${x.combo}">` : ""}</td><td>${esc(x.name)}</td><td>${esc(x.size)}</td><td>${esc(x.material)}</td>` : `<td colspan="4">${esc(x.name)}</td>`}${x.std ? "<td>/</td><td>/</td><td>/</td><td>/</td><td></td>" : `<td>${x.qty}</td><td>${esc(x.unit)}</td><td>${x.price}</td><td>${x.price * x.qty}</td><td>${esc(x.remark || "")}</td>`}</tr>`).join("")}</table></div>
+${rows.map((x, i) => `<tr><td>${i + 1}</td><td>${esc(x.model)}</td><td>${x.pic ? `<img src="${x.pic}">` : ""}</td>${x.main ? `<td>${x.combo ? `<img src="${x.combo}">` : ""}</td><td>${esc(x.name)}</td><td>${esc(x.size)}</td><td>${esc(x.material)}</td>` : `<td colspan="4">${esc(x.name)}</td>`}${x.std ? `<td>${x.sq || "/"}</td><td>${x.sq ? "个" : "/"}</td><td>/</td><td>/</td><td></td>` : `<td>${x.qty}</td><td>${esc(x.unit)}</td><td>${x.price == null ? "待定" : x.price}</td><td>${x.price == null ? "待定" : x.price * x.qty}</td><td>${esc(x.remark || "")}</td>`}</tr>`).join("")}</table></div>
 <div style="margin-top:.75rem"><div class="yo-sum"><span>合计数量</span><span>${rows.reduce((t, x) => t + x.qty, 0)}</span></div><div class="yo-sum"><span>金额合计</span><b>${money(total)}</b></div><div class="yo-sum"><span>定金（50%）</span><span>${money(Math.round(total * 0.5))}</span></div><div class="yo-sum"><span>余款</span><span>${money(total - Math.round(total * 0.5))}</span></div></div></div>
-<div class="yo-btns"><div class="yo-btn" data-pic>保存订货单（图片）</div><div class="yo-btn ghost" data-dl>下载 Excel</div></div>`;
+<div class="yo-btns"><div class="yo-btn" data-pic>保存订货单（图片）</div><div class="yo-btn ghost" data-dl>下载 Excel</div></div>`; };
+  draw();
   document.body.appendChild(el);
   el.addEventListener("input", (e) => { const k = e.target.dataset.k; if (k) { form[k] = e.target.value; localStorage.setItem(FORM_KEY, JSON.stringify(form)); } });
+  el.addEventListener("change", (e) => {
+    const k = e.target.dataset.mp;
+    if (k === undefined) return;
+    const ln = lines.find((l) => l.key === k);
+    if (ln) { ln.modPrice = e.target.value === "" ? null : Math.max(0, Math.round(+e.target.value)); const top = el.scrollTop; draw(); el.scrollTop = top; }
+  });
   el.addEventListener("click", async (e) => {
     if (e.target.closest("[data-close]")) return el.remove();
     const b = e.target.closest("[data-pic],[data-dl]");
     if (!b || b.dataset.busy) return;
     const label = b.textContent;
+    if (rows.some((x) => x.mod && x.price == null)) { alertMsg(el, "请先填写改版价格"); return; }
     b.dataset.busy = "1"; b.textContent = "正在生成…";
     keep();
     try {

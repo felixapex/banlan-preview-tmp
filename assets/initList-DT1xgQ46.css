@@ -9,9 +9,9 @@
 }
 .primary-cities > uni-view[data-v-919bbcd8]:not(.expand) { height: 2rem; line-height: 2rem;
 }
-.primary-cities > uni-view.active[data-v-919bbcd8], .all-cities > uni-view.active[data-v-919bbcd8] { color: #90744a; background: #f3f2f0;
+.primary-cities > uni-view.active[data-v-919bbcd8], .all-cities > uni-view.active[data-v-919bbcd8] { color: #9E815D; background: #f3f2f0;
 }
-.expand[data-v-919bbcd8] { width: 1.8125rem; height: 1.8125rem; border: 0.0625rem solid #9e815d; border-radius: 50%; color: #9e815d !important; font-size: 1.3125rem !important; line-height: 1.375rem; transition: transform .2s;
+.expand[data-v-919bbcd8] { width: 1.8125rem; height: 1.8125rem; border: 0.0625rem solid #9E815D; border-radius: 50%; color: #9E815D !important; font-size: 1.3125rem !important; line-height: 1.375rem; transition: transform .2s;
 }
 .expand.open[data-v-919bbcd8] { transform: rotate(180deg);
 }
