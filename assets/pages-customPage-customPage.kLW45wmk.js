@@ -67,7 +67,11 @@ const _sfc_main = {
                         src: componentSource(component),
                         loading: "eager",
                         alt: ""
-                      }, null, 8, ["src"])) : createCommentVNode("", true)
+                      }, null, 8, ["src"])) : component.type === "html" ? (openBlock(), createElementBlock("div", {
+                        key: 2,
+                        class: "yh-rich",
+                        innerHTML: component.html
+                      }, null, 8, ["innerHTML"])) : createCommentVNode("", true)
                     ]),
                     _: 2
                   }, 1032, ["id", "data-component-type", "data-source-tag", "data-action-id"]);
