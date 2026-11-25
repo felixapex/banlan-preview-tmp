@@ -55,6 +55,10 @@ function createActionRouter(adapter, messages = {}) {
       adapter.notify(messages.memberOffer ?? "");
       return { status: "previewed" };
     }
+    if (safeAction.type === "yh-orders") {
+      (await import("./yh-order.js")).openOrderList();
+      return { status: "handled" };
+    }
     if (safeAction.type === "service") {
       await adapter.navigateTo("/pages/im/chat/chat");
       return { status: "handled" };

@@ -58,7 +58,7 @@ const _sfc_main = {
         return;
       }
       writeStoredLines(setStorage, chosen, CHECKOUT_STORAGE_KEY);
-      openOrder(chosen);
+      openOrder(chosen, null, () => persist(lines.value.filter((l) => !chosen.some((c) => c.key === l.key))));
     }
     function specText(line) {
       return line.specifications.map((item) => `${item.name}${item.description ? ` ${item.description}` : ""}`).join("  ");
@@ -104,7 +104,7 @@ const _sfc_main = {
               }),
               createVNode(_component_v_uni_text, { class: "nav-title" }, {
                 default: withCtx(() => [
-                  createTextVNode("购物车")
+                  createTextVNode("订货单 · 填写中")
                 ]),
                 _: 1
               }),
@@ -144,7 +144,7 @@ const _sfc_main = {
                 onClick: clearCart
               }, {
                 default: withCtx(() => [
-                  createTextVNode(toDisplayString(clearArmed.value ? "确认清空" : "清空购物车"), 1)
+                  createTextVNode(toDisplayString(clearArmed.value ? "确认清空" : "清空"), 1)
                 ]),
                 _: 1
               }, 8, ["class"])
@@ -266,7 +266,7 @@ const _sfc_main = {
             default: withCtx(() => [
               createVNode(_component_v_uni_text, null, {
                 default: withCtx(() => [
-                  createTextVNode("购物车还是空的")
+                  createTextVNode("订货单还是空的，去挑选产品吧")
                 ]),
                 _: 1
               }),
@@ -319,7 +319,7 @@ const _sfc_main = {
                 onClick: orderNow
               }, {
                 default: withCtx(() => [
-                  createTextVNode("立即下单")
+                  createTextVNode("填写客户信息")
                 ]),
                 _: 1
               }, 8, ["class"])

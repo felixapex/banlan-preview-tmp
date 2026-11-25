@@ -511,7 +511,7 @@ const floatingActions = [
   },
   {
     id: "cart",
-    label: "购物车",
+    label: "订货单",
     image: "/static/banlan/icons/cart.png",
     badge: 0,
     position: {
@@ -519,8 +519,7 @@ const floatingActions = [
       bottomRpx: 104
     },
     action: {
-      type: "route",
-      target: "/pages/product/cart/cart"
+      type: "yh-orders"
     }
   }
 ];

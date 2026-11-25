@@ -1040,7 +1040,7 @@ const _sfc_main = {
       navigateTo({ url: "/pages/store/detail/detail" });
     }
     function goCart() {
-      navigateTo({ url: "/pages/product/cart/cart" });
+      import("./yh-order.js").then((m) => m.openOrderList());
     }
     let cfgState = null;
     function addToCart() {
@@ -1050,7 +1050,7 @@ const _sfc_main = {
         const lines = addCartLine(readStoredLines(getStorage, CART_STORAGE_KEY), cfgCartLine(product.value, cfgState));
         writeStoredLines(setStorage, lines, CART_STORAGE_KEY);
         cartCount.value = lines.reduce((sum, item) => sum + Number(item.quantity), 0);
-        navigateTo({ url: "/pages/product/cart/cart" });
+        showToast({ title: "已加入订货单", icon: "success" });
         return;
       }
       if (!requireSelection())
@@ -1272,16 +1272,7 @@ const _sfc_main = {
                         ]),
                         _: 1
                       }),
-                      createVNode(_component_v_uni_view, {
-                        class: normalizeClass(["preorder-pill", { disabled: !selectionReady.value }]),
-                        "data-action-id": "detail:add-preorder",
-                        onClick: addPreorder
-                      }, {
-                        default: withCtx(() => [
-                          createTextVNode("加入预选")
-                        ]),
-                        _: 1
-                      }, 8, ["class"])
+                      createCommentVNode("", true)
                     ]),
                     _: 1
                   }),
@@ -1940,7 +1931,7 @@ const _sfc_main = {
                     onClick: addToCart
                   }, {
                     default: withCtx(() => [
-                      createTextVNode("加入购物车")
+                      createTextVNode("加入订货单")
                     ]),
                     _: 1
                   })
@@ -1992,20 +1983,10 @@ const _sfc_main = {
                   })) : createCommentVNode("", true),
                   createVNode(_component_v_uni_text, null, {
                     default: withCtx(() => [
-                      createTextVNode("购物车")
+                      createTextVNode("订货单")
                     ]),
                     _: 1
                   })
-                ]),
-                _: 1
-              }),
-              createVNode(_component_v_uni_view, {
-                class: "preorder-button",
-                "data-action-id": "detail:preorder",
-                onClick: openPreorder
-              }, {
-                default: withCtx(() => [
-                  createTextVNode("预选清单")
                 ]),
                 _: 1
               }),
@@ -2015,7 +1996,7 @@ const _sfc_main = {
                 onClick: addToCart
               }, {
                 default: withCtx(() => [
-                  createTextVNode("加入购物车")
+                  createTextVNode("加入订货单")
                 ]),
                 _: 1
               })

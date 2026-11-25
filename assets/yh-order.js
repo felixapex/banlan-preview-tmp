@@ -162,9 +162,12 @@ const css = `
 .yo-top span:last-child{font-size:1.5rem;font-weight:300;color:#666;padding:0 .25rem}
 .yo-card{margin:.5625rem 0;padding:.75rem 1rem;background:#fff}
 .yo-h{font-size:.84375rem;font-weight:600;margin-bottom:.5rem}
-.yo-f{display:grid;grid-template-columns:4.5rem 1fr;align-items:center;gap:.5rem;padding:.375rem 0;border-bottom:.03125rem solid #f0f0f0}
-.yo-f label{color:#666}
-.yo-f input{border:none;outline:none;font-size:.8125rem;padding:.25rem 0;background:transparent;width:100%}
+.yo-f{display:block;margin-bottom:.75rem}
+.yo-f label{display:block;color:#666;font-size:.8125rem;margin-bottom:.375rem}
+.yo-f input,.yo-f textarea{box-sizing:border-box;width:100%;height:2.75rem;border:.0625rem solid #ddd;border-radius:.375rem;padding:0 .75rem;font-size:.9375rem;background:#fff;outline:none;font-family:inherit;color:#333;-webkit-appearance:none}
+.yo-f textarea{height:4.25rem;padding:.625rem .75rem;resize:none;line-height:1.4}
+.yo-f input:focus,.yo-f textarea:focus{border-color:#B8935A}
+.yo-f>span{font-size:.9375rem}
 .yo-sc{overflow-x:auto}
 .yo-t{border-collapse:collapse;min-width:42rem;font-size:.6875rem}
 .yo-t th,.yo-t td{border:.03125rem solid #333;padding:.25rem;text-align:center;vertical-align:middle;white-space:pre-line}
@@ -180,7 +183,17 @@ const css = `
 .yo-row .n{flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .yo-row .m{color:#9E815D;font-weight:600;white-space:nowrap}
 .yo-row .a{color:#bbb}
-.yo-empty{padding:5rem 0;text-align:center;color:#999}
+.yo-empty{padding:5rem 0;text-align:center;color:#999;line-height:1.8}
+.yo-ol{padding:.75rem}
+.yo-oc{display:flex;justify-content:space-between;align-items:center;gap:.75rem;min-height:4.5rem;box-sizing:border-box;padding:.875rem 1rem;margin-bottom:.625rem;background:#fff;border:.0625rem solid #eee;border-radius:.5rem}
+.yo-oc.on{border-color:#B8935A}
+.yo-oa{display:flex;align-items:center;gap:.5rem;font-size:.9375rem;font-weight:600}
+.yo-ob{margin-top:.375rem;font-size:.8125rem;color:#888;overflow:hidden;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical}
+.yo-tg{font-size:.6875rem;font-weight:400;padding:.125rem .5rem;border-radius:.25rem;background:#f2f2f2;color:#888}
+.yo-tg.on{background:#F5F0E8;color:#8B6A3E}
+.yo-op{font-size:1rem;font-weight:600;white-space:nowrap;display:flex;align-items:center;gap:.375rem}
+.yo-oc.on .yo-op{color:#8B6A3E}
+.yo-op span{color:#ccc;font-weight:400}
 .yo-pic{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.85);overflow:auto;-webkit-overflow-scrolling:touch}
 .yo-pic img{display:block;width:100%}
 .yo-pic div{position:sticky;top:0;padding:.75rem 1rem;color:#fff;text-align:center;font-size:.8125rem;background:rgba(0,0,0,.6)}
@@ -234,22 +247,23 @@ function alertMsg(el, msg) {
   t.style.cssText = "position:fixed;left:50%;top:45%;transform:translate(-50%,-50%);z-index:1001;background:rgba(0,0,0,.78);color:#fff;padding:.625rem 1rem;border-radius:.375rem;font-size:.8125rem";
   el.appendChild(t); setTimeout(() => t.remove(), 1800);
 }
-export function openOrder(lines, saved) {
+export function openOrder(lines, saved, onExported, onClose) {
   ensureStyle();
   let form = {};
   try { form = saved ? { ...saved.form } : JSON.parse(localStorage.getItem(FORM_KEY) || "{}"); } catch {}
   if (!saved) form.orderDate = today();
   const id = saved ? saved.id : "o" + Date.now();
+  let stored = !!saved;
   let rows, total;
   const calc = () => { rows = orderRows(lines); total = rows.reduce((t, x) => t + (x.price || 0) * x.qty, 0); };
   calc();
-  const keep = () => saveOrder({ id, created: saved ? saved.created : Date.now(), form, lines, total });
+  const keep = () => { saveOrder({ id, created: saved ? saved.created : Date.now(), form, lines, total }); stored = true; };
   const el = document.createElement("div");
   el.className = "yo";
-  const f = (k, label, ph, type = "text") => `<div class="yo-f"><label>${label}</label><input data-k="${k}" type="${type}" value="${esc(form[k] || "")}" placeholder="${ph}"></div>`;
+  const f = (k, label, ph, type = "text") => `<div class="yo-f"><label>${label}</label>${type === "area" ? `<textarea data-k="${k}" placeholder="${ph}">${esc(form[k] || "")}</textarea>` : `<input data-k="${k}" type="${type}" value="${esc(form[k] || "")}" placeholder="${ph}">`}</div>`;
   const draw = () => { calc(); el.innerHTML = `<div class="yo-top"><span>订货清单</span><span data-close>×</span></div>
 <div class="yo-card"><div class="yo-h">客户信息</div>
-${f("customer", "客户名称", "请输入客户名称")}${f("tel", "联系方式", "请输入电话", "tel")}${f("receiver", "收货人", "请输入收货人")}${f("address", "送货地址", "请输入送货地址")}${f("deliveryDate", "交货日期", "", "date")}
+${f("customer", "客户名称", "请输入客户名称")}${f("tel", "联系方式", "请输入电话", "tel")}${f("receiver", "收货人", "请输入收货人")}${f("address", "送货地址", "请输入送货地址", "area")}${f("deliveryDate", "交货日期", "", "date")}
 <div class="yo-f"><label>开单日期</label><span>${form.orderDate}</span></div></div>
 ${rows.filter((x) => x.mod).map((x) => `<div class="yo-card"><div class="yo-h">改版（价格由产品顾问填写）</div><div style="color:#555;margin-bottom:.5rem;white-space:pre-line">${esc(x.name)}</div><div class="yo-f"><label>改版单价</label><input data-mp="${esc(x.key)}" type="number" inputmode="numeric" value="${x.price ?? ""}" placeholder="请输入金额（元/次）"></div></div>`).join("")}
 <div class="yo-card"><div class="yo-h">订货明细</div><div class="yo-sc"><table class="yo-t"><tr><th>序号</th><th>产品型号</th><th>产品图片</th><th>示意图</th><th>名称</th><th>产品尺寸</th><th>材质</th><th>数量</th><th>单位</th><th>供货单价</th><th>金额小计</th><th>备注</th></tr>
@@ -258,7 +272,7 @@ ${rows.map((x, i) => `<tr><td>${i + 1}</td><td>${esc(x.model)}</td><td>${x.pic ?
 <div class="yo-btns"><div class="yo-btn" data-pic>保存订货单（图片）</div><div class="yo-btn ghost" data-dl>下载 Excel</div></div>`; };
   draw();
   document.body.appendChild(el);
-  el.addEventListener("input", (e) => { const k = e.target.dataset.k; if (k) { form[k] = e.target.value; localStorage.setItem(FORM_KEY, JSON.stringify(form)); } });
+  el.addEventListener("input", (e) => { const k = e.target.dataset.k; if (k) { form[k] = e.target.value; if (stored) keep(); else localStorage.setItem(FORM_KEY, JSON.stringify(form)); } });
   el.addEventListener("change", (e) => {
     const k = e.target.dataset.mp;
     if (k === undefined) return;
@@ -266,13 +280,15 @@ ${rows.map((x, i) => `<tr><td>${i + 1}</td><td>${esc(x.model)}</td><td>${x.pic ?
     if (ln) { ln.modPrice = e.target.value === "" ? null : Math.max(0, Math.round(+e.target.value)); const top = el.scrollTop; draw(); el.scrollTop = top; }
   });
   el.addEventListener("click", async (e) => {
-    if (e.target.closest("[data-close]")) return el.remove();
+    if (e.target.closest("[data-close]")) { if (stored) keep(); el.remove(); if (onClose) onClose(); return; }
     const b = e.target.closest("[data-pic],[data-dl]");
     if (!b || b.dataset.busy) return;
     const label = b.textContent;
     if (rows.some((x) => x.mod && x.price == null)) { alertMsg(el, "请先填写改版价格"); return; }
     b.dataset.busy = "1"; b.textContent = "正在生成…";
+    const first = !stored;
     keep();
+    if (first && !saved) { localStorage.removeItem(FORM_KEY); if (onExported) onExported(); }
     try {
       if (b.dataset.pic !== undefined) await showPicture(rows, form);
       else {
@@ -288,19 +304,31 @@ ${rows.map((x, i) => `<tr><td>${i + 1}</td><td>${esc(x.model)}</td><td>${x.pic ?
   });
 }
 
+const CART_KEY = "banlan:cart:v1";
+function readCart() { try { const v = JSON.parse(localStorage.getItem(CART_KEY) || "null"); const d = v && v.data !== undefined ? v.data : v; return Array.isArray(d) ? d : []; } catch { return []; } }
+const models = (lines) => [...new Set(lines.map((l) => String(l.title || "").split(" ")[0]))].join("、");
+const count = (lines) => lines.reduce((t, l) => t + Number(l.quantity || 1), 0);
+function goDraft() {
+  const u = "/pages/product/cart/cart";
+  if (window.uni && uni.navigateTo) uni.navigateTo({ url: u }); else location.hash = "#" + u;
+}
 export function openOrderList() {
   ensureStyle();
   const el = document.createElement("div");
   el.className = "yo";
+  const card = (attr, date, tag, on, sub, amount) => `<div class="yo-oc${on ? " on" : ""}" ${attr}><div><div class="yo-oa">${date}<span class="yo-tg${on ? " on" : ""}">${tag}</span></div><div class="yo-ob">${sub}</div></div><div class="yo-op">${money(amount)}<span>›</span></div></div>`;
   const draw = () => {
-    const list = readOrders();
-    el.innerHTML = `<div class="yo-top"><span>我的订货单</span><span data-close>×</span></div>` + (list.length ? list.map((o, i) => `<div class="yo-row" data-i="${i}"><span class="d">${esc(o.form.orderDate || "")}</span><span class="n">${esc(o.form.customer || "未填客户名称")}</span><span class="m">${money(o.total)}</span><span class="a">›</span></div>`).join("") : `<div class="yo-empty">暂无订货单</div>`);
+    const list = readOrders(), cart = readCart();
+    const draft = cart.length ? card("data-draft", today(), "填写中", true, `${esc(models(cart))} · 共${count(cart)}件`, cart.reduce((t, l) => t + Number(l.unitPriceYuan) * Number(l.quantity), 0)) : "";
+    const done = list.map((o, i) => card(`data-i="${i}"`, esc(o.form.orderDate || ""), "已导出", false, `${esc(o.form.customer || "未填客户名称")} · ${esc(models(o.lines || []))} · 共${count(o.lines || [])}件`, o.total)).join("");
+    el.innerHTML = `<div class="yo-top"><span>我的订货单</span><span data-close>×</span></div><div class="yo-ol">${draft || done ? draft + done : `<div class="yo-empty">暂无订货单<br><span style="font-size:.75rem">在产品页点「加入订货单」开始</span></div>`}</div>`;
   };
   draw();
   document.body.appendChild(el);
   el.addEventListener("click", (e) => {
     if (e.target.closest("[data-close]")) return el.remove();
+    if (e.target.closest("[data-draft]")) { el.remove(); goDraft(); return; }
     const r = e.target.closest("[data-i]");
-    if (r) { const o = readOrders()[+r.dataset.i]; if (o) openOrder(o.lines, o); }
+    if (r) { const o = readOrders()[+r.dataset.i]; if (o) openOrder(o.lines, o, null, draw); }
   });
 }
