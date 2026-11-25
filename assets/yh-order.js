@@ -29,7 +29,7 @@ export function orderRows(lines) {
     }
     (c.power || []).forEach((x) => rows.push({ main: false, model: "电源", pic: "", name: x.name, qty: x.qty * n, unit: x.per, price: x.unit, remark: x.remark || "" }));
     if (c.mod) rows.push({ main: false, mod: true, key: ln.key, model: "改版", pic: "", name: c.mod, qty: n, unit: "次", price: ln.modPrice ?? null });
-    c.options.forEach((o) => rows.push({ main: false, model: "选配", pic: o.img, name: o.name, qty: o.qty * n, unit: o.per, price: o.unit, remark: o.remark || "" }));
+    c.options.forEach((o) => rows.push({ main: false, model: "加购", pic: o.img, name: o.name, qty: o.qty * n, unit: o.per, price: o.unit, remark: o.remark || "" }));
   }
   return rows;
 }

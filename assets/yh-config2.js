@@ -21,11 +21,15 @@ const css = `
 .yc-ta:focus{border-color:#C9AE85}
 .yc-row.sel .yc-st i{color:${GOLD};font-weight:600}
 .yc-basis{font-size:.75rem;color:${GOLD};background:#F5F0E8;padding:.375rem .625rem;margin-bottom:.375rem}
-.yc-std{margin-bottom:.5rem;font-size:.8125rem;color:#333}
-.yc-std>div{display:flex;justify-content:space-between;align-items:center;padding:.4rem .125rem;border-bottom:.0625rem solid #f0f0f0}
+.yc-std{margin-bottom:.5rem;font-size:.9375rem;color:#333}
+.yc-std>div{display:flex;justify-content:space-between;align-items:center;padding:.625rem 0;border-bottom:.03125rem solid #eee}
 .yc-std>div:last-child{border-bottom:0}
-.yc-std b{color:${GOLD};font-weight:600;margin-left:.75rem;white-space:nowrap}
+.yc-std>div>b{color:${GOLD};font-weight:600;margin-left:.75rem;white-space:nowrap}
 .yc-std em{color:#bbb;font-style:normal;margin-left:.75rem;white-space:nowrap}
+.yc-std u{text-decoration:none;font-size:.625rem;color:${GOLD};background:#F5F0E8;padding:0 .3rem;margin-left:.375rem;border-radius:.125rem;vertical-align:.08rem}
+.yc-st.lk b{border-color:#eee;color:#ddd}
+.yc-st.lk i{color:${GOLD};font-weight:600}
+.yc-tip{position:fixed;left:50%;bottom:30%;transform:translateX(-50%);background:rgba(0,0,0,.75);color:#fff;font-size:.8125rem;padding:.5rem .875rem;border-radius:.375rem;z-index:9999;pointer-events:none}
 .yc-row{display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.625rem 0;border-bottom:.03125rem solid #eee}
 .yc-sub{font-size:.75rem;color:#888;margin-top:.125rem}
 .yc-st{display:flex;align-items:center;gap:.5rem}
@@ -150,7 +154,7 @@ export function cartLine(product, s) {
   const power = cfg.power ? pwCounts(cfg, s).map((c, i) => ({ name: cfg.power[i].name, qty: c, unit: cfg.power[i].price, per: "个", remark: cfg.power[i].n > 1 && s.pwNote.trim() ? `出线口：${s.pwNote.trim()}` : "" })).filter((x) => x.qty) : [];
   if (power.length) specifications.push({ groupId: "power", groupName: "电源", choiceId: "", name: power.map((x) => `${x.name}×${x.qty}`).join("、"), description: "" });
   if (s.mod.trim()) specifications.push({ groupId: "mod", groupName: "改版", choiceId: "", name: s.mod.trim(), description: "" });
-  if (opts.length) specifications.push({ groupId: "options", groupName: "选配", choiceId: "", name: opts.map((x) => `${x.name}×${x.qty}`).join("、"), description: "" });
+  if (opts.length) specifications.push({ groupId: "options", groupName: "加购", choiceId: "", name: opts.map((x) => `${x.name}×${x.qty}`).join("、"), description: "" });
   const sig = JSON.stringify([s.q, s.mat, s.grade, s.color, s.o, s.mod.trim(), pwCounts(cfg, s), s.pwNote.trim()]);
   let h = 0;
   for (const ch of sig) h = (h * 31 + ch.charCodeAt(0)) | 0;
@@ -203,7 +207,7 @@ ${s.grade ? `<div class="yc-sub" style="margin-top:.5rem">${cfg.gradeNotes[s.gra
 ${colors.length ? `<div class="yc-col">${colors.map((c) => `<div class="${s.color === c.name ? "on" : ""}" data-color="${c.name}"><img src="${c.image}">${c.name}</div>`).join("")}</div>` : `<div class="yc-sub">颜色请与产品顾问确认</div>`}` : ""}`}`;
     const std = stdItems(cfg, s);
     const arm = s.q.reduce((a, n, i) => a + (cfg.seats[i].armrest ? n : 0), 0);
-    const optBody = `<div class="yc-h" style="margin-top:.25rem">基础配置（已包含）</div>${std.length ? `<div class="yc-basis">按您选的 ${es}个电动位${arm ? `、${arm}个影院手` : ""} 计算</div><div class="yc-std">${std.map((x) => `<div><span>✓ ${x.name}</span>${x.qty ? `<b>×${x.qty}</b>` : "<em>含</em>"}</div>`).join("")}</div>` : `<div class="yc-sub" style="margin-bottom:.5rem">选择款型后显示基础配置</div>`}${cfg.power && es ? `<div class="yc-h">电源配置 <span style="font-weight:400;font-size:.75rem;color:${pwCap(cfg, s) === es ? "#999" : "#c0392b"}">电源合计${pwCap(cfg, s)}位 / 电动座位${es}位</span>${s.pw ? '<span data-pwreset style="float:right;font-weight:400;font-size:.75rem;color:#999;text-decoration:underline">恢复默认</span>' : ""}</div>${cfg.power.map((p, i) => `<div class="yc-row ${pwCounts(cfg, s)[i] ? "sel" : ""}"><div class="yc-seat"><div>${p.name}<div class="yc-sub">${p.price}元/个 · 带${p.n}位</div></div></div><div class="yc-st"><b data-pw="${i}" data-d="-1">−</b><i>${pwCounts(cfg, s)[i]}</i><b data-pw="${i}" data-d="1">+</b></div></div>`).join("")}${pwBig(cfg, s) ? `<div style="padding:.5rem 0 .75rem"><div class="yc-sub" style="margin-bottom:.375rem">出线口位置（必填）</div><input class="yc-ta" style="min-height:0;height:2.25rem" data-pwnote value="${s.pwNote.replace(/"/g, "&quot;")}" placeholder="例如：左扶手一位"></div>` : ""}` : ""}<div class="yc-h">选配</div>${cfg.options.map((o, k) => { const pw = o.kind === "power", tier = pw ? powerTier(es) : null, off = pw && !tier; const sub = off ? (es ? "超过7位电动，请咨询产品顾问" : "选择电动座位后可选") : `${optPrice(cfg, s, k)}元/${o.unit}${o.unit === "位" ? " · 按电动座位计" : ""}`; return `<div class="yc-row ${optQty(cfg, s, k) ? "sel" : ""}" ${off ? 'style="opacity:.45"' : ""}><div class="yc-seat">${o.image ? `<img src="${o.image}">` : `<img style="visibility:hidden">`}<div>${optName(cfg, s, k)}<div class="yc-sub">${sub}</div></div></div><div class="yc-st"><b data-o="${k}" data-d="-1">−</b><i>${optQty(cfg, s, k)}</i><b data-o="${k}" data-d="1">+</b></div></div>${pw && optQty(cfg, s, k) && es > 1 ? `<div style="padding:.5rem 0 .75rem"><div class="yc-sub" style="margin-bottom:.375rem">出线口位置（必选）</div><div class="yc-grid" style="grid-template-columns:repeat(3,1fr)">${cfg.seats.map((x, i) => s.q[i] && x.electric ? `<div class="yc-chip ${s.outlet === x.desc ? "on" : ""}" data-outlet="${x.desc}">${x.desc}</div>` : "").join("")}</div></div>` : ""}`; }).join("")}`;
+    const optBody = `<div class="yc-h" style="margin-top:.25rem">基础配置（已包含）</div>${std.length ? `<div class="yc-basis">按您选的 ${es}个电动位${arm ? `、${arm}个影院手` : ""} 计算</div><div class="yc-std">${std.map((x) => `<div><span>${x.name}<u>标配</u></span>${x.qty ? `<span class="yc-st lk" data-lock><b>−</b><i>${x.qty}</i><b>+</b></span>` : "<em>已含</em>"}</div>`).join("")}</div>` : `<div class="yc-sub" style="margin-bottom:.5rem">选择款型后显示基础配置</div>`}${cfg.power && es ? `<div class="yc-h">电源配置 <span style="font-weight:400;font-size:.75rem;color:${pwCap(cfg, s) === es ? "#999" : "#c0392b"}">电源合计${pwCap(cfg, s)}位 / 电动座位${es}位</span>${s.pw ? '<span data-pwreset style="float:right;font-weight:400;font-size:.75rem;color:#999;text-decoration:underline">恢复默认</span>' : ""}</div>${cfg.power.map((p, i) => `<div class="yc-row ${pwCounts(cfg, s)[i] ? "sel" : ""}"><div class="yc-seat"><div>${p.name}<div class="yc-sub">${p.price}元/个 · 带${p.n}位</div></div></div><div class="yc-st"><b data-pw="${i}" data-d="-1">−</b><i>${pwCounts(cfg, s)[i]}</i><b data-pw="${i}" data-d="1">+</b></div></div>`).join("")}${pwBig(cfg, s) ? `<div style="padding:.5rem 0 .75rem"><div class="yc-sub" style="margin-bottom:.375rem">出线口位置（必填）</div><input class="yc-ta" style="min-height:0;height:2.25rem" data-pwnote value="${s.pwNote.replace(/"/g, "&quot;")}" placeholder="例如：左扶手一位"></div>` : ""}` : ""}<div class="yc-h">加购升级 <span style="font-weight:400;font-size:.75rem;color:#999">另计费，不影响标配</span></div>${cfg.options.map((o, k) => { const pw = o.kind === "power", tier = pw ? powerTier(es) : null, off = pw && !tier; const sub = off ? (es ? "超过7位电动，请咨询产品顾问" : "选择电动座位后可选") : `${optPrice(cfg, s, k)}元/${o.unit}${o.unit === "位" ? " · 按电动座位计" : ""}`; return `<div class="yc-row ${optQty(cfg, s, k) ? "sel" : ""}" ${off ? 'style="opacity:.45"' : ""}><div class="yc-seat">${o.image ? `<img src="${o.image}">` : `<img style="visibility:hidden">`}<div>${optName(cfg, s, k)}<div class="yc-sub">${sub}</div></div></div><div class="yc-st"><b data-o="${k}" data-d="-1">−</b><i>${optQty(cfg, s, k)}</i><b data-o="${k}" data-d="1">+</b></div></div>${pw && optQty(cfg, s, k) && es > 1 ? `<div style="padding:.5rem 0 .75rem"><div class="yc-sub" style="margin-bottom:.375rem">出线口位置（必选）</div><div class="yc-grid" style="grid-template-columns:repeat(3,1fr)">${cfg.seats.map((x, i) => s.q[i] && x.electric ? `<div class="yc-chip ${s.outlet === x.desc ? "on" : ""}" data-outlet="${x.desc}">${x.desc}</div>` : "").join("")}</div></div>` : ""}`; }).join("")}`;
     el.innerHTML = `<div class="yc">
 ${sec("seats", "款型选择", seatLabel, seatsBody)}
 ${sec("mat", "面料选择", s.mat === "imit" ? IMIT : (s.grade && (s.color || !colors.length) ? gradeName(s).split(" ").slice(0, 2).join("") + (s.color ? " · " + s.color : "") : ""), matBody)}
@@ -220,6 +224,7 @@ ${sec("mod", "改版需求", s.mod.trim() ? "已填写" : "无", `<textarea clas
     lb.textContent = s.mod.trim() ? "已填写" : "无";
   });
   el.addEventListener("click", (e) => {
+    if (e.target.closest("[data-lock]")) { const tp = document.createElement("div"); tp.className = "yc-tip"; tp.textContent = "标配随座位数量自动计算"; document.body.appendChild(tp); setTimeout(() => tp.remove(), 1600); return; }
     const t = e.target.closest("[data-pwreset],[data-pw],[data-outlet],[data-noopt],[data-open],[data-set],[data-q],[data-mat],[data-grade],[data-color],[data-opt],[data-o]");
     if (!t) return;
     const d = t.dataset;
