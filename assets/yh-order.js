@@ -17,12 +17,15 @@ export function orderRows(lines) {
     }
     const cn = `${titleCase(c.en)} ${c.cn}`.trim();
     const mat = c.material + (c.color ? ` ${c.color}` : "");
-    const matStd = mat + (c.standard && c.standard.length ? `\n${c.standard.join("、")}` : "");
+    const matStd = mat;
+    const std = () => (c.standard || []).forEach((name) => rows.push({ main: false, std: true, model: "标配", pic: "", name, qty: 0, unit: "/", price: 0 }));
     if (c.set) {
       const sum = c.seats.reduce((t, x) => t + x.unit * x.qty, 0);
       rows.push({ main: true, model: c.model, pic: c.cover, combo: c.set.img, name: `${cn}\n${c.set.name}`, size: c.set.size.replace(/×/g, "*"), material: matStd, qty: n, unit: "套", price: sum, remark: c.seats.map((x) => `${x.desc}×${x.qty}`).join("、") });
+      std();
     } else {
       c.seats.forEach((x, k) => rows.push({ main: true, model: c.model, pic: c.cover, combo: x.img, name: `${cn}\n${x.desc}`, size: dim(x), material: k === 0 ? matStd : mat, qty: x.qty * n, unit: "位", price: x.unit, remark: x.func }));
+      std();
     }
     c.options.forEach((o) => rows.push({ main: false, model: "选配", pic: o.img, name: o.name, qty: o.qty * n, unit: o.per, price: o.unit }));
   }
@@ -82,8 +85,10 @@ export async function buildXlsx(lines, form) {
     const has = x.price != null;
     const vals = x.main
       ? { A: i + 1, B: x.model, E: x.name, F: x.size, G: x.material, H: x.qty, I: x.unit, J: x.price, K: has ? { f: `H${r}*J${r}`, v: x.price * x.qty } : "", L: x.remark }
+      : x.std ? { A: i + 1, B: x.model, D: x.name, H: "/", I: "/", J: "/", K: "/" }
       : { A: i + 1, B: x.model, D: x.name, H: x.qty, I: x.unit, J: x.price, K: { f: `H${r}*J${r}`, v: x.price * x.qty } };
     for (const [col, v] of Object.entries(vals)) row = setCell(row, `${col}${r}`, v === undefined ? "" : v);
+    if (x.std) row = row.replace(/ ht="[\d.]+"/, ' ht="30"');
     if (!x.main) merges.push(`D${r}:G${r}`);
     items.push(row);
   }
@@ -106,7 +111,11 @@ export async function buildXlsx(lines, form) {
   // pictures: C = product picture, D = sketch (main rows only)
   let drawing = await zip.file("xl/drawings/drawing1.xml").async("string");
   let rels = await zip.file("xl/drawings/_rels/drawing1.xml.rels").async("string");
-  const colPx = { 2: 158, 3: 163 }, EMU = 9525;
+  const colPx = { 2: 175, 3: 180 }, EMU = 9525;
+  const colW = {}; for (const m of sheet.matchAll(/<col min="(\d+)" max="(\d+)"[^>]*?width="([\d.]+)"/g)) for (let c = +m[1]; c <= +m[2]; c++) colW[c] = +m[3];
+  const colLeft = (c) => { let x = 0; for (let k = 1; k <= c; k++) x += Math.round((colW[k] || 8.75) * 8 * EMU); return x; };
+  const rowH = {}; for (const m of sheet.matchAll(/<row r="(\d+)"[^>]*?ht="([\d.]+)"/g)) rowH[+m[1]] = +m[2];
+  const rowTop = (r0) => { let y = 0; for (let k = 1; k <= r0; k++) y += Math.round((rowH[k] || 15) * 12700); return y; };
   let id = 100, anchors = "";
   for (let i = 0; i < rows.length; i++) {
     const rowPx = rows[i].main ? 164 : 133;
@@ -119,7 +128,7 @@ export async function buildXlsx(lines, form) {
       rels = rels.replace("</Relationships>", `<Relationship Id="rId${id}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="../media/${name}"/></Relationships>`);
       const sc = col === 2 && rows[i].main ? 1 : 0.7, k = Math.min(colPx[col] * 0.8 * sc / im.w, rowPx * 0.72 * sc / im.h), w = Math.round(im.w * k), h = Math.round(im.h * k);
       const ox = Math.round((colPx[col] - w) / 2), oy = Math.round((rowPx - h) / 2);
-      const pic = `<xdr:pic><xdr:nvPicPr><xdr:cNvPr id="${id}" name="Picture ${id}"/><xdr:cNvPicPr><a:picLocks noChangeAspect="1"/></xdr:cNvPicPr></xdr:nvPicPr><xdr:blipFill><a:blip xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" r:embed="rId${id}"/><a:stretch><a:fillRect/></a:stretch></xdr:blipFill><xdr:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="${w * EMU}" cy="${h * EMU}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></xdr:spPr></xdr:pic>`;
+      const pic = `<xdr:pic><xdr:nvPicPr><xdr:cNvPr id="${id}" name="Picture ${id}"/><xdr:cNvPicPr><a:picLocks noChangeAspect="1"/></xdr:cNvPicPr></xdr:nvPicPr><xdr:blipFill><a:blip r:embed="rId${id}"/><a:stretch><a:fillRect/></a:stretch></xdr:blipFill><xdr:spPr><a:xfrm><a:off x="${colLeft(col) + ox * EMU}" y="${rowTop(FIRST - 1 + i) + oy * EMU}"/><a:ext cx="${w * EMU}" cy="${h * EMU}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/><a:ln w="9525"><a:noFill/></a:ln></xdr:spPr></xdr:pic>`;
       const r0 = FIRST - 1 + i;
       anchors += `<xdr:twoCellAnchor editAs="oneCell"><xdr:from><xdr:col>${col}</xdr:col><xdr:colOff>${ox * EMU}</xdr:colOff><xdr:row>${r0}</xdr:row><xdr:rowOff>${oy * EMU}</xdr:rowOff></xdr:from><xdr:to><xdr:col>${col}</xdr:col><xdr:colOff>${(ox + w) * EMU}</xdr:colOff><xdr:row>${r0}</xdr:row><xdr:rowOff>${(oy + h) * EMU}</xdr:rowOff></xdr:to>${pic}<xdr:clientData/></xdr:twoCellAnchor>`;
     }
@@ -190,7 +199,7 @@ function sheetHtml(rows, form) {
 <tr><td class="y">联系方式 Tel</td><td class="y">${esc(form.tel)}</td><td class="y">交货日期 Delivery date</td><td class="y">${esc(form.deliveryDate)}</td></tr>
 <tr><td class="y">收货人 Receiver</td><td class="y">${esc(form.receiver)}</td><td class="y">送货地址 Address</td><td class="y">${esc(form.address)}</td></tr></table>
 <table style="margin-top:-1px;table-layout:fixed"><colgroup><col style="width:3.4%"><col style="width:5.6%"><col style="width:14.6%"><col style="width:15%"><col style="width:8.4%"><col style="width:11.6%"><col style="width:13.6%"><col style="width:3.8%"><col style="width:3.9%"><col style="width:6.6%"><col style="width:7.7%"><col style="width:5.8%"></colgroup><tr style="font-size:12px"><td>序号<br>No.</td><td>产品型号<br>Product Code</td><td>产品图片<br>Product Picture</td><td>示意图<br>Sketch Map</td><td>名称<br>Description</td><td>产品尺寸 Size<br>长/L 宽/W 高/H</td><td>材质<br>Material</td><td>数量<br>Qty</td><td>单位<br>Unit</td><td>供货单价<br>Unit Pr</td><td>金额小计<br>Sum</td><td>备注<br>Remark</td></tr>
-${rows.map((x, i) => `<tr style="height:${x.main ? 130 : 100}px"><td>${i + 1}</td><td>${esc(x.model)}</td><td>${x.pic ? `<img class="${x.main ? "p" : "s"}" src="${x.pic}">` : ""}</td>${x.main ? `<td>${x.combo ? `<img class="s" src="${x.combo}">` : ""}</td><td>${esc(x.name)}</td><td>${esc(x.size)}</td><td style="font-size:11px">${esc(x.material)}</td>` : `<td colspan="4">${esc(x.name)}</td>`}<td>${x.qty}</td><td>${esc(x.unit)}</td><td>${x.price}</td><td>${x.price * x.qty}</td><td style="font-size:11px">${esc(x.remark || "")}</td></tr>`).join("")}
+${rows.map((x, i) => `<tr style="height:${x.main ? 130 : x.std ? 44 : 100}px"><td>${i + 1}</td><td>${esc(x.model)}</td><td>${x.pic ? `<img class="${x.main ? "p" : "s"}" src="${x.pic}">` : ""}</td>${x.main ? `<td>${x.combo ? `<img class="s" src="${x.combo}">` : ""}</td><td>${esc(x.name)}</td><td>${esc(x.size)}</td><td style="font-size:11px">${esc(x.material)}</td>` : `<td colspan="4">${esc(x.name)}</td>`}${x.std ? "<td>/</td><td>/</td><td>/</td><td>/</td><td></td>" : `<td>${x.qty}</td><td>${esc(x.unit)}</td><td>${x.price}</td><td>${x.price * x.qty}</td><td style="font-size:11px">${esc(x.remark || "")}</td>`}</tr>`).join("")}
 <tr><td colspan="7" style="text-align:right">合计数量：</td><td>${rows.reduce((t, x) => t + x.qty, 0)}</td><td></td><td>金额合计<br>Total：</td><td colspan="2" style="font-size:16px;font-weight:700">${total}</td></tr>
 <tr><td colspan="9" rowspan="2" style="text-align:left;vertical-align:top">备注Memo：图片仅限参考，组合以示意图为准。模块组合产品，测量误差士3CM属于正常范围。</td><td>定金</td><td colspan="2" style="font-size:16px">${dep}</td></tr>
 <tr><td>余款</td><td colspan="2" style="font-size:16px">${total - dep}</td></tr></table>
@@ -233,7 +242,7 @@ export function openOrder(lines, saved) {
 ${f("customer", "客户名称", "请输入客户名称")}${f("tel", "联系方式", "请输入电话", "tel")}${f("receiver", "收货人", "请输入收货人")}${f("address", "送货地址", "请输入送货地址")}${f("deliveryDate", "交货日期", "", "date")}
 <div class="yo-f"><label>开单日期</label><span>${form.orderDate}</span></div></div>
 <div class="yo-card"><div class="yo-h">订货明细</div><div class="yo-sc"><table class="yo-t"><tr><th>序号</th><th>产品型号</th><th>产品图片</th><th>示意图</th><th>名称</th><th>产品尺寸</th><th>材质</th><th>数量</th><th>单位</th><th>供货单价</th><th>金额小计</th><th>备注</th></tr>
-${rows.map((x, i) => `<tr><td>${i + 1}</td><td>${esc(x.model)}</td><td>${x.pic ? `<img src="${x.pic}">` : ""}</td>${x.main ? `<td>${x.combo ? `<img src="${x.combo}">` : ""}</td><td>${esc(x.name)}</td><td>${esc(x.size)}</td><td>${esc(x.material)}</td>` : `<td colspan="4">${esc(x.name)}</td>`}<td>${x.qty}</td><td>${esc(x.unit)}</td><td>${x.price}</td><td>${x.price * x.qty}</td><td>${esc(x.remark || "")}</td></tr>`).join("")}</table></div>
+${rows.map((x, i) => `<tr><td>${i + 1}</td><td>${esc(x.model)}</td><td>${x.pic ? `<img src="${x.pic}">` : ""}</td>${x.main ? `<td>${x.combo ? `<img src="${x.combo}">` : ""}</td><td>${esc(x.name)}</td><td>${esc(x.size)}</td><td>${esc(x.material)}</td>` : `<td colspan="4">${esc(x.name)}</td>`}${x.std ? "<td>/</td><td>/</td><td>/</td><td>/</td><td></td>" : `<td>${x.qty}</td><td>${esc(x.unit)}</td><td>${x.price}</td><td>${x.price * x.qty}</td><td>${esc(x.remark || "")}</td>`}</tr>`).join("")}</table></div>
 <div style="margin-top:.75rem"><div class="yo-sum"><span>合计数量</span><span>${rows.reduce((t, x) => t + x.qty, 0)}</span></div><div class="yo-sum"><span>金额合计</span><b>${money(total)}</b></div><div class="yo-sum"><span>定金（50%）</span><span>${money(Math.round(total * 0.5))}</span></div><div class="yo-sum"><span>余款</span><span>${money(total - Math.round(total * 0.5))}</span></div></div></div>
 <div class="yo-btns"><div class="yo-btn" data-pic>保存订货单（图片）</div><div class="yo-btn ghost" data-dl>下载 Excel</div></div>`;
   document.body.appendChild(el);

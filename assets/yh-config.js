@@ -13,6 +13,7 @@ const css = `
 .yc-lb.miss{color:#999;background:#f2f2f2}
 .yc-cv{color:#aaa}
 .yc-body{padding:0 .9375rem .875rem}
+.yc-std{display:grid;grid-template-columns:1fr 1fr;gap:.25rem .5rem;padding:.5rem .625rem;margin-bottom:.25rem;background:#f8f6f3;font-size:.75rem;color:#6b5a43;line-height:1.5}
 .yc-row{display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.625rem 0;border-bottom:.03125rem solid #eee}
 .yc-sub{font-size:.75rem;color:#888;margin-top:.125rem}
 .yc-st{display:flex;align-items:center;gap:.5rem}
@@ -123,12 +124,11 @@ ${!s.mat || s.mat === "imit" ? "" : `<div class="yc-h">皮料等级</div>
 ${s.grade ? `<div class="yc-sub" style="margin-top:.5rem">${cfg.gradeNotes[s.grade] || ""}</div>
 <div class="yc-h">颜色选择</div>
 ${colors.length ? `<div class="yc-col">${colors.map((c) => `<div class="${s.color === c.name ? "on" : ""}" data-color="${c.name}"><img src="${c.image}">${c.name}</div>`).join("")}</div>` : `<div class="yc-sub">颜色请与产品顾问确认</div>`}` : ""}`}`;
-    const optBody = `<div class="yc-chip ${s.optSet && !nOpt ? "on" : ""}" style="margin:.25rem 0 .25rem" data-noopt="1">不加配件</div>${cfg.options.map((o, k) => `<div class="yc-row"><div class="yc-seat">${o.image ? `<img src="${o.image}">` : `<img style="visibility:hidden">`}<div>${o.name}<div class="yc-sub">${o.price}元/${o.unit}${o.unit === "位" ? " · 按电动座位计" : ""}</div></div></div><div class="yc-st"><b data-o="${k}" data-d="-1">−</b><i>${optQty(cfg, s, k)}</i><b data-o="${k}" data-d="1">+</b></div></div>`).join("")}
-<div class="yc-sub" style="margin-top:.5rem;line-height:1.7">标配：${cfg.standard.join("、")}</div>`;
+    const optBody = `<div class="yc-chip ${s.optSet ? "on" : ""}" style="margin:.25rem 0 .375rem" data-noopt="1">基础配置</div><div class="yc-std">${cfg.standard.map((x) => `<div>✓ ${x}</div>`).join("")}</div>${cfg.options.map((o, k) => `<div class="yc-row"><div class="yc-seat">${o.image ? `<img src="${o.image}">` : `<img style="visibility:hidden">`}<div>${o.name}<div class="yc-sub">${o.price}元/${o.unit}${o.unit === "位" ? " · 按电动座位计" : ""}</div></div></div><div class="yc-st"><b data-o="${k}" data-d="-1">−</b><i>${optQty(cfg, s, k)}</i><b data-o="${k}" data-d="1">+</b></div></div>`).join("")}`;
     el.innerHTML = `<div class="yc">
 ${sec("seats", "款型选择", seatLabel, seatsBody)}
 ${sec("mat", "面料选择", s.mat === "imit" ? "半仿真" : (s.grade && (s.color || !colors.length) ? gradeName(s).split(" ").slice(0, 2).join("") + (s.color ? " · " + s.color : "") : ""), matBody)}
-${sec("opt", "功能配件", nOpt ? `已选${nOpt}项` : s.optSet ? "不加配件" : "", optBody)}
+${sec("opt", "功能配件", nOpt ? `基础配置 + ${nOpt}项` : s.optSet ? "基础配置" : "", optBody)}
 <div class="yc-tot">${!nSeat ? "请选择款型" : !priced ? "请选择面料后显示价格" : lines.join("<br>")}<div class="yc-sum"><span>合计</span><span>${nSeat && priced ? yuan(total(cfg, s)) : "—"}</span></div></div>
 </div>`;
   };
