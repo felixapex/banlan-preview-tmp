@@ -145,7 +145,7 @@ const records = [
           avatar: "/static/banlan/engagement/9db0bb338c830f3c23ac2226.jpg",
           address: "陵水黎族自治县",
           createdAt: "2026-11-08 08:26:17",
-          content: "每处细节都十分细腻，班兰的佳乐也非常细心有耐心的讲解。",
+          content: "每处细节都十分细腻，御虎的佳乐也非常细心有耐心的讲解。",
           images: [
             "/static/banlan/engagement/b7f6e48ae3ee57ef32f718c6.jpg"
           ],
@@ -156,7 +156,7 @@ const records = [
               nickName: "佳乐",
               avatar: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/user_evaluate/deb86a48-3341-4692-ac72-88a78411e4b1",
               createdAt: "2026-11-14 15:41:18",
-              content: "谢谢骆姐姐的肯定，细心与耐心也是石家庄班兰服务的标准。产品落地效果能让您满意也很开心。石家庄到三亚2580公里，虽隔千里，依旧好好落地，稳妥交付。也愿您日子从容，岁岁舒心",
+              content: "谢谢骆姐姐的肯定，细心与耐心也是石家庄御虎服务的标准。产品落地效果能让您满意也很开心。石家庄到三亚2580公里，虽隔千里，依旧好好落地，稳妥交付。也愿您日子从容，岁岁舒心",
               likes: 0,
               replies: [],
               editable: true
@@ -180,7 +180,7 @@ const records = [
           avatar: "/static/banlan/engagement/f182e4f8911d552987637c01.jpg",
           address: "广州市",
           createdAt: "2026-10-30 09:44:46",
-          content: "班兰家具很不错，质感很好，广州店小影推荐的很好，面料漂亮，师傅搬运安装也很专业细心。",
+          content: "御虎家具很不错，质感很好，广州店小影推荐的很好，面料漂亮，师傅搬运安装也很专业细心。",
           images: [
             "/static/banlan/engagement/57379552d7008bbfc58d2011.jpg",
             "/static/banlan/engagement/8e8f06b4f82fa2d1192bcc29.jpg"
@@ -189,7 +189,7 @@ const records = [
           replies: [
             {
               id: "32b296a63b0d4fe09cac6f87da290781",
-              nickName: "广州班兰小英",
+              nickName: "广州御虎小英",
               avatar: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/user_evaluate/212a00c5-43a1-4c1c-8daf-83e9eb44f523",
               createdAt: "2026-10-30 13:27:23",
               content: "好美啊",
@@ -199,7 +199,7 @@ const records = [
             },
             {
               id: "f211272cec684c01a68f2b0750813328",
-              nickName: "广州班兰 小影",
+              nickName: "广州御虎 小影",
               avatar: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/user_evaluate/3f0211ba-91f8-4f3c-9d34-012d8e272756",
               createdAt: "2026-10-30 10:06:33",
               content: "谢谢黄小姐的认可，为您服务我们也很开心呀🥳",
@@ -209,7 +209,7 @@ const records = [
             },
             {
               id: "2f83855c6c954d8c978fec243cd580ef",
-              nickName: "广州班兰-孟茹",
+              nickName: "广州御虎-孟茹",
               avatar: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/user_evaluate/470d2db0-4b4a-4476-9c30-90d3bbf780a8",
               createdAt: "2026-10-30 10:04:25",
               content: "跟您家很配耶🤩",
@@ -350,7 +350,7 @@ const records = [
           avatar: "/static/banlan/engagement/abf5d55ec203b97e0d2231de.jpg",
           address: "广东广州",
           createdAt: "2020-11-18 00:00:00",
-          content: "我选择班兰是因为行业里的专业朋友推荐的，在选择班兰品牌的这件事上，我与设计师一拍即合，因为大气有质感的调性是我想要的，家对我意味着安全感，能让你静下心来发呆的地方，所以我非常注重家里的布置，从专业的朋友那里了解到：国内首选品牌就是班兰，确实，体验了一回之后觉得无论是产品品质、还是店面氛围和服务都是让我非常满意的！后来，班兰店里只要有上新产品，我就会过去转一转，忍不住的想要再淘一淘自己喜欢的，后来销售员都会阻拦我说：姐姐您家已经很漂亮了，其实不用再添置了……哈哈哈哈。沉香沙发我认为时尚大气、有质感是选择家具时一定要具备的条件，沉香在大气的同时也很时尚，而且销售人员帮我搭配的组合方式我非常喜欢，很独特，可以坐、可以躺卧、还可以在沙发上睡，真的非常好用",
+          content: "我选择御虎是因为行业里的专业朋友推荐的，在选择御虎品牌的这件事上，我与设计师一拍即合，因为大气有质感的调性是我想要的，家对我意味着安全感，能让你静下心来发呆的地方，所以我非常注重家里的布置，从专业的朋友那里了解到：国内首选品牌就是御虎，确实，体验了一回之后觉得无论是产品品质、还是店面氛围和服务都是让我非常满意的！后来，御虎店里只要有上新产品，我就会过去转一转，忍不住的想要再淘一淘自己喜欢的，后来销售员都会阻拦我说：姐姐您家已经很漂亮了，其实不用再添置了……哈哈哈哈。沉香沙发我认为时尚大气、有质感是选择家具时一定要具备的条件，沉香在大气的同时也很时尚，而且销售人员帮我搭配的组合方式我非常喜欢，很独特，可以坐、可以躺卧、还可以在沙发上睡，真的非常好用",
           images: [
             "/static/banlan/engagement/f41799d7c45828f7c63c36ac.jpg",
             "/static/banlan/engagement/b03ff090367c527c54c2d2ac.jpg",
@@ -386,7 +386,7 @@ const records = [
           avatar: "/static/banlan/engagement/dd449fca300f57ccf3b70694.jpg",
           address: "石家庄市",
           createdAt: "2026-08-16 12:49:31",
-          content: "石家庄班兰的团队服务非常细致周到，欣悦小伙伴的服务温和到位，家具到家后大气有质感，很出片，五金的细节很极致，工艺细节做的很考究，处处为客户考虑的品牌，值得大家选择❤️",
+          content: "石家庄御虎的团队服务非常细致周到，欣悦小伙伴的服务温和到位，家具到家后大气有质感，很出片，五金的细节很极致，工艺细节做的很考究，处处为客户考虑的品牌，值得大家选择❤️",
           images: [
             "/static/banlan/engagement/b6cc7d2dbc40a2bef2ef37dc.jpg",
             "/static/banlan/engagement/b6c6b0b38e06319bc27d59cf.jpg",
@@ -398,10 +398,10 @@ const records = [
           replies: [
             {
               id: "9fd3815cdfad4b4b817b3bb562ad88e2",
-              nickName: "石家庄班兰欣悦",
+              nickName: "石家庄御虎欣悦",
               avatar: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/user_evaluate/xinyue.jpg",
               createdAt: "2026-09-24 13:14:32",
-              content: "感谢姐姐是班兰的喜爱，对石家庄班兰工作的认可☺️送货只是服务的开始，愿班兰的家具陪您们走过三餐四季，日日皆有温柔相伴☀️",
+              content: "感谢姐姐是御虎的喜爱，对石家庄御虎工作的认可☺️送货只是服务的开始，愿御虎的家具陪您们走过三餐四季，日日皆有温柔相伴☀️",
               likes: 0,
               replies: [],
               editable: true
@@ -433,7 +433,7 @@ const records = [
           avatar: "/static/banlan/engagement/c7069f3c7abef732230b1dd6.jpg",
           address: "石家庄市",
           createdAt: "2026-06-25 20:03:37",
-          content: "跑遍各大家具卖场，最终选定了班兰家居，体验感特别好！\n家具本身做工无可挑剔，原木材质温润细腻，榫卯工艺精湛，设计简约雅致，没有繁杂花哨的装饰，款式经典耐看。家具几乎没有异味，环保品质让人住得安心，摆放在家中瞬间提升整体格调。\n \n更值得称赞的是对接的销售顾问，专业素养极高，深谙产品用料与设计理念。结合我家户型反复规划摆放方案，细心核对尺寸，站在客户角度合理搭配，全程没有强制推销，待人真诚实在。从挑选款式、敲定方案，再到跟进发货与安装，事事有回应，全程省心顺畅。\n \n好品质配上好服务，物有所值，真心推荐准备装修选家具的朋友来班兰看一看！",
+          content: "跑遍各大家具卖场，最终选定了御虎家居，体验感特别好！\n家具本身做工无可挑剔，原木材质温润细腻，榫卯工艺精湛，设计简约雅致，没有繁杂花哨的装饰，款式经典耐看。家具几乎没有异味，环保品质让人住得安心，摆放在家中瞬间提升整体格调。\n \n更值得称赞的是对接的销售顾问，专业素养极高，深谙产品用料与设计理念。结合我家户型反复规划摆放方案，细心核对尺寸，站在客户角度合理搭配，全程没有强制推销，待人真诚实在。从挑选款式、敲定方案，再到跟进发货与安装，事事有回应，全程省心顺畅。\n \n好品质配上好服务，物有所值，真心推荐准备装修选家具的朋友来御虎看一看！",
           images: [
             "/static/banlan/engagement/10bfd582533eeee1e4dd5467.jpg",
             "/static/banlan/engagement/ce86020002c67a7525b8a856.jpg"
@@ -445,7 +445,7 @@ const records = [
               nickName: "雅茹",
               avatar: "https://thirdwx.qlogo.cn/mmopen/vi_32/Wl01qBv8FqkoKC2EBlOZia8IibVYnQcQFtNJahMF9aaqccuicx9KDMtadbZ9914LxPRwzNDIFwMa0FWgu33Bpm9qA/132",
               createdAt: "2026-06-25 20:40:38",
-              content: "谢谢欣姐姐这么细致走心的认可！能够让您满意省心是我最开心的事！❤️欢迎您常回班兰坐坐",
+              content: "谢谢欣姐姐这么细致走心的认可！能够让您满意省心是我最开心的事！❤️欢迎您常回御虎坐坐",
               likes: 0,
               replies: [],
               editable: true
@@ -583,7 +583,7 @@ const records = [
           avatar: "/static/banlan/engagement/0ad5693c314f3d5e303b20ff.jpg",
           address: "石家庄市",
           createdAt: "2026-10-02 08:57:44",
-          content: "班兰如意沙发，笔墨入器，木骨绒柔",
+          content: "御虎如意沙发，笔墨入器，木骨绒柔",
           images: [
             "/static/banlan/engagement/37cce48e1ab3711c91b5082a.jpg"
           ],
@@ -591,10 +591,10 @@ const records = [
           replies: [
             {
               id: "5e50e198cad84f5daf11c34f31dc732d",
-              nickName: "石家庄班兰欣悦",
+              nickName: "石家庄御虎欣悦",
               avatar: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/user_evaluate/xinyue.jpg",
               createdAt: "2026-10-03 12:56:16",
-              content: "感谢闫总对班兰的喜爱和认可，送货只是服务的开始，愿班兰的家具陪您们走过三餐四季，日日皆有温柔相伴",
+              content: "感谢闫总对御虎的喜爱和认可，送货只是服务的开始，愿御虎的家具陪您们走过三餐四季，日日皆有温柔相伴",
               likes: 0,
               replies: [],
               editable: true
@@ -618,7 +618,7 @@ const records = [
           avatar: "/static/banlan/engagement/3c72b5f19ae9db1023f2a27c.jpg",
           address: "石家庄市",
           createdAt: "2026-09-26 15:34:22",
-          content: "石家庄班雅茹特别优秀服务态度非常到位，我非常满意我是第三次选择班兰",
+          content: "石家庄班雅茹特别优秀服务态度非常到位，我非常满意我是第三次选择御虎",
           images: [
             "/static/banlan/engagement/b4a3414294c860f597f15e2f.jpg",
             "/static/banlan/engagement/6e59ebb59b4d08964a58913f.jpg",
@@ -633,7 +633,7 @@ const records = [
               nickName: "🦄娓娓🦄💫",
               avatar: "https://thirdwx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEKTiaXJFHTQHreTkOZvMdiaD5PTsibCS8HU5LIkErJ8ib93kSvtibZ3s19Dia5Av3ngkicpVkkUvlnGNLgBA/132",
               createdAt: "2026-10-07 17:08:22",
-              content: "感谢姐姐第三次选择班兰❤️！特别开心能再次为您新家落地，您的认可就是我们最大动力，门店小伙伴也会继续用心做好每一次服务，愿班兰家具长久陪伴您的美好生活✨",
+              content: "感谢姐姐第三次选择御虎❤️！特别开心能再次为您新家落地，您的认可就是我们最大动力，门店小伙伴也会继续用心做好每一次服务，愿御虎家具长久陪伴您的美好生活✨",
               likes: 0,
               replies: [],
               editable: true
@@ -785,7 +785,7 @@ const records = [
           avatar: "/static/banlan/engagement/c8943b5cd44861c41e94d23f.jpg",
           address: "苏州市",
           createdAt: "2026-06-25 16:18:38",
-          content: "班兰落地很完美，每一件产品都很出彩，我的顾问威尔也很专业细致，每个细节都很精准，沟通得非常愉快！",
+          content: "御虎落地很完美，每一件产品都很出彩，我的顾问威尔也很专业细致，每个细节都很精准，沟通得非常愉快！",
           images: [
             "/static/banlan/engagement/e4861d4a50ec5b78a9aaf0c4.jpg"
           ],
@@ -1647,7 +1647,7 @@ const _sfc_main = {
                                   default: withCtx(() => [
                                     createVNode(_component_v_uni_text, { class: "reply-name" }, {
                                       default: withCtx(() => [
-                                        createTextVNode(toDisplayString(reply.nickName || "班兰") + "：", 1)
+                                        createTextVNode(toDisplayString(reply.nickName || "御虎") + "：", 1)
                                       ]),
                                       _: 2
                                     }, 1024),

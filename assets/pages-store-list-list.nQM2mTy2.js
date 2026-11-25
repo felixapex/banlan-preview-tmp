@@ -27,7 +27,7 @@ const _sfc_main = {
         "data-source-route": "pages/store/list/list"
       }, {
         default: withCtx(() => [
-          createVNode(JourneyHeader, { title: "班兰店铺" }),
+          createVNode(JourneyHeader, { title: "御虎店铺" }),
           createBaseVNode("img", {
             class: "main-image",
             src: landingImageSource(unref(storeLanding).localMainImage, unref(storeLanding).mainImage),

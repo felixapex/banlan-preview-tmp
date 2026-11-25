@@ -3,7 +3,7 @@ const source = {
   capturedAt: "2026-11-17T20:52:46+08:00",
   response: "responses/00525-1b5088e6644df153.json"
 };
-const title = "班兰云店铺";
+const title = "御虎欢迎您";
 const navigation = {
   homeIcon: "/static/banlan/icons/nav-home.png",
   homeLabel: "首页"
@@ -84,7 +84,7 @@ const hero = {
 const services = [
   {
     id: "service-1",
-    label: "长期价值",
+    label: "品牌溯源",
     image: "/static/banlan/home/service-01.jpg",
     action: {
       type: "content",
@@ -93,7 +93,7 @@ const services = [
   },
   {
     id: "service-2",
-    label: "中国制造",
+    label: "风向纪事",
     image: "/static/banlan/home/service-02.jpg",
     action: {
       type: "content",
@@ -102,7 +102,7 @@ const services = [
   },
   {
     id: "service-3",
-    label: "十年质保",
+    label: "尊享服务",
     image: "/static/banlan/home/service-03.jpg",
     action: {
       type: "content",
@@ -111,7 +111,7 @@ const services = [
   },
   {
     id: "service-4",
-    label: "5星服务",
+    label: "臻护指南",
     image: "/static/banlan/home/service-04.jpg",
     action: {
       type: "route",
@@ -120,7 +120,7 @@ const services = [
   }
 ];
 const store = {
-  city: "广州班兰",
+  city: "佛山御虎",
   label: "切换门店",
   arrowLabel: "〉",
   icon: "/static/banlan/icons/location.png",
@@ -134,7 +134,7 @@ const store = {
   }
 };
 const bestSellers = {
-  title: "最受欢迎的班兰作品",
+  title: "最受欢迎的御虎作品",
   subtitle: "BEST SELLERS",
   items: [
     {
@@ -276,7 +276,7 @@ const categories = [
     }
   }
 ];
-const categoryTitle = "班兰产品";
+const categoryTitle = "御虎产品";
 const diaries = {
   title: "新居日记",
   subtitle: "THEY AND THEIR BANLAN",
@@ -369,7 +369,7 @@ const show = {
   }
 };
 const about = {
-  title: "关于班兰",
+  title: "关于御虎",
   subtitle: "ABOUT BANLAN",
   displayTitle: "中和之美",
   viewAllLabel: "查看全部",
@@ -429,7 +429,7 @@ const news = {
     {
       id: "03ea0c51a57e44fea539666b3e083044",
       title: "解决问题的人｜一个不说假话的中国家具品牌如何生存？",
-      summary: "Banlan班兰所践行的“表里如一”",
+      summary: "Banlan御虎所践行的“表里如一”",
       buttonLabel: "查看全文",
       image: "/static/banlan/home/news-04.png",
       action: {

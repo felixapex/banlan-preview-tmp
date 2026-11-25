@@ -17,7 +17,7 @@ const header = {
 };
 const profile = {
   displayName: "小样盒子（钟）",
-  levelLabel: "班兰会员",
+  levelLabel: "御虎会员",
   avatar: "/static/banlan/mine/profile-avatar.png",
   levelIcon: "/static/banlan/mine/level-v1.png",
   action: {

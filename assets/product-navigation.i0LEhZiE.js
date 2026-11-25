@@ -1225,7 +1225,7 @@ const categories = [
   },
   {
     id: "89",
-    name: "班兰画廊",
+    name: "御虎画廊",
     children: [
       {
         id: "90",
@@ -1633,7 +1633,7 @@ const categories = [
     children: [
       {
         id: "101",
-        name: "逛逛班兰奥特莱斯",
+        name: "逛逛御虎奥特莱斯",
         action: {
           type: "product-list",
           target: "101"

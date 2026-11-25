@@ -39,7 +39,7 @@ const _sfc_main = {
         "data-page": "store-detail"
       }, {
         default: withCtx(() => [
-          createVNode(JourneyHeader, { title: "班兰店铺" }),
+          createVNode(JourneyHeader, { title: "御虎店铺" }),
           createVNode(_component_v_uni_swiper, {
             class: "store-gallery",
             circular: "",

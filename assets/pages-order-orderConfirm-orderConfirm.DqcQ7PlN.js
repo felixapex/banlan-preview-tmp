@@ -247,7 +247,7 @@ const _sfc_main = {
               }),
               createVNode(_component_v_uni_text, null, {
                 default: withCtx(() => [
-                  createTextVNode("我已阅读并同意《班兰云店铺在售产品购买须知》")
+                  createTextVNode("我已阅读并同意《御虎云店铺在售产品购买须知》")
                 ]),
                 _: 1
               })

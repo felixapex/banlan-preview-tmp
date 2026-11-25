@@ -21340,7 +21340,7 @@ function createPageBodyVNode(ctx) {
   );
 }
 const appId = "__UNI__BANLAN_DEMO";
-const appName = "班兰云店铺前端重建";
+const appName = "御虎云店铺前端重建";
 const appVersion = "0.1.0";
 const appVersionCode = "100";
 const debug = false;
@@ -21364,7 +21364,7 @@ window.wx = {};
 window.rpx2px = upx2px;
 const locales = /* @__PURE__ */ Object.assign({});
 const extend = Object.assign;
-window.__uniConfig = extend({ "globalStyle": { "backgroundColor": "#f4f4f2", "navigationBar": { "backgroundColor": "#ffffff", "titleText": "班兰云店铺", "type": "default", "titleColor": "#000000" }, "isNVue": false }, "compilerVersion": "5.34" }, {
+window.__uniConfig = extend({ "globalStyle": { "backgroundColor": "#f4f4f2", "navigationBar": { "backgroundColor": "#ffffff", "titleText": "御虎欢迎您", "type": "default", "titleColor": "#000000" }, "isNVue": false }, "compilerVersion": "5.34" }, {
   appId,
   appName,
   appVersion,

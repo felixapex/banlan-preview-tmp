@@ -49,7 +49,7 @@ const _sfc_main = {
             default: withCtx(() => [
               createVNode(_component_v_uni_text, null, {
                 default: withCtx(() => [
-                  createTextVNode("班兰正品验证")
+                  createTextVNode("御虎正品验证")
                 ]),
                 _: 1
               }),

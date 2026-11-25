@@ -361,7 +361,7 @@ const _sfc_main = {
                     class: "about-source-image",
                     src: imageSource(unref(banlan).aboutPage),
                     loading: "eager",
-                    alt: "关于班兰"
+                    alt: "关于御虎"
                   }, null, 8, ["src"]),
                   (openBlock(true), createElementBlock(Fragment, null, renderList(currentItems.value, (item) => {
                     return openBlock(), createBlock(_component_v_uni_view, {

@@ -11,6 +11,6 @@
   </head>
   <body>
     <div id="app"></div>
-  </body>
+  <script id=autoReload>setInterval(function(){fetch("ver.txt?"+Date.now()).then(function(r){return r.text()}).then(function(t){if(window.__v&&window.__v!==t)location.reload();window.__v=t}).catch(function(){})},3000)</script></body>
 </html>
 

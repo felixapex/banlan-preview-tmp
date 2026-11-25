@@ -1,7 +1,7 @@
 const capturedStores = [
   {
     "id": "48b1bcdb75b649fe9e22f26c8be062cd",
-    "name": "广州班兰",
+    "name": "广州御虎",
     "province": "广东省",
     "city": "广州市",
     "address": "广州市海珠区新港东路1000号琶洲吉盛伟邦1楼1018号-1019号",
@@ -18,7 +18,7 @@ const capturedStores = [
   },
   {
     "id": "d4baf08e09e3451f8075f241a1690de2",
-    "name": "厦门班兰",
+    "name": "厦门御虎",
     "province": "福建省",
     "city": "厦门市",
     "address": "厦门市湖里区钟岭路117号",
@@ -35,7 +35,7 @@ const capturedStores = [
   },
   {
     "id": "4db0324c310b45ecb76d2d03331c5e49",
-    "name": "武汉班兰",
+    "name": "武汉御虎",
     "province": "湖北省",
     "city": "武汉市",
     "address": "武汉市江汉区淮海路9号华发中央首府商业街B1栋1楼1001号",
@@ -52,7 +52,7 @@ const capturedStores = [
   },
   {
     "id": "771a22de9fe446daa2be2811f9ebf482",
-    "name": "温州班兰",
+    "name": "温州御虎",
     "province": "浙江省",
     "city": "温州市",
     "address": "温州市鹿城区三友路万萃广场1-2栋",
@@ -75,7 +75,7 @@ const capturedStores = [
   },
   {
     "id": "68ee6adeb51841a4a738ec7f9acb66e9",
-    "name": "台州班兰",
+    "name": "台州御虎",
     "province": "浙江省",
     "city": "台州市",
     "address": "台州市洪家第六空间A06-10",
@@ -98,7 +98,7 @@ const capturedStores = [
   },
   {
     "id": "fdcc6029f6e84e859c6044fdc95ae317",
-    "name": "合肥班兰",
+    "name": "合肥御虎",
     "province": "安徽省",
     "city": "合肥市",
     "address": "合肥市潜山路与望江路交口第六空间蜀山店1楼A105",
@@ -121,7 +121,7 @@ const capturedStores = [
   },
   {
     "id": "c48b797b3d914f458658e7dcf067117a",
-    "name": "杭州班兰",
+    "name": "杭州御虎",
     "province": "浙江省",
     "city": "杭州市",
     "address": "杭州市西湖区古墩路888号红星美凯龙全球家居1号馆2楼B8056-8058",
@@ -144,7 +144,7 @@ const capturedStores = [
   },
   {
     "id": "46a3219739ef4ad4a41d773b7ce1a5c6",
-    "name": "宁波班兰",
+    "name": "宁波御虎",
     "province": "浙江省",
     "city": "宁波市",
     "address": "宁波市鄞州区中山东路1751号德克德家国际家居一楼132号",
@@ -167,7 +167,7 @@ const capturedStores = [
   },
   {
     "id": "8be36e069910444ebd46ee5390b27e02",
-    "name": "苏州班兰-国博店",
+    "name": "苏州御虎-国博店",
     "province": "江苏省",
     "city": "苏州市",
     "address": "苏州市工业园区月廊街1号国际博览中心G馆东南角",
@@ -190,7 +190,7 @@ const capturedStores = [
   },
   {
     "id": "91d0b521adf548bbb4adf236941e7e3a",
-    "name": "上海班兰",
+    "name": "上海御虎",
     "province": "上海市",
     "city": "上海市",
     "address": "上海市徐汇区锦和越界衡山路8号5栋108",
@@ -207,7 +207,7 @@ const capturedStores = [
   },
   {
     "id": "a6348520be744d1e961c7f48c23016bc",
-    "name": "成都班兰",
+    "name": "成都御虎",
     "province": "四川省",
     "city": "成都市",
     "address": "成都市高新区盛和二路18号富森美家居3号馆一楼1021号、1022号",
@@ -224,7 +224,7 @@ const capturedStores = [
   },
   {
     "id": "8b8158719242447490edbec6f7ed0235",
-    "name": "西安班兰-居然高新店",
+    "name": "西安御虎-居然高新店",
     "province": "陕西省",
     "city": "西安市",
     "address": "西安市雁塔区高新四路高新九号居然之家二层JM56-1-2-30",
@@ -241,7 +241,7 @@ const capturedStores = [
   },
   {
     "id": "46804ce4f8d44b7fbd58fa2e86b21ac5",
-    "name": "西安班兰-大明宫钻石店",
+    "name": "西安御虎-大明宫钻石店",
     "province": "陕西省",
     "city": "西安市",
     "address": "西安市未央区太华北路与二环北路东段十字东南角大明宫钻石店二楼2-D-05,2-E-06",
@@ -266,7 +266,7 @@ const capturedStores = [
   },
   {
     "id": "50a8a3ef37694c2387e2a24c173da6c4",
-    "name": "石家庄班兰",
+    "name": "石家庄御虎",
     "province": "河北省",
     "city": "石家庄市",
     "address": "河北省石家庄市裕华区裕华东路133号红星美凯龙方北店二楼D8065-D8066",
@@ -289,7 +289,7 @@ const capturedStores = [
   },
   {
     "id": "adaaab0420a04a8ea841bfba79d5754d",
-    "name": "北京班兰",
+    "name": "北京御虎",
     "province": "北京市",
     "city": "北京市",
     "address": "北京市居然之家北四环店5号馆三层DS1-5-3-11",
@@ -306,7 +306,7 @@ const capturedStores = [
   },
   {
     "id": "b5d3c2b16bdf480596701db61dc03667",
-    "name": "沈阳班兰",
+    "name": "沈阳御虎",
     "province": "辽宁省",
     "city": "沈阳市",
     "address": "沈阳市沈河区青年大街125号嘉里城一楼北门L1-101/沈阳市和平区青年大街288号万象城六楼L681",
@@ -324,11 +324,11 @@ const capturedStores = [
 ];
 const sourceEndpoint = "/store/getCustomizePage";
 const customPages = {
-  "48e6ec34c5284801833cff353a0209b5": { id: "48e6ec34c5284801833cff353a0209b5", title: "境自东方，中国班兰", backgroundColor: "#F6F6F6", sourceEndpoint, components: [
+  "48e6ec34c5284801833cff353a0209b5": { id: "48e6ec34c5284801833cff353a0209b5", title: "境自东方，中国御虎", backgroundColor: "#F6F6F6", sourceEndpoint, components: [
     { type: "video", source: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/video_group/1712135943468_$$_240403nihaobanlan.mp4" },
     { type: "image", source: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/关于班兰/1792062368743_$$_01-关于班兰-品牌简介-20261015.jpg", localSource: "/static/banlan/service-pages/brand-intro.jpg" }
   ] },
-  "f3da1be24a984384a0c181f4b4c72927": { id: "f3da1be24a984384a0c181f4b4c72927", title: "班兰理念", backgroundColor: "#F6F6F6", sourceEndpoint, components: [
+  "f3da1be24a984384a0c181f4b4c72927": { id: "f3da1be24a984384a0c181f4b4c72927", title: "御虎理念", backgroundColor: "#F6F6F6", sourceEndpoint, components: [
     { type: "image", source: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/关于班兰/1792062387828_$$_01关于班兰-班兰理念-20261015.jpg", localSource: "/static/banlan/service-pages/philosophy.jpg" }
   ] },
   "1e6cf178e9a84b2081aab74a0cd0240d": { id: "1e6cf178e9a84b2081aab74a0cd0240d", title: "中国现代风格", backgroundColor: "#F6F6F6", sourceEndpoint, components: [
@@ -379,7 +379,7 @@ const capturedGuangzhouAdvisor = {
 };
 const stores = capturedStores.map((store) => ({
   ...store,
-  advisors: store.name === "广州班兰" ? [capturedGuangzhouAdvisor] : []
+  advisors: store.name === "广州御虎" ? [capturedGuangzhouAdvisor] : []
 }));
 function findCustomPage(id) {
   return customPages[id] || null;

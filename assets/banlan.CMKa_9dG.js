@@ -20,7 +20,7 @@ const tabs = [
   },
   {
     id: "about",
-    label: "关于班兰"
+    label: "关于御虎"
   }
 ];
 const layout = {
@@ -57,7 +57,7 @@ const content = {
     {
       id: "6203545ac45546048557c427478b79a7",
       title: "约翰·波森系列 餐桌",
-      summary: "三年前另一套房子就买了班兰，使用感受特别好，家具品质物超所值，这次家里翻新也选了班兰，一如既往的好品质！管家式服务，十分贴心，完全不用操心！给广州班兰小吴、孟茹点赞！五星好评！",
+      summary: "三年前另一套房子就买了御虎，使用感受特别好，家具品质物超所值，这次家里翻新也选了御虎，一如既往的好品质！管家式服务，十分贴心，完全不用操心！给广州御虎小吴、孟茹点赞！五星好评！",
       meta: "183****9999 · 12 赞 · 5 收藏",
       image: "/static/banlan/fans/show-01.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/晒单图片/1780298724539_$$_18312519999-约翰波森系列餐桌-01.jpg?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
@@ -78,7 +78,7 @@ const content = {
     {
       id: "b72594cca3934d939b9c5d680f0347dd",
       title: "四喜餐桌",
-      summary: "照片都拍不来的美，感觉到家的质感比展厅还好看，家人都很满意。感谢石家庄班兰雅茹的倾情服务，在送货到家后帮忙验货并打扫了卫生。这么热的天感谢安装师傅和雅茹。后期还会继续支持班兰品牌。",
+      summary: "照片都拍不来的美，感觉到家的质感比展厅还好看，家人都很满意。感谢石家庄御虎雅茹的倾情服务，在送货到家后帮忙验货并打扫了卫生。这么热的天感谢安装师傅和雅茹。后期还会继续支持御虎品牌。",
       meta: "150****1581 · 石家庄市 · 5 赞 · 2 收藏",
       image: "/static/banlan/fans/show-02.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/user_evaluate/9b26ec1e-688b-40b3-bbc2-3340ca141100?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
@@ -188,7 +188,7 @@ const content = {
     {
       id: "67501b5954c84023a38fda4dc13de86f",
       title: "芙蓉扶手椅",
-      summary: "不得不夸班兰，真的是中国家具制造业的标杆企业，本来进口品牌在考虑的，朋友说班兰还不错，就试着去了解，一路走下来到现在，确实没有失望过。祝福班兰早日进入世界一线序列",
+      summary: "不得不夸御虎，真的是中国家具制造业的标杆企业，本来进口品牌在考虑的，朋友说御虎还不错，就试着去了解，一路走下来到现在，确实没有失望过。祝福御虎早日进入世界一线序列",
       meta: "139****7533 · 台州市 · 10 赞 · 3 收藏",
       image: "/static/banlan/fans/show-07.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/user_evaluate/11f94b0e-d99c-4308-ba62-ba0fed6bdec1?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
@@ -252,7 +252,7 @@ const content = {
     {
       id: "e2e3498104bc428a992d4b11ebf5ee3d",
       title: "蝴蝶椅",
-      summary: "蝴蝶餐椅是的皮质非常细腻，颜色搭配我也很喜欢，做工和细节让人佩服，喜欢班兰品牌的做事态度\n",
+      summary: "蝴蝶餐椅是的皮质非常细腻，颜色搭配我也很喜欢，做工和细节让人佩服，喜欢御虎品牌的做事态度\n",
       meta: "139****5715 · 沈阳市 · 25 赞 · 7 收藏",
       image: "/static/banlan/fans/show-10.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/user_evaluate/5ae3ed5a-dcae-40bf-8328-ba2208a36718?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
@@ -274,7 +274,7 @@ const content = {
     {
       id: "45993af0fe90402186b073bc390368d4",
       title: "云杉沙发",
-      summary: "太喜欢云杉沙发了，皮质一看就很高级，坐感特别舒适，我选的是米灰色，大气，很耐看。之前逛了很多个品牌，一直拿不定主意，后来在台州班兰店里一眼就相中了这款云杉沙发，有一种“蓦然回首，那人却在灯火阑珊处”的欣喜。",
+      summary: "太喜欢云杉沙发了，皮质一看就很高级，坐感特别舒适，我选的是米灰色，大气，很耐看。之前逛了很多个品牌，一直拿不定主意，后来在台州御虎店里一眼就相中了这款云杉沙发，有一种“蓦然回首，那人却在灯火阑珊处”的欣喜。",
       meta: "185****0963 · 58 赞 · 25 收藏",
       image: "/static/banlan/fans/show-11.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/晒单图片/1615976107492_$$_18505860963云杉沙发-01.png?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
@@ -296,7 +296,7 @@ const content = {
     {
       id: "17ca6ab3a32c440e9d5a671371850939",
       title: "如意沙发",
-      summary: "从网上了解到班兰的，从北京驱车到石家庄展厅，展厅的氛围和格调很静谧，服务体验很棒，不虚此行。设计顾问雅茹老师很专业，从家具款式搭配到尺寸 颜色的规划很好看，真诚靠谱，家具的工艺细节做的很考究。我人在北京，就一开始去过一次石家庄，后来的尺寸和清单都是雅茹负责搭配和布局，我们微信沟通，效率很高，认真负责，送货的时候雅茹和店长还过来北京送货，送货时候拆包和安装，服务很到位，卫生和现场的保护都能看出来他们的认真负责。班兰的服务很贴心，从产品细节能感受到这个品牌是在认真做事情。",
+      summary: "从网上了解到御虎的，从北京驱车到石家庄展厅，展厅的氛围和格调很静谧，服务体验很棒，不虚此行。设计顾问雅茹老师很专业，从家具款式搭配到尺寸 颜色的规划很好看，真诚靠谱，家具的工艺细节做的很考究。我人在北京，就一开始去过一次石家庄，后来的尺寸和清单都是雅茹负责搭配和布局，我们微信沟通，效率很高，认真负责，送货的时候雅茹和店长还过来北京送货，送货时候拆包和安装，服务很到位，卫生和现场的保护都能看出来他们的认真负责。御虎的服务很贴心，从产品细节能感受到这个品牌是在认真做事情。",
       meta: "186****3332 · 北京市 · 53 赞 · 26 收藏",
       image: "/static/banlan/fans/show-12.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/user_evaluate/a77f8c33-d5cc-4494-b8b4-697ad261d623?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
@@ -325,7 +325,7 @@ const content = {
     {
       id: "89bd1bf642044823b79fbf55305a0033",
       title: "楼兰沙发",
-      summary: "看上班兰的楼兰沙发好多年了啊 一直担心自己的小屋子挤不进大尺度班兰 迟迟没敢出手 今年看到新款楼兰 实在太太喜欢 顾不上尺度果断出手 选了这个钴兰色 颜值爆到没朋友了🤪 尺度也完全没嫌弃我的小屋子 做工 品质就不赘述了 里里外外 上上下下 尽显大牌的精细和高级 ",
+      summary: "看上御虎的楼兰沙发好多年了啊 一直担心自己的小屋子挤不进大尺度御虎 迟迟没敢出手 今年看到新款楼兰 实在太太喜欢 顾不上尺度果断出手 选了这个钴兰色 颜值爆到没朋友了🤪 尺度也完全没嫌弃我的小屋子 做工 品质就不赘述了 里里外外 上上下下 尽显大牌的精细和高级 ",
       meta: "139****4426 · 广州市 · 40 赞 · 11 收藏",
       image: "/static/banlan/fans/show-13.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/user_evaluate/e503f542-7173-48d5-89fc-2b219f4e1791?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
@@ -394,7 +394,7 @@ const content = {
     {
       id: "4686d376cf514dbdbdc1929b09ec2aed",
       title: "十方餐桌",
-      summary: "确定十方餐桌之前已经在另外一家定了餐桌，看到十方以后果断退了选择班兰，细节、质感经得住反复对比。送货时候这么长的餐桌一整个架子来的，非常稳固，师傅们都很负责任用心，班兰的细节 越了解越满意，内在别有洞天。已经考虑入手其他家具了，感谢石家庄班兰雅茹搭配顾问，家里面的搭配操了不少心，餐厅的方案就改了三版，最后效果果然出彩！",
+      summary: "确定十方餐桌之前已经在另外一家定了餐桌，看到十方以后果断退了选择御虎，细节、质感经得住反复对比。送货时候这么长的餐桌一整个架子来的，非常稳固，师傅们都很负责任用心，御虎的细节 越了解越满意，内在别有洞天。已经考虑入手其他家具了，感谢石家庄御虎雅茹搭配顾问，家里面的搭配操了不少心，餐厅的方案就改了三版，最后效果果然出彩！",
       meta: "131****9789 · 衡水市 · 32 赞 · 12 收藏",
       image: "/static/banlan/fans/show-16.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/user_evaluate/10cc8ad2-585b-42b1-826c-97f09855c552?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
@@ -417,7 +417,7 @@ const content = {
     {
       id: "7f0af35252c44f138476240c5a575a8f",
       title: "沉香沙发",
-      summary: "之前家里一直用进口品牌，本来是计划去广州看进口品牌的，后来朋友推荐来到石家庄班兰看了一眼决定不费那个事了。沉香沙发严丝合缝以及完美细节符合我对家具的要求，面料高级又有质感，总之喜欢。",
+      summary: "之前家里一直用进口品牌，本来是计划去广州看进口品牌的，后来朋友推荐来到石家庄御虎看了一眼决定不费那个事了。沉香沙发严丝合缝以及完美细节符合我对家具的要求，面料高级又有质感，总之喜欢。",
       meta: "159****5666 · 石家庄市 · 31 赞 · 13 收藏",
       image: "/static/banlan/fans/show-17.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/user_evaluate/97c71acc-9f96-48eb-9bbf-31fe81a8aad2?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
@@ -441,7 +441,7 @@ const content = {
     {
       id: "481c50dcff244f5cabb863e1a7ffec00",
       title: "云杉沙发",
-      summary: "【品牌真实感受】\n确认交付时间后花了大半年的跑展厅 既喜欢现代家具简单随性也喜欢中式家具的沉稳大气。展厅的参观体验感都很不错 但就是没办法确定要哪一个风格， 毕竟是自己的第一套房舒适 耐看 环保一个都不能少 。一次偶然经过， 透过班兰的大落地窗看到了一个个完整空间的家具展示，在传统中式家具的底色上兼容了现代家具的利落线条，大气不刻板，随意有细节。嗯，这是我想要的家的样子\n【产品感受】\n班兰不只是填充空间好看的物件，沙发体验感与动辄几十万的国外高溢价品牌相差无几，这归功于班兰工艺精细，选材讲究（原材料供应商行业顶级）。舒适是我选择家具的首要指标，而舒适的的最高级是完全放松，这样的用料和工艺带来的是满满的安全感\n【打动点】\n销售小白专业的带我了解品牌，确认需求，考虑风格，最后找到了最适合我家的单品，感谢！另外班兰承诺的十年质保也是对我购买欲的完全激发，毕竟这么大件东西出了质量问题还是挺让人头疼的",
+      summary: "【品牌真实感受】\n确认交付时间后花了大半年的跑展厅 既喜欢现代家具简单随性也喜欢中式家具的沉稳大气。展厅的参观体验感都很不错 但就是没办法确定要哪一个风格， 毕竟是自己的第一套房舒适 耐看 环保一个都不能少 。一次偶然经过， 透过御虎的大落地窗看到了一个个完整空间的家具展示，在传统中式家具的底色上兼容了现代家具的利落线条，大气不刻板，随意有细节。嗯，这是我想要的家的样子\n【产品感受】\n御虎不只是填充空间好看的物件，沙发体验感与动辄几十万的国外高溢价品牌相差无几，这归功于御虎工艺精细，选材讲究（原材料供应商行业顶级）。舒适是我选择家具的首要指标，而舒适的的最高级是完全放松，这样的用料和工艺带来的是满满的安全感\n【打动点】\n销售小白专业的带我了解品牌，确认需求，考虑风格，最后找到了最适合我家的单品，感谢！另外御虎承诺的十年质保也是对我购买欲的完全激发，毕竟这么大件东西出了质量问题还是挺让人头疼的",
       meta: "136****0596 · 31 赞 · 8 收藏",
       image: "/static/banlan/fans/show-18.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/晒单图片/1609289037763_$$_13626810596云杉沙发501.jpg?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
@@ -464,7 +464,7 @@ const content = {
     {
       id: "886c1757b93d419b949d4ef0cfa905ab",
       title: "紫藤扶手椅",
-      summary: "从19年筹备新家开始，陆陆续续在班兰买了好几件，作为一个合格的书呆子一直迷恋图书馆的那张大桌子所营造的一起学习的氛围，这种诉求在大雅身上得到了充分满足。之后又慢慢配置了书架 边桌还有这次为老爸买的扶手椅 扶手椅的出现让空调本命的我也能在窗边安静吹着自然风坐下看书小憩。感谢中华好销售婷婷这三年的陪伴，她对班兰的认同也带着我们一点点对这个牌子痴迷。说来奇怪，一直对中式风格嗤之以鼻的我居然觉得班兰的风格能通过色彩的变化和各种风格的家融为一体，希望我们的广州制造中国制造能越走越远，再有就是希望今后有更大的房子可以全部买班兰哈哈",
+      summary: "从19年筹备新家开始，陆陆续续在御虎买了好几件，作为一个合格的书呆子一直迷恋图书馆的那张大桌子所营造的一起学习的氛围，这种诉求在大雅身上得到了充分满足。之后又慢慢配置了书架 边桌还有这次为老爸买的扶手椅 扶手椅的出现让空调本命的我也能在窗边安静吹着自然风坐下看书小憩。感谢中华好销售婷婷这三年的陪伴，她对御虎的认同也带着我们一点点对这个牌子痴迷。说来奇怪，一直对中式风格嗤之以鼻的我居然觉得御虎的风格能通过色彩的变化和各种风格的家融为一体，希望我们的广州制造中国制造能越走越远，再有就是希望今后有更大的房子可以全部买御虎哈哈",
       meta: "135****6362 · 广州市 · 30 赞 · 12 收藏",
       image: "/static/banlan/fans/show-19.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/user_evaluate/5b185132-ad4c-449c-851c-8a895425a0be?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
@@ -486,7 +486,7 @@ const content = {
     {
       id: "d6465846df6241008e70698f6bbbcb4b",
       title: "楼兰沙发",
-      summary: "家具是设计师推荐的，来店里看了之后当是觉得销售很专业，产品细节也很不错。家里是精装修改造，风格很适合，沙发坐了后发现确实舒适，木质皮质细腻。这套家具是在三亚用的，班兰服务很好，送货并且安装，最惊喜的是连销售也到了，忙了整整两天，到家里的时候所有连同软装都陈列完成，很满意，朋友买家具一定也会推荐的！",
+      summary: "家具是设计师推荐的，来店里看了之后当是觉得销售很专业，产品细节也很不错。家里是精装修改造，风格很适合，沙发坐了后发现确实舒适，木质皮质细腻。这套家具是在三亚用的，御虎服务很好，送货并且安装，最惊喜的是连销售也到了，忙了整整两天，到家里的时候所有连同软装都陈列完成，很满意，朋友买家具一定也会推荐的！",
       meta: "152****7089 · 三亚市 · 29 赞 · 4 收藏",
       image: "/static/banlan/fans/show-20.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/user_evaluate/bd3026db-e7d3-416a-a656-9d9e5db6a5d7?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
@@ -509,7 +509,7 @@ const content = {
     {
       id: "bf78c22fb6b74db9af7db264931c6cfc",
       title: "韩轶",
-      summary: "班兰合作设计师，以克制的线条和真实材料回应当代生活。",
+      summary: "御虎合作设计师，以克制的线条和真实材料回应当代生活。",
       meta: "BANLAN DESIGNER",
       image: "/static/banlan/fans/designer-01.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/BANLAN%E8%AE%BE%E8%AE%A1%E5%B8%88/1704807564426_$$_%E8%AE%BE%E8%AE%A1%E5%B8%88-%E9%9F%A9%E8%BD%B6.%E4%B8%80%E7%BA%A7.jpg?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
@@ -526,7 +526,7 @@ const content = {
     {
       id: "1ebf2d3ae30b4f7aad1f624ca9ff06f5",
       title: "John Pawson",
-      summary: "班兰合作设计师，以克制的线条和真实材料回应当代生活。",
+      summary: "御虎合作设计师，以克制的线条和真实材料回应当代生活。",
       meta: "BANLAN DESIGNER",
       image: "/static/banlan/fans/designer-02.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/BANLAN%E8%AE%BE%E8%AE%A1%E5%B8%88/1704793246781_$$_%E8%AE%BE%E8%AE%A1%E5%B8%88-02.John%20Pawson%E4%B8%80%E7%BA%A7.jpg?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
@@ -543,7 +543,7 @@ const content = {
     {
       id: "52e08a7a575342b487ddc38f964549c5",
       title: "Nicola Gallizia",
-      summary: "班兰合作设计师，以克制的线条和真实材料回应当代生活。",
+      summary: "御虎合作设计师，以克制的线条和真实材料回应当代生活。",
       meta: "BANLAN DESIGNER",
       image: "/static/banlan/fans/designer-03.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/BANLAN%E8%AE%BE%E8%AE%A1%E5%B8%88/1704807564397_$$_%E8%AE%BE%E8%AE%A1%E5%B8%88-Nicola%20Gallizia%20%E4%B8%80%E7%BA%A7.jpg?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
@@ -560,7 +560,7 @@ const content = {
     {
       id: "c46283b502d6414d86ca255c81f3dfda",
       title: "Luca Nichetto",
-      summary: "班兰合作设计师，以克制的线条和真实材料回应当代生活。",
+      summary: "御虎合作设计师，以克制的线条和真实材料回应当代生活。",
       meta: "BANLAN DESIGNER",
       image: "/static/banlan/fans/designer-04.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/BANLAN%E8%AE%BE%E8%AE%A1%E5%B8%88/1704807564364_$$_%E8%AE%BE%E8%AE%A1%E5%B8%88-Luca%20Nichetto.%E4%B8%80%E7%BA%A7.jpg?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
@@ -577,7 +577,7 @@ const content = {
     {
       id: "7e035fe1621c48aeaca7e8b12f61efd5",
       title: "BUKStudio",
-      summary: "班兰合作设计师，以克制的线条和真实材料回应当代生活。",
+      summary: "御虎合作设计师，以克制的线条和真实材料回应当代生活。",
       meta: "BANLAN DESIGNER",
       image: "/static/banlan/fans/designer-05.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/BANLAN%E8%AE%BE%E8%AE%A1%E5%B8%88/1704807564331_$$_%E8%AE%BE%E8%AE%A1%E5%B8%88-BUKStudio.%E4%B8%80%E7%BA%A7.jpg?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
@@ -699,7 +699,7 @@ const content = {
     },
     {
       id: "738dc63d6be247c992e5cdb160aed2a7",
-      title: "简牍，班兰 x John Pawson首个户外家具系列正式上市",
+      title: "简牍，御虎 x John Pawson首个户外家具系列正式上市",
       summary: "欢迎进入「简牍」的第一天",
       meta: "2026-08-21",
       image: "/static/banlan/fans/news-04.jpg",
@@ -717,7 +717,7 @@ const content = {
     {
       id: "03ea0c51a57e44fea539666b3e083044",
       title: "解决问题的人｜一个不说假话的中国家具品牌如何生存？",
-      summary: "Banlan班兰所践行的“表里如一”",
+      summary: "Banlan御虎所践行的“表里如一”",
       meta: "2025-07-12",
       image: "/static/banlan/fans/news-05.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E6%96%B0%E9%B2%9C%E4%BA%8B/1752336260500_$$_%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98%E7%9A%84%E4%BA%BA%E5%B0%81%E9%9D%A2.png?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
@@ -767,8 +767,8 @@ const content = {
     },
     {
       id: "2aeb97a1aaff4ea8a8ce4810b64aad49",
-      title: "简洁与丰盈 | 班兰2026全新皮革系列焕新上市",
-      summary: "班兰2026全新O级皮革系列，将陆续于各展厅亮相，诚邀你亲临体验。",
+      title: "简洁与丰盈 | 御虎2026全新皮革系列焕新上市",
+      summary: "御虎2026全新O级皮革系列，将陆续于各展厅亮相，诚邀你亲临体验。",
       meta: "2025-11-28",
       image: "/static/banlan/fans/news-08.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E6%96%B0%E9%B2%9C%E4%BA%8B/1764384717287_$$_O%E7%BA%A7%E7%9A%AE%E9%9D%A9%E4%B8%8A%E5%B8%82-%E5%B0%81%E9%9D%A2.png?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
@@ -784,7 +784,7 @@ const content = {
     },
     {
       id: "c0fcf46772a541dd88c42ec7cc98d0fe",
-      title: "班兰 武汉",
+      title: "御虎 武汉",
       summary: "家的书写，也在这座城市继续展开",
       meta: "2026-04-03",
       image: "/static/banlan/fans/news-09.jpg",
@@ -801,8 +801,8 @@ const content = {
     },
     {
       id: "ae5267b51c8f415e9ab91d2dc40a4fcb",
-      title: "成都，班兰“光盒子”",
-      summary: "邀您走进成都的烟火巷陌，感受班兰的“光盒子”",
+      title: "成都，御虎“光盒子”",
+      summary: "邀您走进成都的烟火巷陌，感受御虎的“光盒子”",
       meta: "2026-02-26",
       image: "/static/banlan/fans/news-10.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E6%96%B0%E9%B2%9C%E4%BA%8B/1772073978627_$$_%E5%B0%81%E9%9D%A2-%E6%88%90%E9%83%BD%E6%90%AC%E8%BF%81-260226.png?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
@@ -821,13 +821,13 @@ const content = {
     {
       id: "brand-story",
       title: "品牌介绍",
-      summary: "境自东方，中国班兰。",
+      summary: "境自东方，中国御虎。",
       customPageId: "48e6ec34c5284801833cff353a0209b5",
       hotspot: {
         topRpx: 700,
         rightRpx: 0
       },
-      meta: "关于班兰",
+      meta: "关于御虎",
       image: "/static/banlan/fans/about-page.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0/1792062412046_$$_01.%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0-20261015.jpg?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
       originalImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0/1792062412046_$$_01.%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0-20261015.jpg",
@@ -842,14 +842,14 @@ const content = {
     },
     {
       id: "philosophy",
-      title: "班兰理念",
+      title: "御虎理念",
       summary: "OUR PHILOSOPHY",
       customPageId: "f3da1be24a984384a0c181f4b4c72927",
       hotspot: {
         topRpx: 1180,
         rightRpx: 0
       },
-      meta: "关于班兰",
+      meta: "关于御虎",
       image: "/static/banlan/fans/about-page.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0/1792062412046_$$_01.%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0-20261015.jpg?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
       originalImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0/1792062412046_$$_01.%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0-20261015.jpg",
@@ -865,13 +865,13 @@ const content = {
     {
       id: "modern-chinese",
       title: "中国现代风格",
-      summary: "班兰对中国现代生活方式的持续探索。",
+      summary: "御虎对中国现代生活方式的持续探索。",
       customPageId: "1e6cf178e9a84b2081aab74a0cd0240d",
       hotspot: {
         topRpx: 2100,
         rightRpx: 0
       },
-      meta: "关于班兰",
+      meta: "关于御虎",
       image: "/static/banlan/fans/about-page.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0/1792062412046_$$_01.%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0-20261015.jpg?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
       originalImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0/1792062412046_$$_01.%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0-20261015.jpg",
@@ -894,7 +894,7 @@ const content = {
         topRpx: 3670,
         leftRpx: 30
       },
-      meta: "关于班兰",
+      meta: "关于御虎",
       image: "/static/banlan/fans/about-page.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0/1792062412046_$$_01.%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0-20261015.jpg?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
       originalImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0/1792062412046_$$_01.%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0-20261015.jpg",
@@ -917,7 +917,7 @@ const content = {
         topRpx: 3670,
         leftRpx: 300
       },
-      meta: "关于班兰",
+      meta: "关于御虎",
       image: "/static/banlan/fans/about-page.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0/1792062412046_$$_01.%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0-20261015.jpg?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
       originalImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0/1792062412046_$$_01.%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0-20261015.jpg",
@@ -940,7 +940,7 @@ const content = {
         topRpx: 3670,
         rightRpx: 0
       },
-      meta: "关于班兰",
+      meta: "关于御虎",
       image: "/static/banlan/fans/about-page.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0/1792062412046_$$_01.%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0-20261015.jpg?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
       originalImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0/1792062412046_$$_01.%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0-20261015.jpg",
@@ -963,7 +963,7 @@ const content = {
         topRpx: 3930,
         leftRpx: 30
       },
-      meta: "关于班兰",
+      meta: "关于御虎",
       image: "/static/banlan/fans/about-page.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0/1792062412046_$$_01.%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0-20261015.jpg?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
       originalImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0/1792062412046_$$_01.%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0-20261015.jpg",
@@ -986,7 +986,7 @@ const content = {
         topRpx: 3930,
         leftRpx: 300
       },
-      meta: "关于班兰",
+      meta: "关于御虎",
       image: "/static/banlan/fans/about-page.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0/1792062412046_$$_01.%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0-20261015.jpg?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
       originalImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0/1792062412046_$$_01.%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0-20261015.jpg",
@@ -1009,7 +1009,7 @@ const content = {
         topRpx: 3930,
         rightRpx: 0
       },
-      meta: "关于班兰",
+      meta: "关于御虎",
       image: "/static/banlan/fans/about-page.jpg",
       remoteImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0/1792062412046_$$_01.%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0-20261015.jpg?x-oss-process=image/resize,w_720/quality,q_74/format,jpg",
       originalImage: "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0/1792062412046_$$_01.%E5%85%B3%E4%BA%8E%E7%8F%AD%E5%85%B0-20261015.jpg",
