@@ -1,6 +1,7 @@
 const GOLD = "#9E815D";
 const GRADES = [["D", 10], ["C", 13], ["B", 16], ["A", 19], ["A+", 22]];
 const MATS = [["full", "全皮"], ["half", "半皮"], ["imit", "半仿真"]];
+let IMIT = "半仿真";
 const yuan = (n) => "¥" + Math.round(n).toLocaleString("zh-CN");
 const css = `
 .yc{padding:0 0 1rem;font-size:.875rem;color:#111}
@@ -28,6 +29,7 @@ const css = `
 .yc-grid{display:grid;gap:.375rem}
 .yc-chip{border:.03125rem solid #ccc;border-radius:.25rem;padding:.5rem .125rem;text-align:center;font-size:.75rem}
 .yc-chip.on{border:.0625rem solid #C9AE85;color:${GOLD}}
+.yc-chip.off{color:#bbb;border-color:#eee}
 .yc-seat{display:flex;align-items:center;gap:.625rem}
 .yc-seat img{width:2.5rem;height:2.5rem;object-fit:contain;background:#fafafa}
 .yc-col{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-top:.5rem}
@@ -45,11 +47,18 @@ export function defaultState(cfg) {
 }
 function seatPrice(cfg, i, s) {
   const seat = cfg.seats[i];
-  if (s.mat === "imit") return seat.imit;
-  return s.mat && s.grade ? seat[s.mat][s.grade] : 0;
+  if (s.mat === "imit") return seat.imit || 0;
+  return s.mat && s.grade ? (seat[s.mat] && seat[s.mat][s.grade]) || 0 : 0;
+}
+function rawElec(cfg, s) {
+  return s.q.reduce((a, n, i) => a + (cfg.seats[i].electric ? n : 0), 0);
+}
+function fixedN(cfg, s) {
+  const r = rawElec(cfg, s);
+  return Math.min(r, cfg.options.reduce((a, o, k) => a + (o.kind === "fixed" ? s.o[k] || 0 : 0), 0));
 }
 function elecSeats(cfg, s) {
-  return s.q.reduce((a, n, i) => a + (cfg.seats[i].electric ? n : 0), 0);
+  return rawElec(cfg, s) - fixedN(cfg, s);
 }
 function powerTier(es) {
   if (es === 1) return { name: "1拖1电源", price: 0 };
@@ -72,6 +81,7 @@ function optPrice(cfg, s, k) {
 }
 function optQty(cfg, s, k) {
   if (cfg.options[k].kind === "power") return s.o[k] && powerTier(elecSeats(cfg, s)) ? elecSeats(cfg, s) : 0;
+  if (cfg.options[k].kind === "fixed") return Math.min(s.o[k], rawElec(cfg, s));
   return cfg.options[k].unit === "位" ? Math.min(s.o[k], elecSeats(cfg, s)) : s.o[k];
 }
 function pwCounts(cfg, s) {
@@ -94,21 +104,35 @@ export function total(cfg, s) {
   t += pwCost(cfg, s);
   return t;
 }
+function mainSeats(cfg) {
+  const e = cfg.seats.filter((x) => x.electric);
+  return e.length ? e : cfg.seats.filter((x) => !x.armrest);
+}
+function gAvail(cfg, mat, r) {
+  return mainSeats(cfg).some((x) => x[mat] && x[mat][r] > 0);
+}
+function mAvail(cfg, k) {
+  return k === "imit" ? mainSeats(cfg).some((x) => x.imit > 0) : GRADES.some(([, r]) => gAvail(cfg, k, r));
+}
 function gradeName(s) {
   const g = GRADES.find((x) => x[1] === s.grade);
-  return s.mat === "imit" ? "半仿真" : `${s.mat === "full" ? "全皮" : "半皮"} ${g[0]}级 ${g[1]}元/尺`;
+  return s.mat === "imit" ? IMIT : `${s.mat === "full" ? "全皮" : "半皮"} ${g[0]}级 ${g[1]}元/尺`;
 }
 export function validate(cfg, s) {
+  IMIT = cfg.imitName || "半仿真";
   if (!s.q.some(Boolean)) return "请选择款型";
   if (!s.mat || (s.mat !== "imit" && !s.grade)) return "请选择面料";
   if (s.mat !== "imit" && cfg.colors.some((c) => c.grade === s.grade) && !s.color) return "请选择颜色";
   if (cfg.power && elecSeats(cfg, s) && pwCap(cfg, s) !== elecSeats(cfg, s)) return `电源合计${pwCap(cfg, s)}位，电动座位${elecSeats(cfg, s)}位，请调整`;
+  const np = cfg.seats.find((x, i) => s.q[i] && !seatPrice(cfg, i, s));
+  if (np && s.mat && (s.mat === "imit" || s.grade)) return `${np.desc}暂无该面料价格，请咨询产品顾问`;
   if (cfg.power && pwBig(cfg, s) && !s.pwNote.trim()) return "请填写出线口位置";
   const pk = cfg.options.findIndex((o) => o.kind === "power");
   if (pk >= 0 && optQty(cfg, s, pk) && elecSeats(cfg, s) > 1 && !s.q.some((n, i) => n && cfg.seats[i].electric && cfg.seats[i].desc === s.outlet)) return "请选择出线口位置";
   return "";
 }
 export function cartLine(product, s) {
+  IMIT = product.config.imitName || "半仿真";
   const cfg = product.config;
   const seats = cfg.seats.map((x, i) => ({ desc: x.desc, qty: s.q[i], unit: seatPrice(cfg, i, s), L: x.L, W: x.W, H: x.H, func: x.func, img: x.img })).filter((x) => x.qty);
   const setIdx = cfg.sets.findIndex((st) => { const w = cfg.seats.map(() => 0); st.seats.forEach(([i, n]) => (w[i] = n)); return w.join() === s.q.join(); });
@@ -143,6 +167,7 @@ export function mountConfig(el, product, s) {
   if (!el || el.dataset.mounted) return;
   el.dataset.mounted = "1";
   const cfg = product.config;
+  IMIT = cfg.imitName || "半仿真";
   if (!document.getElementById("yc-style")) {
     const st = document.createElement("style");
     st.id = "yc-style";
@@ -165,9 +190,9 @@ export function mountConfig(el, product, s) {
     const nOpt = cfg.options.filter((o, k) => optQty(cfg, s, k)).length;
     const seatsBody = `<div class="yc-grid" style="grid-template-columns:repeat(${cfg.sets.length},1fr);margin-bottom:.25rem">${cfg.sets.map((x, k) => `<div class="yc-chip ${setHit === x ? "on" : ""}" data-set="${k}">${x.name}</div>`).join("")}</div>
 ${cfg.seats.map((x, i) => `<div class="yc-row ${s.q[i] ? "sel" : ""}"><div class="yc-seat">${x.img ? `<img src="${x.img}">` : `<img style="visibility:hidden">`}<div>${x.desc}<div class="yc-sub">${x.L ? `${x.L}×${x.W}×${x.H} · ` : ""}${x.func}${seatPrice(cfg, i, s) ? " · " + yuan(seatPrice(cfg, i, s)) : ""}</div></div></div><div class="yc-st"><b data-q="${i}" data-d="-1">−</b><i>${s.q[i]}</i><b data-q="${i}" data-d="1">+</b></div></div>`).join("")}`;
-    const matBody = `<div class="yc-grid" style="grid-template-columns:repeat(3,1fr);margin-top:.25rem">${MATS.map(([k, n]) => `<div class="yc-chip ${s.mat === k ? "on" : ""}" data-mat="${k}">${n}</div>`).join("")}</div>
+    const matBody = `<div class="yc-grid" style="grid-template-columns:repeat(3,1fr);margin-top:.25rem">${MATS.map(([k, n]) => (n = k === "imit" ? IMIT : n, mAvail(cfg, k)) ? `<div class="yc-chip ${s.mat === k ? "on" : ""}" data-mat="${k}">${n}</div>` : `<div class="yc-chip off">${n}<div class="yc-sub">详询顾问</div></div>`).join("")}</div>
 ${!s.mat || s.mat === "imit" ? "" : `<div class="yc-h">皮料等级</div>
-<div class="yc-grid" style="grid-template-columns:repeat(5,1fr)">${GRADES.map(([g, r]) => `<div class="yc-chip ${s.grade === r ? "on" : ""}" data-grade="${r}">${g}<div class="yc-sub">${r}元/尺</div></div>`).join("")}</div>
+<div class="yc-grid" style="grid-template-columns:repeat(5,1fr)">${GRADES.map(([g, r]) => gAvail(cfg, s.mat, r) ? `<div class="yc-chip ${s.grade === r ? "on" : ""}" data-grade="${r}">${g}<div class="yc-sub">${r}元/尺</div></div>` : `<div class="yc-chip off">${g}<div class="yc-sub">详询</div></div>`).join("")}</div>
 ${s.grade ? `<div class="yc-sub" style="margin-top:.5rem">${cfg.gradeNotes[s.grade] || ""}</div>
 <div class="yc-h">颜色选择</div>
 ${colors.length ? `<div class="yc-col">${colors.map((c) => `<div class="${s.color === c.name ? "on" : ""}" data-color="${c.name}"><img src="${c.image}">${c.name}</div>`).join("")}</div>` : `<div class="yc-sub">颜色请与产品顾问确认</div>`}` : ""}`}`;
@@ -175,7 +200,7 @@ ${colors.length ? `<div class="yc-col">${colors.map((c) => `<div class="${s.colo
     const optBody = `<div class="yc-h" style="margin-top:.25rem">基础配置（已包含）</div>${std.length ? `<div class="yc-std">${std.map((x) => `<div>✓ ${x.name}${x.qty ? ` ×${x.qty}` : ""}</div>`).join("")}</div>` : `<div class="yc-sub" style="margin-bottom:.5rem">选择款型后显示基础配置</div>`}${cfg.power && es ? `<div class="yc-h">电源配置 <span style="font-weight:400;font-size:.75rem;color:${pwCap(cfg, s) === es ? "#999" : "#c0392b"}">电源合计${pwCap(cfg, s)}位 / 电动座位${es}位</span>${s.pw ? '<span data-pwreset style="float:right;font-weight:400;font-size:.75rem;color:#999;text-decoration:underline">恢复默认</span>' : ""}</div>${cfg.power.map((p, i) => `<div class="yc-row ${pwCounts(cfg, s)[i] ? "sel" : ""}"><div class="yc-seat"><div>${p.name}<div class="yc-sub">${p.price}元/个 · 带${p.n}位</div></div></div><div class="yc-st"><b data-pw="${i}" data-d="-1">−</b><i>${pwCounts(cfg, s)[i]}</i><b data-pw="${i}" data-d="1">+</b></div></div>`).join("")}${pwBig(cfg, s) ? `<div style="padding:.5rem 0 .75rem"><div class="yc-sub" style="margin-bottom:.375rem">出线口位置（必填）</div><input class="yc-ta" style="min-height:0;height:2.25rem" data-pwnote value="${s.pwNote.replace(/"/g, "&quot;")}" placeholder="例如：左扶手一位"></div>` : ""}` : ""}<div class="yc-h">选配</div>${cfg.options.map((o, k) => { const pw = o.kind === "power", tier = pw ? powerTier(es) : null, off = pw && !tier; const sub = off ? (es ? "超过7位电动，请咨询产品顾问" : "选择电动座位后可选") : `${optPrice(cfg, s, k)}元/${o.unit}${o.unit === "位" ? " · 按电动座位计" : ""}`; return `<div class="yc-row ${optQty(cfg, s, k) ? "sel" : ""}" ${off ? 'style="opacity:.45"' : ""}><div class="yc-seat">${o.image ? `<img src="${o.image}">` : `<img style="visibility:hidden">`}<div>${optName(cfg, s, k)}<div class="yc-sub">${sub}</div></div></div><div class="yc-st"><b data-o="${k}" data-d="-1">−</b><i>${optQty(cfg, s, k)}</i><b data-o="${k}" data-d="1">+</b></div></div>${pw && optQty(cfg, s, k) && es > 1 ? `<div style="padding:.5rem 0 .75rem"><div class="yc-sub" style="margin-bottom:.375rem">出线口位置（必选）</div><div class="yc-grid" style="grid-template-columns:repeat(3,1fr)">${cfg.seats.map((x, i) => s.q[i] && x.electric ? `<div class="yc-chip ${s.outlet === x.desc ? "on" : ""}" data-outlet="${x.desc}">${x.desc}</div>` : "").join("")}</div></div>` : ""}`; }).join("")}`;
     el.innerHTML = `<div class="yc">
 ${sec("seats", "款型选择", seatLabel, seatsBody)}
-${sec("mat", "面料选择", s.mat === "imit" ? "半仿真" : (s.grade && (s.color || !colors.length) ? gradeName(s).split(" ").slice(0, 2).join("") + (s.color ? " · " + s.color : "") : ""), matBody)}
+${sec("mat", "面料选择", s.mat === "imit" ? IMIT : (s.grade && (s.color || !colors.length) ? gradeName(s).split(" ").slice(0, 2).join("") + (s.color ? " · " + s.color : "") : ""), matBody)}
 ${sec("opt", "功能配件", !nSeat ? "" : nOpt ? `基础配置 + ${nOpt}项` : "基础配置", optBody)}
 ${sec("mod", "改版需求", s.mod.trim() ? "已填写" : "无", `<textarea class="yc-ta" data-mod placeholder="如需改版请写明，例如：中几尺寸减少5公分；扶手外侧改为牛皮">${s.mod.replace(/</g, "&lt;")}</textarea><div class="yc-sub" style="margin-top:.375rem">改版价格由产品顾问确认，不计入合计</div>`)}
 <div class="yc-tot">${!nSeat ? "请选择款型" : !priced ? "请选择面料后显示价格" : lines.join("<br>")}<div class="yc-sum"><span>合计</span><span>${nSeat && priced ? yuan(total(cfg, s)) : "—"}</span></div></div>
@@ -206,6 +231,7 @@ ${sec("mod", "改版需求", s.mod.trim() ? "已填写" : "无", `<textarea clas
     else if (d.o) {
       s.optSet = true;
       const k = +d.o, per = cfg.options[k].unit === "位", es = elecSeats(cfg, s), cur = per ? Math.min(s.o[k], es) : s.o[k];
+      if (cfg.options[k].kind === "fixed") { s.o[k] = Math.max(0, Math.min((s.o[k] || 0) + +d.d, rawElec(cfg, s))); s.pw = null; draw(); return; }
       if (cfg.options[k].kind === "power") { s.o[k] = +d.d > 0 && powerTier(es) ? es : 0; if (!s.o[k]) s.outlet = ""; draw(); return; }
       s.o[k] = per ? (+d.d > 0 ? (cur ? Math.min(cur + 1, es) : es) : Math.max(0, cur - 1)) : Math.max(0, cur + +d.d);
     }

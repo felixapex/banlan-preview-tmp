@@ -22,7 +22,7 @@ const _sfc_main = {
       }
       return null;
     });
-    const visibleProducts = computed(() => runtimeProducts.filter((product) => String(product.category.id) === ({"yh1c": "77", "yh2c": "77", "yh3c": "77", "yh4c": "48", "yh5c": "76", "yh6c": "48", "yh7c": "77", "yh8c": "56", "yh9c": "121", "yh10c": "121"}[cid.value] || cid.value)));
+    const visibleProducts = computed(() => runtimeProducts.filter((product) => String(product.category.navigationId || "") + "c" === cid.value));
     const categoryName = computed(() => {
       var _a;
       return ((_a = childCategory.value) == null ? void 0 : _a.name) || requestedName.value || "产品";
@@ -221,7 +221,7 @@ const _sfc_main = {
             class: "empty-state"
           }, {
             default: withCtx(() => [
-              createTextVNode("这 50 件已采集商品中暂无“" + toDisplayString(categoryName.value) + "”商品", 1)
+              createTextVNode(toDisplayString(categoryName.value) + "系列即将上线，欢迎咨询产品顾问", 1)
             ]),
             _: 1
           })) : createCommentVNode("", true),

@@ -43,3 +43,5 @@
 .product-list-page[data-v-0b97860a] { box-shadow: 0 0 30px rgba(0,0,0,.12);
 }
 }
+
+.main-image-view>uni-text[data-v-0b97860a]{display:none}

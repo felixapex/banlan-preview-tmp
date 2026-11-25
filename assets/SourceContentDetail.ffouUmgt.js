@@ -108,7 +108,8 @@ const _sfc_main = {
                     createTextVNode(toDisplayString(item.value.summary), 1)
                   ]),
                   _: 1
-                })
+                }),
+                ...(item.value.body || []).map((t, i) => createVNode("p", { key: "b" + i, class: "body-p", style: "margin:0.9rem 0 0;color:#4e4c49;font-size:0.875rem;line-height:1.9" }, t))
               ]),
               _: 1
             })

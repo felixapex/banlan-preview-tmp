@@ -51,9 +51,9 @@ const categories = [
           "target": "yh1c"
         },
         "image": {
-          "localPath": "/static/banlan/category/category-37-77-card.jpg",
+          "localPath": "/static/yuhu/category/yh1-card.jpg",
           "sourcePath": "mp-banlan-product/产品分类列表页/1605854217858_$$_沙发.jpg",
-          "sourceUrl": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E4%BA%A7%E5%93%81%E5%88%86%E7%B1%BB%E5%88%97%E8%A1%A8%E9%A1%B5/1605854217858_%24%24_%E6%B2%99%E5%8F%91.jpg",
+          "sourceUrl": "",
           "sha256": "33a4a8aa8095b639067dccca8892f27c953cc3c658f087799dcf1a4e23eb41b5",
           "bytes": 143613,
           "resourceStatus": "frozen",
@@ -68,9 +68,9 @@ const categories = [
           "objectPosition": "50% 50%"
         },
         "heroImage": {
-          "localPath": "/static/banlan/category/category-37-77-hero.jpg",
+          "localPath": "/static/yuhu/category/yh1-hero.jpg",
           "sourcePath": "mp-banlan-product/产品二级类别BANNER图/1605853880870_$$_沙发.jpg",
-          "sourceUrl": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E4%BA%A7%E5%93%81%E4%BA%8C%E7%BA%A7%E7%B1%BB%E5%88%ABBANNER%E5%9B%BE/1605853880870_%24%24_%E6%B2%99%E5%8F%91.jpg",
+          "sourceUrl": "",
           "sha256": "0db0ec647a3c4097480adfd3b8a5d67fb076c82526d06f6a2e0e997c70167843",
           "bytes": 226860,
           "resourceStatus": "frozen",
@@ -109,9 +109,9 @@ const categories = [
           "target": "yh2c"
         },
         "image": {
-          "localPath": "/static/banlan/category/category-37-77-card.jpg",
+          "localPath": "/static/yuhu/category/yh2-card.jpg",
           "sourcePath": "mp-banlan-product/产品分类列表页/1605854217858_$$_沙发.jpg",
-          "sourceUrl": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E4%BA%A7%E5%93%81%E5%88%86%E7%B1%BB%E5%88%97%E8%A1%A8%E9%A1%B5/1605854217858_%24%24_%E6%B2%99%E5%8F%91.jpg",
+          "sourceUrl": "",
           "sha256": "33a4a8aa8095b639067dccca8892f27c953cc3c658f087799dcf1a4e23eb41b5",
           "bytes": 143613,
           "resourceStatus": "frozen",
@@ -126,9 +126,9 @@ const categories = [
           "objectPosition": "50% 50%"
         },
         "heroImage": {
-          "localPath": "/static/banlan/category/category-37-77-hero.jpg",
+          "localPath": "/static/yuhu/category/yh2-hero.jpg",
           "sourcePath": "mp-banlan-product/产品二级类别BANNER图/1605853880870_$$_沙发.jpg",
-          "sourceUrl": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E4%BA%A7%E5%93%81%E4%BA%8C%E7%BA%A7%E7%B1%BB%E5%88%ABBANNER%E5%9B%BE/1605853880870_%24%24_%E6%B2%99%E5%8F%91.jpg",
+          "sourceUrl": "",
           "sha256": "0db0ec647a3c4097480adfd3b8a5d67fb076c82526d06f6a2e0e997c70167843",
           "bytes": 226860,
           "resourceStatus": "frozen",
@@ -167,9 +167,9 @@ const categories = [
           "target": "yh3c"
         },
         "image": {
-          "localPath": "/static/banlan/category/category-37-77-card.jpg",
+          "localPath": "/static/yuhu/category/yh3-card.jpg",
           "sourcePath": "mp-banlan-product/产品分类列表页/1605854217858_$$_沙发.jpg",
-          "sourceUrl": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E4%BA%A7%E5%93%81%E5%88%86%E7%B1%BB%E5%88%97%E8%A1%A8%E9%A1%B5/1605854217858_%24%24_%E6%B2%99%E5%8F%91.jpg",
+          "sourceUrl": "",
           "sha256": "33a4a8aa8095b639067dccca8892f27c953cc3c658f087799dcf1a4e23eb41b5",
           "bytes": 143613,
           "resourceStatus": "frozen",
@@ -184,9 +184,9 @@ const categories = [
           "objectPosition": "50% 50%"
         },
         "heroImage": {
-          "localPath": "/static/banlan/category/category-37-77-hero.jpg",
+          "localPath": "/static/yuhu/category/yh3-hero.jpg",
           "sourcePath": "mp-banlan-product/产品二级类别BANNER图/1605853880870_$$_沙发.jpg",
-          "sourceUrl": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E4%BA%A7%E5%93%81%E4%BA%8C%E7%BA%A7%E7%B1%BB%E5%88%ABBANNER%E5%9B%BE/1605853880870_%24%24_%E6%B2%99%E5%8F%91.jpg",
+          "sourceUrl": "",
           "sha256": "0db0ec647a3c4097480adfd3b8a5d67fb076c82526d06f6a2e0e997c70167843",
           "bytes": 226860,
           "resourceStatus": "frozen",
@@ -225,9 +225,9 @@ const categories = [
           "target": "yh4c"
         },
         "image": {
-          "localPath": "/static/banlan/category/category-38-48-card.jpg",
+          "localPath": "/static/yuhu/category/yh4-card.jpg",
           "sourcePath": "mp-banlan-product/产品分类列表页/1605854217672_$$_扶手椅.jpg",
-          "sourceUrl": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E4%BA%A7%E5%93%81%E5%88%86%E7%B1%BB%E5%88%97%E8%A1%A8%E9%A1%B5/1605854217672_%24%24_%E6%89%B6%E6%89%8B%E6%A4%85.jpg",
+          "sourceUrl": "",
           "sha256": "0e64f27e478701688270b04e1a6589304a595be99c93ab11dc334588aaed62b3",
           "bytes": 141614,
           "resourceStatus": "frozen",
@@ -242,9 +242,9 @@ const categories = [
           "objectPosition": "50% 50%"
         },
         "heroImage": {
-          "localPath": "/static/banlan/category/category-38-48-hero.jpg",
+          "localPath": "/static/yuhu/category/yh4-hero.jpg",
           "sourcePath": "mp-banlan-product/产品二级类别BANNER图/1605853880685_$$_扶手椅.jpg",
-          "sourceUrl": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E4%BA%A7%E5%93%81%E4%BA%8C%E7%BA%A7%E7%B1%BB%E5%88%ABBANNER%E5%9B%BE/1605853880685_%24%24_%E6%89%B6%E6%89%8B%E6%A4%85.jpg",
+          "sourceUrl": "",
           "sha256": "cd6de5b729dcb5bc3dd1e9a2fa5e2603dd725d2db04eedf3d015945fe72f1e0c",
           "bytes": 219664,
           "resourceStatus": "frozen",
@@ -283,9 +283,9 @@ const categories = [
           "target": "yh5c"
         },
         "image": {
-          "localPath": "/static/banlan/category/category-51-76-card.jpg",
+          "localPath": "/static/yuhu/category/yh5-card.jpg",
           "sourcePath": "mp-banlan-product/产品分类列表页/1705385608421_$$_04.床20240116.jpg",
-          "sourceUrl": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E4%BA%A7%E5%93%81%E5%88%86%E7%B1%BB%E5%88%97%E8%A1%A8%E9%A1%B5/1705385608421_%24%24_04.%E5%BA%8A20240116.jpg",
+          "sourceUrl": "",
           "sha256": "8114f350f405c623d5666a75b5d5b3c4831b57593bda41088fe318d66b3cbb0b",
           "bytes": 108330,
           "resourceStatus": "frozen",
@@ -300,9 +300,9 @@ const categories = [
           "objectPosition": "50% 50%"
         },
         "heroImage": {
-          "localPath": "/static/banlan/category/category-51-76-hero.jpg",
+          "localPath": "/static/yuhu/category/yh5-hero.jpg",
           "sourcePath": "mp-banlan-product/产品二级类别置顶图/1705385635829_$$_04.床202401.jpg",
-          "sourceUrl": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E4%BA%A7%E5%93%81%E4%BA%8C%E7%BA%A7%E7%B1%BB%E5%88%AB%E7%BD%AE%E9%A1%B6%E5%9B%BE/1705385635829_%24%24_04.%E5%BA%8A202401.jpg",
+          "sourceUrl": "",
           "sha256": "df493df2bf8ac3935d08ecbac2b77b219be0cd1f9842b83e99ed6b1b0ebf92f8",
           "bytes": 145015,
           "resourceStatus": "frozen",
@@ -341,9 +341,9 @@ const categories = [
           "target": "yh6c"
         },
         "image": {
-          "localPath": "/static/banlan/category/category-38-48-card.jpg",
+          "localPath": "/static/yuhu/category/yh6-card.jpg",
           "sourcePath": "mp-banlan-product/产品分类列表页/1605854217672_$$_扶手椅.jpg",
-          "sourceUrl": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E4%BA%A7%E5%93%81%E5%88%86%E7%B1%BB%E5%88%97%E8%A1%A8%E9%A1%B5/1605854217672_%24%24_%E6%89%B6%E6%89%8B%E6%A4%85.jpg",
+          "sourceUrl": "",
           "sha256": "0e64f27e478701688270b04e1a6589304a595be99c93ab11dc334588aaed62b3",
           "bytes": 141614,
           "resourceStatus": "frozen",
@@ -358,9 +358,9 @@ const categories = [
           "objectPosition": "50% 50%"
         },
         "heroImage": {
-          "localPath": "/static/banlan/category/category-38-48-hero.jpg",
+          "localPath": "/static/yuhu/category/yh6-hero.jpg",
           "sourcePath": "mp-banlan-product/产品二级类别BANNER图/1605853880685_$$_扶手椅.jpg",
-          "sourceUrl": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E4%BA%A7%E5%93%81%E4%BA%8C%E7%BA%A7%E7%B1%BB%E5%88%ABBANNER%E5%9B%BE/1605853880685_%24%24_%E6%89%B6%E6%89%8B%E6%A4%85.jpg",
+          "sourceUrl": "",
           "sha256": "cd6de5b729dcb5bc3dd1e9a2fa5e2603dd725d2db04eedf3d015945fe72f1e0c",
           "bytes": 219664,
           "resourceStatus": "frozen",
@@ -399,9 +399,9 @@ const categories = [
           "target": "yh7c"
         },
         "image": {
-          "localPath": "/static/banlan/category/category-37-77-card.jpg",
+          "localPath": "/static/yuhu/category/yh7-card.jpg",
           "sourcePath": "mp-banlan-product/产品分类列表页/1605854217858_$$_沙发.jpg",
-          "sourceUrl": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E4%BA%A7%E5%93%81%E5%88%86%E7%B1%BB%E5%88%97%E8%A1%A8%E9%A1%B5/1605854217858_%24%24_%E6%B2%99%E5%8F%91.jpg",
+          "sourceUrl": "",
           "sha256": "33a4a8aa8095b639067dccca8892f27c953cc3c658f087799dcf1a4e23eb41b5",
           "bytes": 143613,
           "resourceStatus": "frozen",
@@ -416,9 +416,9 @@ const categories = [
           "objectPosition": "50% 50%"
         },
         "heroImage": {
-          "localPath": "/static/banlan/category/category-37-77-hero.jpg",
+          "localPath": "/static/yuhu/category/yh7-hero.jpg",
           "sourcePath": "mp-banlan-product/产品二级类别BANNER图/1605853880870_$$_沙发.jpg",
-          "sourceUrl": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E4%BA%A7%E5%93%81%E4%BA%8C%E7%BA%A7%E7%B1%BB%E5%88%ABBANNER%E5%9B%BE/1605853880870_%24%24_%E6%B2%99%E5%8F%91.jpg",
+          "sourceUrl": "",
           "sha256": "0db0ec647a3c4097480adfd3b8a5d67fb076c82526d06f6a2e0e997c70167843",
           "bytes": 226860,
           "resourceStatus": "frozen",
@@ -457,9 +457,9 @@ const categories = [
           "target": "yh8c"
         },
         "image": {
-          "localPath": "/static/banlan/category/category-53-56-card.jpg",
+          "localPath": "/static/yuhu/category/yh8-card.jpg",
           "sourcePath": "mp-banlan-product/产品分类列表页/1704788314108_$$_06.桌几.几202401.jpg",
-          "sourceUrl": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E4%BA%A7%E5%93%81%E5%88%86%E7%B1%BB%E5%88%97%E8%A1%A8%E9%A1%B5/1704788314108_%24%24_06.%E6%A1%8C%E5%87%A0.%E5%87%A0202401.jpg",
+          "sourceUrl": "",
           "sha256": "6afa9f2e1f4b852aeafcc202801327f39b679a5209a977edb09c474243497a28",
           "bytes": 102043,
           "resourceStatus": "frozen",
@@ -474,9 +474,9 @@ const categories = [
           "objectPosition": "50% 50%"
         },
         "heroImage": {
-          "localPath": "/static/banlan/category/category-53-56-hero.jpg",
+          "localPath": "/static/yuhu/category/yh8-hero.jpg",
           "sourcePath": "mp-banlan-product/产品二级类别置顶图/1704791981991_$$_二级-桌几.几202401.jpg",
-          "sourceUrl": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E4%BA%A7%E5%93%81%E4%BA%8C%E7%BA%A7%E7%B1%BB%E5%88%AB%E7%BD%AE%E9%A1%B6%E5%9B%BE/1704791981991_%24%24_%E4%BA%8C%E7%BA%A7-%E6%A1%8C%E5%87%A0.%E5%87%A0202401.jpg",
+          "sourceUrl": "",
           "sha256": "4694f802a221c779d3f7ec9e77f44c8b8a627bd5d7dc399cd241df40def27152",
           "bytes": 161807,
           "resourceStatus": "frozen",
@@ -515,9 +515,9 @@ const categories = [
           "target": "yh9c"
         },
         "image": {
-          "localPath": "/static/banlan/category/category-120-121-card.jpg",
+          "localPath": "/static/yuhu/category/yh9-card.jpg",
           "sourcePath": "mp-banlan-product/产品分类列表页/1787275690888_$$_一级类别-20260821新品.jpg",
-          "sourceUrl": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E4%BA%A7%E5%93%81%E5%88%86%E7%B1%BB%E5%88%97%E8%A1%A8%E9%A1%B5/1787275690888_%24%24_%E4%B8%80%E7%BA%A7%E7%B1%BB%E5%88%AB-20260821%E6%96%B0%E5%93%81.jpg",
+          "sourceUrl": "",
           "sha256": "293725369cd39c2d86852badc65cdc8cce7ba398677d942e9f8c6810fa918fa0",
           "bytes": 241118,
           "resourceStatus": "frozen",
@@ -532,9 +532,9 @@ const categories = [
           "objectPosition": "50% 50%"
         },
         "heroImage": {
-          "localPath": "/static/banlan/category/category-120-121-hero.jpg",
+          "localPath": "/static/yuhu/category/yh9-hero.jpg",
           "sourcePath": "mp-banlan-product/产品二级类别置顶图/1788924811683_$$_二级类别置顶图-2026新品.jpg",
-          "sourceUrl": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E4%BA%A7%E5%93%81%E4%BA%8C%E7%BA%A7%E7%B1%BB%E5%88%AB%E7%BD%AE%E9%A1%B6%E5%9B%BE/1788924811683_%24%24_%E4%BA%8C%E7%BA%A7%E7%B1%BB%E5%88%AB%E7%BD%AE%E9%A1%B6%E5%9B%BE-2026%E6%96%B0%E5%93%81.jpg",
+          "sourceUrl": "",
           "sha256": "39e346702718f33e1107ee8339858e602e7ef1081cc3a034b359c0d6e6f2ecac",
           "bytes": 409562,
           "resourceStatus": "frozen",
@@ -573,9 +573,9 @@ const categories = [
           "target": "yh10c"
         },
         "image": {
-          "localPath": "/static/banlan/category/category-120-121-card.jpg",
+          "localPath": "/static/yuhu/category/yh10-card.jpg",
           "sourcePath": "mp-banlan-product/产品分类列表页/1787275690888_$$_一级类别-20260821新品.jpg",
-          "sourceUrl": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E4%BA%A7%E5%93%81%E5%88%86%E7%B1%BB%E5%88%97%E8%A1%A8%E9%A1%B5/1787275690888_%24%24_%E4%B8%80%E7%BA%A7%E7%B1%BB%E5%88%AB-20260821%E6%96%B0%E5%93%81.jpg",
+          "sourceUrl": "",
           "sha256": "293725369cd39c2d86852badc65cdc8cce7ba398677d942e9f8c6810fa918fa0",
           "bytes": 241118,
           "resourceStatus": "frozen",
@@ -590,9 +590,9 @@ const categories = [
           "objectPosition": "50% 50%"
         },
         "heroImage": {
-          "localPath": "/static/banlan/category/category-120-121-hero.jpg",
+          "localPath": "/static/yuhu/category/yh10-hero.jpg",
           "sourcePath": "mp-banlan-product/产品二级类别置顶图/1788924811683_$$_二级类别置顶图-2026新品.jpg",
-          "sourceUrl": "https://mp-banlan-product.oss-cn-shenzhen.aliyuncs.com/mp-banlan-product/%E4%BA%A7%E5%93%81%E4%BA%8C%E7%BA%A7%E7%B1%BB%E5%88%AB%E7%BD%AE%E9%A1%B6%E5%9B%BE/1788924811683_%24%24_%E4%BA%8C%E7%BA%A7%E7%B1%BB%E5%88%AB%E7%BD%AE%E9%A1%B6%E5%9B%BE-2026%E6%96%B0%E5%93%81.jpg",
+          "sourceUrl": "",
           "sha256": "39e346702718f33e1107ee8339858e602e7ef1081cc3a034b359c0d6e6f2ecac",
           "bytes": 409562,
           "resourceStatus": "frozen",

@@ -14,6 +14,25 @@ const _sfc_main = {
       cardBackground: "/static/banlan/stores/advisor-card-bg.png",
       chat: "/static/banlan/stores/chat-guide.png"
     };
+    const qr = ref("");
+    const qrName = ref("");
+    const nav = ref(0);
+    function openMap(kind) {
+      const a = encodeURIComponent(store.value.address);
+      const u = { amap: "https://uri.amap.com/search?keyword=" + a + "&callnative=1", baidu: "https://api.map.baidu.com/geocoder?address=" + a + "&output=html&src=yuhu", qq: "https://apis.map.qq.com/uri/v1/search?keyword=" + a + "&referer=yuhu" }[kind];
+      nav.value = 0;
+      window.open(u, "_blank") || (location.href = u);
+    }
+    function copyAddr() {
+      const t = store.value.address;
+      const x = document.createElement("textarea");
+      x.value = t; x.setAttribute("readonly", ""); x.style.cssText = "position:fixed;opacity:0";
+      document.body.appendChild(x); x.select(); x.setSelectionRange(0, t.length);
+      let ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
+      x.remove();
+      if (!ok && navigator.clipboard) navigator.clipboard.writeText(t).catch(() => {});
+      nav.value = 2; setTimeout(() => { nav.value = 0; }, 1200);
+    }
     const store = computed(() => findStore(storeId.value));
     function storeImageSources(item) {
       let sources = item.images;
@@ -69,12 +88,11 @@ const _sfc_main = {
                 ]),
                 _: 1
               }),
-              createVNode(_component_v_uni_text, { class: "store-distance" }, {
-                default: withCtx(() => [
-                  createTextVNode("⌖距离--")
-                ]),
-                _: 1
-              }),
+              createVNode("span", {
+                class: "store-distance",
+                style: "color:#9E815D;cursor:pointer",
+                onClick: () => { nav.value = 1; }
+              }, "⌖ 导航到店 ›"),
               createVNode(_component_v_uni_text, { class: "store-hours" }, {
                 default: withCtx(() => [
                   createTextVNode("营业时间：" + toDisplayString(store.value.serviceHours), 1)
@@ -148,15 +166,16 @@ const _sfc_main = {
                         }, 1024),
                         createVNode(_component_v_uni_text, { class: "advisor-meta" }, {
                           default: withCtx(() => [
-                            createTextVNode(advisor.constellation ? "星座:" + toDisplayString(advisor.constellation) + " | 属相:" + toDisplayString(advisor.zodiac) : "影院沙发 · 功能沙发", 1)
+                            createTextVNode(advisor.constellation ? "星座:" + toDisplayString(advisor.constellation) + " | 属相:" + toDisplayString(advisor.zodiac) : advisor.tag || "影院沙发 · 功能沙发", 1)
                           ]),
                           _: 2
                         }, 1024),
-                        createVNode(_component_v_uni_image, {
+                        createVNode("img", {
                           class: "chat-icon",
-                          src: advisorAssets.chat,
-                          mode: "aspectFit"
-                        }, null, 8, ["src"])
+                          src: "./static/banlan/stores/chat-guide.png",
+                          style: "object-fit:contain;cursor:pointer",
+                          onClick: () => { qrName.value = advisor.name; qr.value = advisor.wx || ""; }
+                        }, null, 8, ["src", "onClick"])
                       ]),
                       _: 2
                     }, 1024),
@@ -188,7 +207,41 @@ const _sfc_main = {
               }), 128))
             ]),
             _: 1
-          })
+          }),
+          nav.value ? (openBlock(), createElementBlock("div", {
+            key: "nav" + nav.value,
+            style: "position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.45);display:flex;align-items:flex-end",
+            onClick: () => { nav.value = 0; }
+          }, [
+            createVNode("div", {
+              style: "background:#fff;border-radius:14px 14px 0 0;width:100%;text-align:center",
+              onClick: (e) => e.stopPropagation()
+            }, nav.value === 2 ? [
+              createVNode("div", { style: "padding:28px 0;font-size:15px;color:#9E815D" }, "地址已复制")
+            ] : [
+              createVNode("div", { style: "padding:16px 20px 12px;font-size:13px;color:#888;line-height:1.5" }, store.value.address, 1),
+              createVNode("div", { style: "padding:15px 0;font-size:16px;color:#222;border-top:1px solid #f0f0f0;cursor:pointer", onClick: () => openMap("amap") }, "高德地图"),
+              createVNode("div", { style: "padding:15px 0;font-size:16px;color:#222;border-top:1px solid #f0f0f0;cursor:pointer", onClick: () => openMap("baidu") }, "百度地图"),
+              createVNode("div", { style: "padding:15px 0;font-size:16px;color:#222;border-top:1px solid #f0f0f0;cursor:pointer", onClick: () => openMap("qq") }, "腾讯地图"),
+              createVNode("div", { style: "padding:15px 0;font-size:16px;color:#222;border-top:1px solid #f0f0f0;cursor:pointer", onClick: copyAddr }, "复制地址"),
+              createVNode("div", { style: "padding:15px 0;font-size:16px;color:#9E815D;border-top:8px solid #f5f5f5;cursor:pointer", onClick: () => { nav.value = 0; } }, "取消")
+            ])
+          ])) : createCommentVNode("", true),
+          qr.value ? (openBlock(), createElementBlock("div", {
+            key: "qr",
+            style: "position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center",
+            onClick: () => { qr.value = ""; }
+          }, [
+            createVNode("div", {
+              style: "background:#fff;border-radius:12px;padding:24px 24px 18px;width:240px;text-align:center",
+              onClick: (e) => e.stopPropagation()
+            }, [
+              createVNode("div", { style: "font-size:16px;font-weight:600;color:#222;margin-bottom:14px" }, "添加" + qrName.value + "的微信", 1),
+              createVNode("img", { src: qr.value, style: "width:200px;height:200px;display:block;margin:0 auto" }, null, 8, ["src"]),
+              createVNode("div", { style: "font-size:13px;color:#888;margin:12px 0 14px" }, "长按识别二维码，添加好友"),
+              createVNode("div", { style: "font-size:14px;color:#9E815D;border-top:1px solid #eee;padding-top:12px;cursor:pointer", onClick: () => { qr.value = ""; } }, "关闭")
+            ])
+          ])) : createCommentVNode("", true)
         ]),
         _: 1
       });

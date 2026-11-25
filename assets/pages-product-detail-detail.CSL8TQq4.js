@@ -908,8 +908,10 @@ const _sfc_main = {
       return ((_a2 = selectedCombination.value) == null ? void 0 : _a2.priceYuan) ?? ((_b2 = product.value) == null ? void 0 : _b2.priceYuan) ?? 0;
     });
     const engagement = computed(() => {
-      var _a2;
-      return ((_a2 = product.value) == null ? void 0 : _a2.engagement) ?? null;
+      const p = product.value;
+      if (!p) return null;
+      const recs = runtimeProducts.filter((x) => x.id !== p.id && String(x.id).startsWith("yuhu-")).slice(0, 6).map((x) => ({ id: x.id, title: x.title, image: x.coverImage, imageRemoteUrl: "", priceYuan: x.priceYuan }));
+      return { source: { recommendations: { status: "captured" }, reviews: { status: "captured" } }, recommendations: recs, reviews: { total: 0, captured: 0, complete: true, items: [] } };
     });
     function price(yuan) {
       return yuan > 0 ? `¥${Number(yuan).toLocaleString("zh-CN")}` : "价格咨询";
@@ -1156,7 +1158,7 @@ const _sfc_main = {
                 onClick: _cache[3] || (_cache[3] = ($event) => selectTab("cp"))
               }, {
                 default: withCtx(() => [
-                  createTextVNode("CP")
+                  createTextVNode("推荐")
                 ]),
                 _: 1
               }, 8, ["class"]),
@@ -1504,7 +1506,7 @@ const _sfc_main = {
                   default: withCtx(() => [
                     createVNode(_component_v_uni_text, { class: "block-title" }, {
                       default: withCtx(() => [
-                        createTextVNode("CP推荐")
+                        createTextVNode("相关推荐")
                       ]),
                       _: 1
                     }),

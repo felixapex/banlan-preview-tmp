@@ -34,15 +34,15 @@ const hero = {
     },
     {
       id: "hero-2",
-      image: "/static/banlan/home/hero-02.jpg",
+      image: "./static/yuhu/home/hero-2.jpg",
       action: {
         type: "content",
-        target: "50511af85d754294a5b38350c0613781"
+        target: "yuhu-store-custom"
       }
     },
     {
       id: "hero-3",
-      image: "/static/banlan/home/hero-03.jpg",
+      image: "./static/yuhu/home/hero-3.jpg",
       action: {
         type: "content",
         target: "48e6ec34c5284801833cff353a0209b5"
@@ -50,7 +50,7 @@ const hero = {
     },
     {
       id: "hero-4",
-      image: "/static/banlan/home/hero-04.jpg",
+      image: "./static/yuhu/home/hero-4.jpg",
       action: {
         type: "content",
         target: "affe4ffa063246f29e2a67f5e80e950c"
@@ -58,25 +58,26 @@ const hero = {
     },
     {
       id: "hero-5",
-      image: "/static/banlan/home/hero-05.png",
+      image: "./static/yuhu/home/hero-5.jpg",
       action: {
         type: "content",
-        target: "1ff2b94d40de4f21a33690f60ea71fc6"
+        target: "yuhu-store-factory"
       }
     },
     {
       id: "hero-6",
-      image: "/static/banlan/home/hero-06.jpg",
+      image: "./static/yuhu/home/hero-6.jpg",
       action: {
-        type: "none"
+        type: "route",
+        target: "/pages/category/category?category=yh4"
       }
     },
     {
       id: "hero-7",
-      image: "/static/banlan/home/hero-07.jpg",
+      image: "./static/yuhu/home/hero-7.jpg",
       action: {
         type: "content",
-        target: "59d4c00694184bf7a8fa0c3e4d636393"
+        target: "yuhu-store-cases"
       }
     }
   ]
@@ -134,67 +135,63 @@ const store = {
   }
 };
 const bestSellers = {
-  title: "最受欢迎的御虎作品",
-  subtitle: "BEST SELLERS",
-  items: [
+  "title": "最受欢迎的御虎作品",
+  "subtitle": "BEST SELLERS",
+  "items": [
     {
-      id: "yuhu-bs-2",
-      title: "弧形影厅沙发",
-      englishTitle: "CURVED THEATER SOFA",
-      priceCents: 215e4,
-      categoryNames: [
-        "2024新品",
-        "餐桌"
+      "id": "yuhu-g311",
+      "title": "G311 塔兰特",
+      "englishTitle": "TALENT",
+      "priceCents": 1880000,
+      "categoryNames": [
+        "影院沙发"
       ],
-      image: "/static/banlan/home/best-seller-02.jpg",
-      action: {
-        type: "product",
-        target: "yuhu-bs-2"
+      "image": "./static/yuhu/g311/main.jpg",
+      "action": {
+        "type": "product",
+        "target": "yuhu-g311"
       }
     },
     {
-      id: "yuhu-bs-1",
-      title: "影厅座椅 · 三人位",
-      englishTitle: "HOME THEATER SEATING",
-      priceCents: 289e4,
-      categoryNames: [
-        "户外",
-        "沙发",
-        "2026新品"
+      "id": "yuhu-g555",
+      "title": "G555 卡斯特罗",
+      "englishTitle": "CASTRO",
+      "priceCents": 2418500,
+      "categoryNames": [
+        "影院沙发"
       ],
-      image: "/static/banlan/home/best-seller-01.jpg",
-      action: {
-        type: "product",
-        target: "yuhu-bs-1"
+      "image": "./static/yuhu/models/g555.jpg",
+      "action": {
+        "type": "product",
+        "target": "yuhu-g555"
       }
     },
     {
-      id: "yuhu-bs-3",
-      title: "转角功能沙发",
-      englishTitle: "SECTIONAL RECLINER",
-      priceCents: 1914e3,
-      categoryNames: [
-        "床"
+      "id": "yuhu-g397",
+      "title": "G397 安德鲁",
+      "englishTitle": "ANDREW",
+      "priceCents": 2560000,
+      "categoryNames": [
+        "影院沙发"
       ],
-      image: "/static/banlan/home/best-seller-03.jpg",
-      action: {
-        type: "product",
-        target: "yuhu-bs-3"
+      "image": "./static/yuhu/models/g397.jpg",
+      "action": {
+        "type": "product",
+        "target": "yuhu-g397"
       }
     },
     {
-      id: "yuhu-bs-4",
-      title: "典藏功能沙发 · 三人位",
-      englishTitle: "POWER RECLINER SOFA",
-      priceCents: 204e4,
-      categoryNames: [
-        "2024新品",
-        "榻凳"
+      "id": "yuhu-rt168",
+      "title": "RT168 徽章",
+      "englishTitle": "EMBLEM",
+      "priceCents": 3540000,
+      "categoryNames": [
+        "影院沙发"
       ],
-      image: "/static/banlan/home/best-seller-04.jpg",
-      action: {
-        type: "product",
-        target: "yuhu-bs-4"
+      "image": "./static/yuhu/models/rt168.jpg",
+      "action": {
+        "type": "product",
+        "target": "yuhu-rt168"
       }
     }
   ]
@@ -398,7 +395,7 @@ const about = {
   subtitle: "ABOUT ROYAL TIGER",
   displayTitle: "让科技与艺术共生",
   viewAllLabel: "查看全部",
-  image: "/static/banlan/home/about.jpg",
+  image: "./static/yuhu/home-sketch.jpg",
   text: "将科技、智能与功能融入家居\n内核，专注墅级私人影院沙发\n与典藏级功能沙发。\n\n追寻舒适、机能与视觉之美，更是一种臻于理想的生活态度。",
   action: {
     type: "route",
