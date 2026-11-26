@@ -23,3 +23,9 @@
 }
 .capsule-circle uni-view[data-v-1ade62c4] { width: 0.25rem; height: 0.25rem; border-radius: 50%; background: var(--color-strong-ink);
 }
+
+/* 2026-11-26 胶囊统一照微信标准：导航高44、左右各7px、胶囊87×32、垂直居中 */
+.top-nav[data-v-1ade62c4]{height:2.75rem!important;padding:0 0.4375rem!important;box-sizing:border-box!important;align-items:center!important}
+.home-pill[data-v-1ade62c4],.wechat-capsule[data-v-1ade62c4]{height:2rem!important;transform:none!important;margin:0!important}
+.wechat-capsule[data-v-1ade62c4]{width:5.4375rem!important}
+.nav-title[data-v-1ade62c4]{transform:translateX(-50%)!important}

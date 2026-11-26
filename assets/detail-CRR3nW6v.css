@@ -160,3 +160,9 @@
 .spec-name[data-v-e8834f0d]{font-size:.9375rem;font-weight:500}
 .chevron[data-v-e8834f0d]{display:block;width:.375rem;height:.375rem;margin:0 auto;border-right:.09375rem solid #aaa;border-bottom:.09375rem solid #aaa;transform:translateY(-.125rem) rotate(45deg);font-size:0}
 .chevron.up[data-v-e8834f0d]{transform:translateY(.125rem) rotate(-135deg)}
+
+/* 2026-11-26 胶囊统一照微信标准：导航高44、左右各7px、胶囊87×32、垂直居中 */
+.detail-nav[data-v-e8834f0d]{height:2.75rem!important;padding:0 0.4375rem!important;box-sizing:border-box!important;align-items:center!important}
+.nav-left[data-v-e8834f0d],.wechat-capsule[data-v-e8834f0d]{height:2rem!important;transform:none!important;margin:0!important}
+.wechat-capsule[data-v-e8834f0d]{width:5.4375rem!important}
+.nav-title[data-v-e8834f0d]{transform:translateX(-50%)!important}

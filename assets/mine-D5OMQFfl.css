@@ -117,3 +117,6 @@
 .yh-hello[data-v-918e9f5e] { margin-top: 1.5rem; }
 .yh-grid[data-v-918e9f5e] { padding: 2rem 0 2.3rem; row-gap: 2rem; }
 .yh-banner-img[data-v-918e9f5e] { height: 12.4rem !important; }
+
+/* 2026-11-26 胶囊统一照微信标准 */
+.wechat-capsule[data-v-918e9f5e]{top:0.375rem!important;right:0.4375rem!important;width:5.4375rem!important;height:2rem!important}
