@@ -11,6 +11,10 @@ body{background:#2b2622 url(bg.webp) center/cover;padding:16px;display:flex;gap:
 .b:hover{background:#F5F6F7}.b.p{background:#0B36F4;border-color:#0B36F4;color:#fff;padding:0 18px}
 .acc{height:32px;border-radius:6px;display:flex;align-items:center;padding:0 12px;font-size:13px;cursor:pointer;border:1px dashed rgba(0,0,0,.28);color:#111;background:#fff}
 .acc:hover{background:#F5F6F7}.acc.on{border:1px solid #0B36F4;color:#0B36F4}
+.dd{position:relative}.ddt{height:32px;border-radius:6px;background:#fff;border:1px dashed rgba(0,0,0,.28);display:flex;align-items:center;gap:8px;padding:0 10px 0 12px;font-size:13px;color:#111;cursor:pointer;white-space:nowrap}.ddt:hover{background:#F5F6F7}
+.ddm{position:absolute;left:0;top:38px;z-index:41;min-width:190px;border-radius:6px;background:#fff;border:.87px solid rgba(0,0,0,.1);box-shadow:0 8px 28px rgba(0,0,0,.14);padding:6px 0;display:none}.ddm.open{display:block}
+.mi{height:34px;padding:0 14px;display:flex;align-items:center;font-size:13.5px;color:rgba(0,0,0,.75);cursor:pointer;white-space:nowrap}.mi:hover{background:#f4f4f4}.mi.on{background:#e6e6e6;color:#000}
+.ddc{position:fixed;inset:0;z-index:40;display:none}.ddc.open{display:block}
 .stage{flex:1;min-height:0;overflow:auto;display:flex;justify-content:center;align-items:flex-start;padding:12px 0 16px}
 .phone{flex:0 0 auto;width:375px;height:812px;margin:0;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.12);display:flex;flex-direction:column}
 .sbar{flex:0 0 44px;padding:0 22px 0 28px;display:flex;align-items:center;justify-content:space-between;font-size:14px;font-weight:600;color:#111}.sbar span{display:flex;gap:5px;align-items:center}
@@ -55,10 +59,10 @@ const L=(o,k)=>(o[k]=o[k]||[]);const now=()=>{const d=new Date(),p=n=>String(n).
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function toast(t){toast.el=document.getElementById('toast');toast.el.textContent=t;toast.el.style.display='block';clearTimeout(toast.h);toast.h=setTimeout(()=>toast.el.style.display='none',1800)}
 function render(){const a=app(),dr=L(D.drafts,a.id);
- tb.innerHTML=APPS.map(x=>`<div class="acc${x.id===a.id?' on':''}" data-a="${x.id}">${label(x)}</div>`).join('')+'<div style="flex:1"></div>'+(dr.length?`<div class="b" data-k="draft">草稿箱 ${dr.length}</div>`:'')+'<div class="b" data-k="set">设置</div><div class="b" data-k="qr">扫码预览</div><div class="b p" data-k="pub">发布</div>';
+ tb.innerHTML=`<div class="ddc" data-dc></div><div class="dd"><div class="ddt" data-dd>${label(a)}<svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.6l3 3 3-3" stroke="rgba(0,0,0,.6)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ddm">${APPS.map(x=>`<div class="mi${x.id===a.id?' on':''}" data-a="${x.id}">${label(x)}</div>`).join('')}</div></div>`+'<div style="flex:1"></div>'+(dr.length?`<div class="b" data-k="draft">草稿箱 ${dr.length}</div>`:'')+'<div class="b" data-k="set">设置</div><div class="b" data-k="qr">扫码预览</div><div class="b p" data-k="pub">发布</div>';
  if(fr.getAttribute('src')!==a.src)fr.setAttribute('src',a.src);
  msgs.innerHTML=`<div class="bub ai">告诉我「${esc(a.name)}」要怎么改，比如：首页第一张图换成 G325、某个产品改价格。改动先放进「草稿箱」，点「发布」后客户才看得到。</div>`+dr.map(m=>`<div class="bub me">${esc(m.what)}</div><div class="bub ai">已记下，放进草稿箱了。点「发布」后客户才看得到。</div>`).join('');msgs.scrollTop=1e6}
-tb.onclick=e=>{const t=e.target.closest('[data-a],[data-k]');if(!t)return;if(t.dataset.a){D.cur=t.dataset.a;save();render();return}open(t.dataset.k)};
+tb.onclick=e=>{if(e.target.closest('[data-dd]')){tb.querySelector('.ddm').classList.toggle('open');tb.querySelector('.ddc').classList.toggle('open');return}if(e.target.closest('[data-dc]')){render();return}const t=e.target.closest('[data-a],[data-k]');if(!t)return;if(t.dataset.a){D.cur=t.dataset.a;save();render();return}open(t.dataset.k)};
 function send(){const v=tx.value.trim();if(!v)return;L(D.drafts,D.cur).push({t:now(),what:v,by:'我'});tx.value='';save();render()}
 document.getElementById('send').onclick=send;tx.onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send()}};
 let tabK='perm';
