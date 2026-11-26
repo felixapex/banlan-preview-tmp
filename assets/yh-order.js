@@ -6,6 +6,8 @@ const dim = (x) => (x.L ? `${x.L}*${x.W}*${x.H}` : "");
 const titleCase = (t) => t ? t.charAt(0) + t.slice(1).toLowerCase() : "";
 
 // Order rows: a standard set = 1 main row; a custom choice = 1 main row per seat; each option = 1 "选配" sub row.
+// 2026-11-26 客户要求：合计改成沙发套数（每个沙发配置算 n 套，座位、电源、加购不算）
+export const sofaSets = (rows) => rows.reduce((t, x) => t + (x.sofa || 0), 0);
 export function orderRows(lines) {
   const rows = [];
   for (const ln of lines) {
@@ -21,10 +23,10 @@ export function orderRows(lines) {
     const std = () => (c.standard || []).forEach((x) => { const it = typeof x === "string" ? { name: x, qty: null } : x; rows.push({ main: false, std: true, model: "标配", pic: "", name: it.name, sq: it.qty ? it.qty * n : null, qty: 0, unit: "/", price: 0 }); });
     if (c.set) {
       const sum = c.seats.reduce((t, x) => t + x.unit * x.qty, 0);
-      rows.push({ main: true, model: c.model, pic: c.cover, combo: c.set.img, name: `${cn}\n${c.set.name}`, size: c.set.size.replace(/×/g, "*"), material: matStd, qty: n, unit: "套", price: sum, remark: c.seats.map((x) => `${x.desc}×${x.qty}`).join("、") });
+      rows.push({ sofa: n, main: true, model: c.model, pic: c.cover, combo: c.set.img, name: `${cn}\n${c.set.name}`, size: c.set.size.replace(/×/g, "*"), material: matStd, qty: n, unit: "套", price: sum, remark: c.seats.map((x) => `${x.desc}×${x.qty}`).join("、") });
       std();
     } else {
-      c.seats.forEach((x, k) => rows.push({ main: true, model: c.model, pic: c.cover, combo: x.img, name: `${cn}\n${x.desc}`, size: dim(x), material: k === 0 ? matStd : mat, qty: x.qty * n, unit: "位", price: x.unit, remark: x.func }));
+      c.seats.forEach((x, k) => rows.push({ sofa: k === 0 ? n : 0, main: true, model: c.model, pic: c.cover, combo: x.img, name: `${cn}\n${x.desc}`, size: dim(x), material: k === 0 ? matStd : mat, qty: x.qty * n, unit: "位", price: x.unit, remark: x.func }));
       std();
     }
     (c.power || []).forEach((x) => rows.push({ main: false, model: "电源", pic: "", name: x.name, qty: x.qty * n, unit: x.per, price: x.unit, remark: x.remark || "" }));
@@ -105,7 +107,7 @@ export async function buildXlsx(lines, form) {
   const dep = Math.round(total * 0.5);
   const dt = new Date();
   const set = { C5: form.customer, H5: form.orderDate || today(), C6: form.tel, H6: form.deliveryDate, C7: form.receiver, H7: form.address,
-    [`H${T}`]: rows.reduce((t, x) => t + x.qty, 0), [`K${T}`]: { f: `SUM(K${FIRST}:K${last})`, v: total }, [`K${T + 1}`]: dep, [`K${T + 2}`]: total - dep,
+    [`G${T}`]: "合计沙发：", [`H${T}`]: `${sofaSets(rows)} 套`, [`K${T}`]: { f: `SUM(K${FIRST}:K${last})`, v: total }, [`K${T + 1}`]: dep, [`K${T + 2}`]: total - dep,
     [`G${30 + d}`]: `${dt.getFullYear()}年${dt.getMonth() + 1}月${dt.getDate()}日` };
   for (const [ref, v] of Object.entries(set)) sheet = setCell(sheet, ref, v ?? "");
   zip.file(path, sheet);
@@ -216,7 +218,7 @@ function sheetHtml(rows, form) {
 <tr><td class="y">收货人 Receiver</td><td class="y">${esc(form.receiver)}</td><td class="y">送货地址 Address</td><td class="y">${esc(form.address)}</td></tr></table>
 <table style="margin-top:-1px;table-layout:fixed"><colgroup><col style="width:3.4%"><col style="width:5.6%"><col style="width:14.6%"><col style="width:15%"><col style="width:8.4%"><col style="width:11.6%"><col style="width:13.6%"><col style="width:3.8%"><col style="width:3.9%"><col style="width:6.6%"><col style="width:7.7%"><col style="width:5.8%"></colgroup><tr style="font-size:12px"><td>序号<br>No.</td><td>产品型号<br>Product Code</td><td>产品图片<br>Product Picture</td><td>示意图<br>Sketch Map</td><td>名称<br>Description</td><td>产品尺寸 Size<br>长/L 宽/W 高/H</td><td>材质<br>Material</td><td>数量<br>Qty</td><td>单位<br>Unit</td><td>供货单价<br>Unit Pr</td><td>金额小计<br>Sum</td><td>备注<br>Remark</td></tr>
 ${rows.map((x, i) => `<tr style="height:${x.main ? 130 : x.std ? 44 : 100}px"><td>${i + 1}</td><td>${esc(x.model)}</td><td>${x.pic ? `<img class="${x.main ? "p" : "s"}" src="${x.pic}">` : ""}</td>${x.main ? `<td>${x.combo ? `<img class="s" src="${x.combo}">` : ""}</td><td>${esc(x.name)}</td><td>${esc(x.size)}</td><td style="font-size:11px">${esc(x.material)}</td>` : `<td colspan="4">${esc(x.name)}</td>`}${x.std ? `<td>${x.sq || "/"}</td><td>${x.sq ? "个" : "/"}</td><td>/</td><td>/</td><td></td>` : `<td>${x.qty}</td><td>${esc(x.unit)}</td><td>${x.price == null ? "待定" : x.price}</td><td>${x.price == null ? "待定" : x.price * x.qty}</td><td style="font-size:11px">${esc(x.remark || "")}</td>`}</tr>`).join("")}
-<tr><td colspan="7" style="text-align:right">合计数量：</td><td>${rows.reduce((t, x) => t + x.qty, 0)}</td><td></td><td>金额合计<br>Total：</td><td colspan="2" style="font-size:16px;font-weight:700">${total}</td></tr>
+<tr><td colspan="7" style="text-align:right">合计沙发：</td><td>${sofaSets(rows)} 套</td><td></td><td>金额合计<br>Total：</td><td colspan="2" style="font-size:16px;font-weight:700">${total}</td></tr>
 <tr><td colspan="9" rowspan="2" style="text-align:left;vertical-align:top">备注Memo：图片仅限参考，组合以示意图为准。模块组合产品，测量误差士3CM属于正常范围。</td><td>定金</td><td colspan="2" style="font-size:16px">${dep}</td></tr>
 <tr><td>余款</td><td colspan="2" style="font-size:16px">${total - dep}</td></tr></table>
 <div style="font-size:12px;line-height:1.8;margin-top:8px"><b>销售条款</b><br>${TERMS.join("<br>")}<br><b>请核对以上内容无误 Please check the accuracy and sign</b></div>
@@ -268,7 +270,7 @@ ${f("customer", "客户名称", "请输入客户名称")}${f("tel", "联系方�
 ${rows.filter((x) => x.mod).map((x) => `<div class="yo-card"><div class="yo-h">改版（价格由产品顾问填写）</div><div style="color:#555;margin-bottom:.5rem;white-space:pre-line">${esc(x.name)}</div><div class="yo-f"><label>改版单价</label><input data-mp="${esc(x.key)}" type="number" inputmode="numeric" value="${x.price ?? ""}" placeholder="请输入金额（元/次）"></div></div>`).join("")}
 <div class="yo-card"><div class="yo-h">订货明细</div><div class="yo-sc"><table class="yo-t"><tr><th>序号</th><th>产品型号</th><th>产品图片</th><th>示意图</th><th>名称</th><th>产品尺寸</th><th>材质</th><th>数量</th><th>单位</th><th>供货单价</th><th>金额小计</th><th>备注</th></tr>
 ${rows.map((x, i) => `<tr><td>${i + 1}</td><td>${esc(x.model)}</td><td>${x.pic ? `<img src="${x.pic}">` : ""}</td>${x.main ? `<td>${x.combo ? `<img src="${x.combo}">` : ""}</td><td>${esc(x.name)}</td><td>${esc(x.size)}</td><td>${esc(x.material)}</td>` : `<td colspan="4">${esc(x.name)}</td>`}${x.std ? `<td>${x.sq || "/"}</td><td>${x.sq ? "个" : "/"}</td><td>/</td><td>/</td><td></td>` : `<td>${x.qty}</td><td>${esc(x.unit)}</td><td>${x.price == null ? "待定" : x.price}</td><td>${x.price == null ? "待定" : x.price * x.qty}</td><td>${esc(x.remark || "")}</td>`}</tr>`).join("")}</table></div>
-<div style="margin-top:.75rem"><div class="yo-sum"><span>合计数量</span><span>${rows.reduce((t, x) => t + x.qty, 0)}</span></div><div class="yo-sum"><span>金额合计</span><b>${money(total)}</b></div><div class="yo-sum"><span>定金（50%）</span><span>${money(Math.round(total * 0.5))}</span></div><div class="yo-sum"><span>余款</span><span>${money(total - Math.round(total * 0.5))}</span></div></div></div>
+<div style="margin-top:.75rem"><div class="yo-sum"><span>合计沙发</span><span>${sofaSets(rows)} 套</span></div><div class="yo-sum"><span>金额合计</span><b>${money(total)}</b></div><div class="yo-sum"><span>定金（50%）</span><span>${money(Math.round(total * 0.5))}</span></div><div class="yo-sum"><span>余款</span><span>${money(total - Math.round(total * 0.5))}</span></div></div></div>
 <div class="yo-btns"><div class="yo-btn" data-pic>保存订货单（图片）</div><div class="yo-btn ghost" data-dl>下载 Excel</div></div>`; };
   draw();
   document.body.appendChild(el);
