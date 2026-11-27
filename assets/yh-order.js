@@ -5,7 +5,8 @@ const today = () => { const d = new Date(); return `${d.getFullYear()}-${String(
 const dim = (x) => (x.L ? `${x.L}*${x.W}*${x.H}` : "");
 const titleCase = (t) => t ? t.charAt(0) + t.slice(1).toLowerCase() : "";
 
-// Order rows: a standard set = 1 main row; a custom choice = 1 main row per seat; each option = 1 "选配" sub row.
+// Order rows: a standard set = 1 main row; a custom choice = 1 main row per seat; 电源 / 改版 / each option = 1 sub row.
+// 2026-11-27 照客户原始订货单：标配不再一行一行列，写进主行材质栏（产品文档的材质 + 功能，没有文档用标配清单）+ 面料
 // 2026-11-26 客户要求：合计改成沙发套数（每个沙发配置算 n 套，座位、电源、加购不算）
 export const sofaSets = (rows) => rows.reduce((t, x) => t + (x.sofa || 0), 0);
 export function orderRows(lines) {
@@ -18,20 +19,18 @@ export function orderRows(lines) {
       continue;
     }
     const cn = `${titleCase(c.en)} ${c.cn}`.trim();
-    const mat = c.material + (c.color ? ` ${c.color}` : "");
-    const matStd = mat;
-    const std = () => (c.standard || []).forEach((x) => { const it = typeof x === "string" ? { name: x, qty: null } : x; rows.push({ main: false, std: true, model: "标配", pic: "", name: it.name, sq: it.qty ? it.qty * n : null, qty: 0, unit: "/", price: 0 }); });
+    const end = (t) => t.replace(/[。；;，,\s]+$/, "") + "。";
+    const base = c.doc ? end(c.doc.material) + end(c.doc.function) : end((c.standard || []).map((x) => (typeof x === "string" ? x : x.name)).join("、"));
+    const mat = base + (c.fabric || c.material + (c.color ? ` ${c.color}` : ""));
     if (c.set) {
       const sum = c.seats.reduce((t, x) => t + x.unit * x.qty, 0);
-      rows.push({ sofa: n, main: true, model: c.model, pic: c.cover, combo: c.set.img, name: `${cn}\n${c.set.name}`, size: c.set.size.replace(/×/g, "*"), material: matStd, qty: n, unit: "套", price: sum, remark: c.seats.map((x) => `${x.desc}×${x.qty}`).join("、") });
-      std();
+      rows.push({ sofa: n, main: true, model: c.model, pic: c.cover, combo: c.set.img, name: `${cn}\n${c.set.name}`, size: c.set.size.replace(/×/g, "*"), material: mat, qty: n, unit: "套", price: sum, remark: c.seats.map((x) => `${x.desc}×${x.qty}`).join("、") });
     } else {
-      c.seats.forEach((x, k) => rows.push({ sofa: k === 0 ? n : 0, main: true, model: c.model, pic: c.cover, combo: x.img, name: `${cn}\n${x.desc}`, size: dim(x), material: k === 0 ? matStd : mat, qty: x.qty * n, unit: "位", price: x.unit, remark: x.func }));
-      std();
+      c.seats.forEach((x, k) => rows.push({ sofa: k === 0 ? n : 0, main: true, model: c.model, pic: c.cover, combo: x.img, name: `${cn}\n${x.desc}`, size: dim(x), material: mat, qty: x.qty * n, unit: "位", price: x.unit, remark: x.func }));
     }
     (c.power || []).forEach((x) => rows.push({ main: false, model: "电源", pic: "", name: x.name, qty: x.qty * n, unit: x.per, price: x.unit, remark: x.remark || "" }));
     if (c.mod) rows.push({ main: false, mod: true, key: ln.key, model: "改版", pic: "", name: c.mod, qty: n, unit: "次", price: ln.modPrice ?? null });
-    c.options.forEach((o) => rows.push({ main: false, model: "加购", pic: o.img, name: o.name, qty: o.qty * n, unit: o.per, price: o.unit, remark: o.remark || "" }));
+    c.options.forEach((o) => rows.push({ main: false, model: "选配", pic: o.img, name: o.name, qty: o.qty * n, unit: o.per, price: o.unit, remark: o.remark || "" }));
   }
   return rows;
 }
@@ -40,16 +39,17 @@ function loadZip() {
   if (window.JSZip) return Promise.resolve(window.JSZip);
   return new Promise((ok, fail) => { const sc = document.createElement("script"); sc.src = "./static/yuhu/jszip.min.js"; sc.onload = () => ok(window.JSZip); sc.onerror = fail; document.head.appendChild(sc); });
 }
-async function imageBytes(src) {
+// picture as a transparent PNG the size of the cell (2x), photo fitted and centred inside;
+// anchored to the cell corners, so every viewer shows it centred and inside the cell lines
+async function cellImage(src, cw, ch) {
   if (!src) return null;
   try {
-    const blob = await (await fetch(src)).blob();
-    const url = URL.createObjectURL(blob);
-    const size = await new Promise((ok) => { const im = new Image(); im.onload = () => ok([im.naturalWidth, im.naturalHeight]); im.onerror = () => ok(null); im.src = url; });
-    URL.revokeObjectURL(url);
-    if (!size) return null;
-    const ext = /png/.test(blob.type) ? "png" : "jpeg";
-    return { data: await blob.arrayBuffer(), ext, w: size[0], h: size[1] };
+    const im = await new Promise((ok, no) => { const m = new Image(); m.onload = () => ok(m); m.onerror = no; m.src = src; });
+    // 尽量放大：四边各留 5px；按原图清晰度放大画布（2～6 倍），放大看时尺寸数字清楚
+    const S = Math.min(6, Math.max(2, Math.ceil(im.naturalWidth / cw))), cv = document.createElement("canvas"); cv.width = cw * S; cv.height = ch * S;
+    const k = Math.min((cv.width - 10 * S) / im.naturalWidth, (cv.height - 10 * S) / im.naturalHeight), w = im.naturalWidth * k, h = im.naturalHeight * k;
+    cv.getContext("2d").drawImage(im, (cv.width - w) / 2, (cv.height - h) / 2, w, h);
+    return await (await new Promise((ok) => cv.toBlob(ok, "image/png"))).arrayBuffer();
   } catch { return null; }
 }
 const noType = (a) => a.replace(/ t="\w+"/, "");
@@ -89,11 +89,11 @@ export async function buildXlsx(lines, form) {
     const has = x.price != null;
     const vals = x.main
       ? { A: i + 1, B: x.model, E: x.name, F: x.size, G: x.material, H: x.qty, I: x.unit, J: x.price, K: has ? { f: `H${r}*J${r}`, v: x.price * x.qty } : "", L: x.remark }
-      : x.std ? { A: i + 1, B: x.model, D: x.name, H: x.sq || "/", I: x.sq ? "个" : "/", J: "/", K: "/" }
-      : x.mod && x.price == null ? { A: i + 1, B: x.model, D: x.name, H: x.qty, I: x.unit, J: "", K: "" }
+      : x.mod && x.price == null ? { A: i + 1, B: x.model, D: x.name, H: x.qty, I: x.unit, J: "", K: { f: `H${r}*J${r}`, v: 0 } } /* 2026-11-27 改版没填价格：单价空着，金额仍放公式，之后在 Excel 补单价会自动算进合计 */
       : { A: i + 1, B: x.model, D: x.name, H: x.qty, I: x.unit, J: x.price, K: { f: `H${r}*J${r}`, v: x.price * x.qty }, L: x.remark || "" };
     for (const [col, v] of Object.entries(vals)) row = setCell(row, `${col}${r}`, v === undefined ? "" : v);
-    if (x.std) row = row.replace(/ ht="[\d.]+"/, ' ht="30"');
+    // 材质栏自动换行：10 号宋体约 11 字一行、每行约 14 磅，行高至少保持原来的 123
+    if (x.main) row = row.replace(/ ht="[\d.]+"/, ` ht="${Math.max(123, Math.ceil(String(x.material).length / 11) * 14 + 12)}"`);
     if (!x.main) merges.push(`D${r}:G${r}`);
     items.push(row);
   }
@@ -107,41 +107,45 @@ export async function buildXlsx(lines, form) {
   const dep = Math.round(total * 0.5);
   const dt = new Date();
   const set = { C5: form.customer, H5: form.orderDate || today(), C6: form.tel, H6: form.deliveryDate, C7: form.receiver, H7: form.address,
-    [`G${T}`]: "合计沙发：", [`H${T}`]: `${sofaSets(rows)} 套`, [`K${T}`]: { f: `SUM(K${FIRST}:K${last})`, v: total }, [`K${T + 1}`]: dep, [`K${T + 2}`]: total - dep,
+    [`G${T}`]: "合计沙发：", [`H${T}`]: `${sofaSets(rows)} 套`, [`K${T}`]: { f: `SUM(K${FIRST}:K${last})`, v: total }, [`K${T + 1}`]: { f: `ROUND(K${T}*0.5,0)`, v: dep }, [`K${T + 2}`]: { f: `K${T}-K${T + 1}`, v: total - dep }, /* 2026-11-27 定金、余款改公式，Excel 里补改版价格后跟着变 */
     [`G${30 + d}`]: `${dt.getFullYear()}年${dt.getMonth() + 1}月${dt.getDate()}日` };
   for (const [ref, v] of Object.entries(set)) sheet = setCell(sheet, ref, v ?? "");
   zip.file(path, sheet);
   const wb = await zip.file("xl/workbook.xml").async("string");
   zip.file("xl/workbook.xml", wb.replace(/订货清单!\$A\$1:\$L\$(\d+)/, (m, r) => `订货清单!$A$1:$L$${+r + d}`));
+  // 范本第 1～3 行没锁行高，WPS / LibreOffice 打开会自动改高，图片就整体往上偏、压到格线；锁住原来的行高
+  sheet = sheet.replace(/<row [^>]*>/g, (t) => (/ ht="/.test(t) && !/customHeight/.test(t) ? t.replace(/ ht="([\d.]+)"/, ' ht="$1" customHeight="1"') : t));
+  zip.file(path, sheet);
   // pictures: C = product picture, D = sketch (main rows only)
   let drawing = await zip.file("xl/drawings/drawing1.xml").async("string");
   let rels = await zip.file("xl/drawings/_rels/drawing1.xml.rels").async("string");
-  const colPx = { 2: 175, 3: 180 }, EMU = 9525;
+  // real cell size in px: column width -> px with the template font's digit width (宋体 12 = 8px), row height pt -> px
+  const EMU = 9525;
   const colW = {}; for (const m of sheet.matchAll(/<col min="(\d+)" max="(\d+)"[^>]*?width="([\d.]+)"/g)) for (let c = +m[1]; c <= +m[2]; c++) colW[c] = +m[3];
-  const colLeft = (c) => { let x = 0; for (let k = 1; k <= c; k++) x += Math.round((colW[k] || 8.75) * 8 * EMU); return x; };
+  const colPx = (c) => Math.trunc((256 * (colW[c] || 8.75) + 16) / 256 * 8); // c is 1-based
+  const colLeft = (c0) => { let x = 0; for (let k = 1; k <= c0; k++) x += colPx(k); return x * EMU; };
   const rowH = {}; for (const m of sheet.matchAll(/<row r="(\d+)"[^>]*?ht="([\d.]+)"/g)) rowH[+m[1]] = +m[2];
-  const rowTop = (r0) => { let y = 0; for (let k = 1; k <= r0; k++) y += Math.round((rowH[k] || 15) * 12700); return y; };
+  const rowPt = (r0) => rowH[r0 + 1] || 15; // r0 is 0-based
+  const rowTop = (r0) => { let y = 0; for (let k = 0; k < r0; k++) y += Math.round(rowPt(k) * 12700); return y; };
   let id = 100, anchors = "";
   for (let i = 0; i < rows.length; i++) {
-    const rowPx = rows[i].main ? 164 : 133;
+    const r0 = FIRST - 1 + i, cellH = rowPt(r0) * 12700;
     for (const [col, src] of [[2, rows[i].pic], [3, rows[i].main ? rows[i].combo : ""]]) {
-      const im = await imageBytes(src);
-      if (!im) continue;
+      const cw = colPx(col + 1), ch = Math.round(rowPt(r0) * 4 / 3);
+      const data = await cellImage(src, cw, ch);
+      if (!data) continue;
       id++;
-      const name = `yh${id}.${im.ext}`;
-      zip.file(`xl/media/${name}`, im.data);
+      const name = `yh${id}.png`;
+      zip.file(`xl/media/${name}`, data);
       rels = rels.replace("</Relationships>", `<Relationship Id="rId${id}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="../media/${name}"/></Relationships>`);
-      const sc = col === 2 && rows[i].main ? 1 : 0.7, k = Math.min(colPx[col] * 0.8 * sc / im.w, rowPx * 0.72 * sc / im.h), w = Math.round(im.w * k), h = Math.round(im.h * k);
-      const ox = Math.round((colPx[col] - w) / 2), oy = Math.round((rowPx - h) / 2);
-      const pic = `<xdr:pic><xdr:nvPicPr><xdr:cNvPr id="${id}" name="Picture ${id}"/><xdr:cNvPicPr><a:picLocks noChangeAspect="1"/></xdr:cNvPicPr></xdr:nvPicPr><xdr:blipFill><a:blip r:embed="rId${id}"/><a:stretch><a:fillRect/></a:stretch></xdr:blipFill><xdr:spPr><a:xfrm><a:off x="${colLeft(col) + ox * EMU}" y="${rowTop(FIRST - 1 + i) + oy * EMU}"/><a:ext cx="${w * EMU}" cy="${h * EMU}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/><a:ln w="9525"><a:noFill/></a:ln></xdr:spPr></xdr:pic>`;
-      const r0 = FIRST - 1 + i;
-      anchors += `<xdr:twoCellAnchor editAs="oneCell"><xdr:from><xdr:col>${col}</xdr:col><xdr:colOff>${ox * EMU}</xdr:colOff><xdr:row>${r0}</xdr:row><xdr:rowOff>${oy * EMU}</xdr:rowOff></xdr:from><xdr:to><xdr:col>${col}</xdr:col><xdr:colOff>${(ox + w) * EMU}</xdr:colOff><xdr:row>${r0}</xdr:row><xdr:rowOff>${(oy + h) * EMU}</xdr:rowOff></xdr:to>${pic}<xdr:clientData/></xdr:twoCellAnchor>`;
+      const pic = `<xdr:pic><xdr:nvPicPr><xdr:cNvPr id="${id}" name="Picture ${id}"/><xdr:cNvPicPr><a:picLocks/></xdr:cNvPicPr></xdr:nvPicPr><xdr:blipFill><a:blip r:embed="rId${id}"/><a:stretch><a:fillRect/></a:stretch></xdr:blipFill><xdr:spPr><a:xfrm><a:off x="${colLeft(col)}" y="${rowTop(r0)}"/><a:ext cx="${cw * EMU}" cy="${cellH}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/><a:ln w="9525"><a:noFill/></a:ln></xdr:spPr></xdr:pic>`;
+      anchors += `<xdr:twoCellAnchor editAs="twoCell"><xdr:from><xdr:col>${col}</xdr:col><xdr:colOff>0</xdr:colOff><xdr:row>${r0}</xdr:row><xdr:rowOff>0</xdr:rowOff></xdr:from><xdr:to><xdr:col>${col + 1}</xdr:col><xdr:colOff>0</xdr:colOff><xdr:row>${r0 + 1}</xdr:row><xdr:rowOff>0</xdr:rowOff></xdr:to>${pic}<xdr:clientData/></xdr:twoCellAnchor>`;
     }
   }
   zip.file("xl/drawings/drawing1.xml", drawing.replace("</xdr:wsDr>", anchors + "</xdr:wsDr>"));
   zip.file("xl/drawings/_rels/drawing1.xml.rels", rels);
   let ct = await zip.file("[Content_Types].xml").async("string");
-  if (!/Extension="jpeg"/.test(ct)) ct = ct.replace("<Default ", '<Default Extension="jpeg" ContentType="image/jpeg"/><Default ');
+  if (!/Extension="png"/.test(ct)) ct = ct.replace("<Default ", '<Default Extension="png" ContentType="image/png"/><Default ');
   zip.file("[Content_Types].xml", ct);
   return zip.generateAsync({ type: "blob", mimeType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
 }
@@ -203,8 +207,8 @@ const css = `
 .ys table{border-collapse:collapse;width:100%}
 .ys td{border:1px solid #000;padding:4px 6px;text-align:center;vertical-align:middle;white-space:pre-line;line-height:1.5}
 .ys .y{background:#fff2cc;text-align:left}
-.ys img.p{max-width:92%;max-height:100px}
-.ys img.s{max-width:62%;max-height:72px}
+.ys img.p{max-width:96%;max-height:122px}.ys img.c{max-width:96%;max-height:122px}
+.ys img.s{max-width:92%;max-height:92px}
 `;
 function ensureStyle() { if (!document.getElementById("yo-style")) { const st = document.createElement("style"); st.id = "yo-style"; st.textContent = css; document.head.appendChild(st); } }
 
@@ -217,7 +221,7 @@ function sheetHtml(rows, form) {
 <tr><td class="y">联系方式 Tel</td><td class="y">${esc(form.tel)}</td><td class="y">交货日期 Delivery date</td><td class="y">${esc(form.deliveryDate)}</td></tr>
 <tr><td class="y">收货人 Receiver</td><td class="y">${esc(form.receiver)}</td><td class="y">送货地址 Address</td><td class="y">${esc(form.address)}</td></tr></table>
 <table style="margin-top:-1px;table-layout:fixed"><colgroup><col style="width:3.4%"><col style="width:5.6%"><col style="width:14.6%"><col style="width:15%"><col style="width:8.4%"><col style="width:11.6%"><col style="width:13.6%"><col style="width:3.8%"><col style="width:3.9%"><col style="width:6.6%"><col style="width:7.7%"><col style="width:5.8%"></colgroup><tr style="font-size:12px"><td>序号<br>No.</td><td>产品型号<br>Product Code</td><td>产品图片<br>Product Picture</td><td>示意图<br>Sketch Map</td><td>名称<br>Description</td><td>产品尺寸 Size<br>长/L 宽/W 高/H</td><td>材质<br>Material</td><td>数量<br>Qty</td><td>单位<br>Unit</td><td>供货单价<br>Unit Pr</td><td>金额小计<br>Sum</td><td>备注<br>Remark</td></tr>
-${rows.map((x, i) => `<tr style="height:${x.main ? 130 : x.std ? 44 : 100}px"><td>${i + 1}</td><td>${esc(x.model)}</td><td>${x.pic ? `<img class="${x.main ? "p" : "s"}" src="${x.pic}">` : ""}</td>${x.main ? `<td>${x.combo ? `<img class="s" src="${x.combo}">` : ""}</td><td>${esc(x.name)}</td><td>${esc(x.size)}</td><td style="font-size:11px">${esc(x.material)}</td>` : `<td colspan="4">${esc(x.name)}</td>`}${x.std ? `<td>${x.sq || "/"}</td><td>${x.sq ? "个" : "/"}</td><td>/</td><td>/</td><td></td>` : `<td>${x.qty}</td><td>${esc(x.unit)}</td><td>${x.price == null ? "待定" : x.price}</td><td>${x.price == null ? "待定" : x.price * x.qty}</td><td style="font-size:11px">${esc(x.remark || "")}</td>`}</tr>`).join("")}
+${rows.map((x, i) => `<tr style="height:${x.main ? 130 : 100}px"><td>${i + 1}</td><td>${esc(x.model)}</td><td>${x.pic ? `<img class="${x.main ? "p" : "s"}" src="${x.pic}">` : ""}</td>${x.main ? `<td>${x.combo ? `<img class="c" src="${x.combo}">` : ""}</td><td>${esc(x.name)}</td><td>${esc(x.size)}</td><td style="font-size:11px">${esc(x.material)}</td>` : `<td colspan="4">${esc(x.name)}</td>`}<td>${x.qty}</td><td>${esc(x.unit)}</td><td>${x.price == null ? "待定" : x.price}</td><td>${x.price == null ? "待定" : x.price * x.qty}</td><td style="font-size:11px">${esc(x.remark || "")}</td></tr>`).join("")}
 <tr><td colspan="7" style="text-align:right">合计沙发：</td><td>${sofaSets(rows)} 套</td><td></td><td>金额合计<br>Total：</td><td colspan="2" style="font-size:16px;font-weight:700">${total}</td></tr>
 <tr><td colspan="9" rowspan="2" style="text-align:left;vertical-align:top">备注Memo：图片仅限参考，组合以示意图为准。模块组合产品，测量误差士3CM属于正常范围。</td><td>定金</td><td colspan="2" style="font-size:16px">${dep}</td></tr>
 <tr><td>余款</td><td colspan="2" style="font-size:16px">${total - dep}</td></tr></table>
@@ -232,9 +236,16 @@ async function showPicture(rows, form) {
   box.className = "ys";
   box.innerHTML = sheetHtml(rows, form);
   document.body.appendChild(box);
-  await Promise.all([...box.querySelectorAll("img")].map((im) => im.complete ? 0 : new Promise((r) => { im.onload = im.onerror = r; })));
+  /* 2026-11-27 手机（iPhone / 微信）上截图常丢图：先把每张图转成内嵌数据并等它显示，再连拍两次取第二次（第一次常是空图） */
+  await Promise.all([...box.querySelectorAll("img")].map(async (im) => {
+    try { const bl = await (await fetch(im.src)).blob(); im.src = await new Promise((ok) => { const fr = new FileReader(); fr.onload = () => ok(fr.result); fr.readAsDataURL(bl); }); } catch (e) {}
+    if (!im.complete || !im.naturalWidth) await new Promise((r) => { im.onload = im.onerror = r; setTimeout(r, 5000); });
+    try { await im.decode(); } catch (e) {}
+  }));
   box.style.left = "0"; box.style.zIndex = "-1";
-  const url = await h2i.toJpeg(box, { pixelRatio: 2, quality: 0.92, backgroundColor: "#fff" });
+  const opt = { pixelRatio: 2, quality: 0.92, backgroundColor: "#fff" };
+  await h2i.toJpeg(box, opt);
+  const url = await h2i.toJpeg(box, opt);
   box.remove();
   const v = document.createElement("div");
   v.className = "yo-pic";
@@ -269,7 +280,7 @@ ${f("customer", "客户名称", "请输入客户名称")}${f("tel", "联系方�
 <div class="yo-f"><label>开单日期</label><span>${form.orderDate}</span></div></div>
 ${rows.filter((x) => x.mod).map((x) => `<div class="yo-card"><div class="yo-h">改版（价格由产品顾问填写）</div><div style="color:#555;margin-bottom:.5rem;white-space:pre-line">${esc(x.name)}</div><div class="yo-f"><label>改版单价</label><input data-mp="${esc(x.key)}" type="number" inputmode="numeric" value="${x.price ?? ""}" placeholder="请输入金额（元/次）"></div></div>`).join("")}
 <div class="yo-card"><div class="yo-h">订货明细</div><div class="yo-sc"><table class="yo-t"><tr><th>序号</th><th>产品型号</th><th>产品图片</th><th>示意图</th><th>名称</th><th>产品尺寸</th><th>材质</th><th>数量</th><th>单位</th><th>供货单价</th><th>金额小计</th><th>备注</th></tr>
-${rows.map((x, i) => `<tr><td>${i + 1}</td><td>${esc(x.model)}</td><td>${x.pic ? `<img src="${x.pic}">` : ""}</td>${x.main ? `<td>${x.combo ? `<img src="${x.combo}">` : ""}</td><td>${esc(x.name)}</td><td>${esc(x.size)}</td><td>${esc(x.material)}</td>` : `<td colspan="4">${esc(x.name)}</td>`}${x.std ? `<td>${x.sq || "/"}</td><td>${x.sq ? "个" : "/"}</td><td>/</td><td>/</td><td></td>` : `<td>${x.qty}</td><td>${esc(x.unit)}</td><td>${x.price == null ? "待定" : x.price}</td><td>${x.price == null ? "待定" : x.price * x.qty}</td><td>${esc(x.remark || "")}</td>`}</tr>`).join("")}</table></div>
+${rows.map((x, i) => `<tr><td>${i + 1}</td><td>${esc(x.model)}</td><td>${x.pic ? `<img src="${x.pic}">` : ""}</td>${x.main ? `<td>${x.combo ? `<img src="${x.combo}">` : ""}</td><td>${esc(x.name)}</td><td>${esc(x.size)}</td><td>${esc(x.material)}</td>` : `<td colspan="4">${esc(x.name)}</td>`}<td>${x.qty}</td><td>${esc(x.unit)}</td><td>${x.price == null ? "待定" : x.price}</td><td>${x.price == null ? "待定" : x.price * x.qty}</td><td>${esc(x.remark || "")}</td></tr>`).join("")}</table></div>
 <div style="margin-top:.75rem"><div class="yo-sum"><span>合计沙发</span><span>${sofaSets(rows)} 套</span></div><div class="yo-sum"><span>金额合计</span><b>${money(total)}</b></div><div class="yo-sum"><span>定金（50%）</span><span>${money(Math.round(total * 0.5))}</span></div><div class="yo-sum"><span>余款</span><span>${money(total - Math.round(total * 0.5))}</span></div></div></div>
 <div class="yo-btns"><div class="yo-btn" data-pic>保存订货单（图片）</div><div class="yo-btn ghost" data-dl>下载 Excel</div></div>`; };
   draw();
@@ -286,7 +297,6 @@ ${rows.map((x, i) => `<tr><td>${i + 1}</td><td>${esc(x.model)}</td><td>${x.pic ?
     const b = e.target.closest("[data-pic],[data-dl]");
     if (!b || b.dataset.busy) return;
     const label = b.textContent;
-    if (rows.some((x) => x.mod && x.price == null)) { alertMsg(el, "请先填写改版价格"); return; }
     b.dataset.busy = "1"; b.textContent = "正在生成…";
     const first = !stored;
     keep();
