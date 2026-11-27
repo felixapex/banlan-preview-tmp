@@ -874,6 +874,12 @@ const _sfc_main = {
     const favorite = ref(false);
     const cartCount = ref(0);
     const cpPreview = ref(null);
+    const mainImages = computed(() => product.value ? product.value.images.filter((i) => i.role !== "real" && i.role !== "doc") : []);
+    const docImages = computed(() => product.value ? product.value.images.filter((i) => i.role === "doc") : []);
+    const realImages = computed(() => product.value ? product.value.images.filter((i) => i.role === "real") : []);
+    function previewReal(i) {
+      previewImage({ current: i, urls: realImages.value.map((x) => imageSource(x.sourceUrl)) });
+    }
     const serviceIcon = ((_a = home.floatingActions.find((item) => item.id === "service")) == null ? void 0 : _a.image) ?? "";
     const cartIcon = ((_b = home.floatingActions.find((item) => item.id === "cart")) == null ? void 0 : _b.image) ?? "";
     const getStorage = (key) => getStorageSync(key);
@@ -938,7 +944,7 @@ const _sfc_main = {
       }
       const combination = resolveCombination(product.value, selectedIds.value);
       if (combination == null ? void 0 : combination.image) {
-        const found = product.value.images.findIndex((image) => image.sourceUrl === combination.image);
+        const found = mainImages.value.findIndex((image) => image.sourceUrl === combination.image);
         if (found >= 0)
           activeImage.value = found;
       }
@@ -993,13 +999,6 @@ const _sfc_main = {
         return;
       }
       cpPreview.value = item;
-    }
-    function previewReview(review, current, imageIndex) {
-      if (!review.images.length)
-        return;
-      let urls = review.images;
-      let currentSource = current;
-      previewImage({ current: currentSource, urls });
     }
     function formatReviewDate(value) {
       return String(value || "").slice(0, 10);
@@ -1153,22 +1152,22 @@ const _sfc_main = {
                 _: 1
               }, 8, ["class"]),
               createVNode(_component_v_uni_view, {
-                class: normalizeClass({ active: activeTab.value === "cp" }),
-                "data-action-id": "detail:tab:cp",
-                onClick: _cache[3] || (_cache[3] = ($event) => selectTab("cp"))
+                class: normalizeClass({ active: activeTab.value === "real" }),
+                "data-action-id": "detail:tab:real",
+                onClick: _cache[3] || (_cache[3] = ($event) => selectTab("real"))
               }, {
                 default: withCtx(() => [
-                  createTextVNode("推荐")
+                  createTextVNode("实拍")
                 ]),
                 _: 1
               }, 8, ["class"]),
               createVNode(_component_v_uni_view, {
-                class: normalizeClass({ active: activeTab.value === "reviews" }),
-                "data-action-id": "detail:tab:reviews",
-                onClick: _cache[4] || (_cache[4] = ($event) => selectTab("reviews"))
+                class: normalizeClass({ active: activeTab.value === "video" }),
+                "data-action-id": "detail:tab:video",
+                onClick: _cache[4] || (_cache[4] = ($event) => selectTab("video"))
               }, {
                 default: withCtx(() => [
-                  createTextVNode("用户评价")
+                  createTextVNode("视频")
                 ]),
                 _: 1
               }, 8, ["class"])
@@ -1187,7 +1186,7 @@ const _sfc_main = {
                 onChange: _cache[5] || (_cache[5] = ($event) => activeImage.value = $event.detail.current)
               }, {
                 default: withCtx(() => [
-                  (openBlock(true), createElementBlock(Fragment, null, renderList(product.value.images, (image) => {
+                  (openBlock(true), createElementBlock(Fragment, null, renderList(mainImages.value, (image) => {
                     return openBlock(), createBlock(_component_v_uni_swiper_item, {
                       key: image.id
                     }, {
@@ -1206,7 +1205,7 @@ const _sfc_main = {
               }, 8, ["current"]),
               createVNode(_component_v_uni_view, { class: "gallery-count" }, {
                 default: withCtx(() => [
-                  createTextVNode(toDisplayString(activeImage.value + 1) + " / " + toDisplayString(product.value.images.length), 1)
+                  createTextVNode(toDisplayString(activeImage.value + 1) + " / " + toDisplayString(mainImages.value.length), 1)
                 ]),
                 _: 1
               }),
@@ -1459,19 +1458,7 @@ const _sfc_main = {
                     ]),
                     _: 1
                   }),
-                  (openBlock(true), createElementBlock(Fragment, null, renderList(product.value.videos, (video) => {
-                    return openBlock(), createBlock(_component_v_uni_video, {
-                      key: video.id,
-                      class: "detail-video",
-                      src: imageSource(video.sourceUrl),
-                      controls: "",
-                      autoplay: false,
-                      preload: "none",
-                      "object-fit": "contain",
-                      "data-video-id": video.id
-                    }, null, 8, ["src", "data-video-id"]);
-                  }), 128)),
-                  (openBlock(true), createElementBlock(Fragment, null, renderList(product.value.images.slice(1), (image) => {
+                  (openBlock(true), createElementBlock(Fragment, null, renderList(docImages.value.length ? docImages.value : mainImages.value.slice(1), (image) => {
                     return openBlock(), createBlock(_component_v_uni_image, {
                       key: `detail-${image.id}`,
                       class: "detail-image",
@@ -1485,260 +1472,59 @@ const _sfc_main = {
               })
             ]),
             _: 1
-          })) : activeTab.value === "cp" ? (openBlock(), createBlock(_component_v_uni_view, {
+          })) : activeTab.value === "real" ? (openBlock(), createBlock(_component_v_uni_view, {
             key: 1,
-            id: "section-cp",
-            class: "secondary-section cp-section"
+            id: "section-real",
+            class: "secondary-section media-section"
           }, {
-            default: withCtx(() => {
-              var _a2, _b2, _c, _d, _e, _f;
-              return [
-                createVNode(_component_v_uni_view, { class: "engagement-heading" }, {
-                  default: withCtx(() => [
-                    createVNode(_component_v_uni_text, { class: "block-title" }, {
-                      default: withCtx(() => [
-                        createTextVNode("相关推荐")
-                      ]),
-                      _: 1
-                    }),
-                    createVNode(_component_v_uni_text, null, {
-                      default: withCtx(() => {
-                        var _a3, _b3;
-                        return [
-                          createTextVNode(toDisplayString(((_b3 = (_a3 = engagement.value) == null ? void 0 : _a3.recommendations) == null ? void 0 : _b3.length) || 0) + "件", 1)
-                        ];
-                      }),
-                      _: 1
-                    })
-                  ]),
-                  _: 1
-                }),
-                ((_c = (_b2 = (_a2 = engagement.value) == null ? void 0 : _a2.source) == null ? void 0 : _b2.recommendations) == null ? void 0 : _c.status) === "captured" && engagement.value.recommendations.length ? (openBlock(), createBlock(_component_v_uni_view, {
-                  key: 0,
-                  class: "cp-grid"
-                }, {
-                  default: withCtx(() => [
-                    (openBlock(true), createElementBlock(Fragment, null, renderList(engagement.value.recommendations, (item) => {
-                      return openBlock(), createBlock(_component_v_uni_view, {
-                        key: item.id,
-                        class: "cp-card",
-                        "data-cp-id": item.id,
-                        "data-action-id": `detail:cp:${item.id}`,
-                        onClick: ($event) => openRecommendation(item)
-                      }, {
-                        default: withCtx(() => [
-                          createVNode(_component_v_uni_image, {
-                            src: engagementImage(item.image, item.imageRemoteUrl),
-                            mode: "aspectFit"
-                          }, null, 8, ["src"]),
-                          createVNode(_component_v_uni_text, { class: "cp-title" }, {
-                            default: withCtx(() => [
-                              createTextVNode(toDisplayString(item.title), 1)
-                            ]),
-                            _: 2
-                          }, 1024),
-                          createVNode(_component_v_uni_text, { class: "cp-price" }, {
-                            default: withCtx(() => [
-                              createTextVNode(toDisplayString(price(item.priceYuan)) + "起", 1)
-                            ]),
-                            _: 2
-                          }, 1024)
-                        ]),
-                        _: 2
-                      }, 1032, ["data-cp-id", "data-action-id", "onClick"]);
-                    }), 128))
-                  ]),
-                  _: 1
-                })) : ((_f = (_e = (_d = engagement.value) == null ? void 0 : _d.source) == null ? void 0 : _e.recommendations) == null ? void 0 : _f.status) === "captured" ? (openBlock(), createBlock(_component_v_uni_text, {
-                  key: 1,
-                  class: "engagement-empty",
-                  "data-cp-state": "captured-empty"
-                }, {
-                  default: withCtx(() => [
-                    createTextVNode("暂无搭配推荐")
-                  ]),
-                  _: 1
-                })) : (openBlock(), createBlock(_component_v_uni_text, {
-                  key: 2,
-                  class: "engagement-error",
-                  "data-cp-state": "missing"
-                }, {
-                  default: withCtx(() => [
-                    createTextVNode("CP推荐数据未采集")
-                  ]),
-                  _: 1
-                }))
-              ];
-            }),
+            default: withCtx(() => [
+              realImages.value.length ? (openBlock(true), createElementBlock(Fragment, { key: 0 }, renderList(realImages.value, (image, i) => {
+                return openBlock(), createBlock(_component_v_uni_image, {
+                  key: image.id,
+                  class: "detail-image",
+                  src: imageSource(image.sourceUrl),
+                  mode: "widthFix",
+                  "lazy-load": "",
+                  onClick: ($event) => previewReal(i)
+                }, null, 8, ["src", "onClick"]);
+              }), 128)) : (openBlock(), createBlock(_component_v_uni_text, {
+                key: 1,
+                class: "engagement-empty"
+              }, {
+                default: withCtx(() => [
+                  createTextVNode("实拍图整理中，敬请期待")
+                ]),
+                _: 1
+              }))
+            ]),
             _: 1
           })) : (openBlock(), createBlock(_component_v_uni_view, {
             key: 2,
-            id: "section-reviews",
-            class: "secondary-section review-section"
+            id: "section-video",
+            class: "secondary-section media-section"
           }, {
-            default: withCtx(() => {
-              var _a2, _b2, _c, _d, _e, _f;
-              return [
-                createVNode(_component_v_uni_view, { class: "engagement-heading" }, {
-                  default: withCtx(() => [
-                    createVNode(_component_v_uni_text, { class: "block-title" }, {
-                      default: withCtx(() => [
-                        createTextVNode("用户评价")
-                      ]),
-                      _: 1
-                    }),
-                    createVNode(_component_v_uni_text, { "data-review-total": "" }, {
-                      default: withCtx(() => {
-                        var _a3, _b3;
-                        return [
-                          createTextVNode("共 " + toDisplayString(((_b3 = (_a3 = engagement.value) == null ? void 0 : _a3.reviews) == null ? void 0 : _b3.total) || 0) + " 条", 1)
-                        ];
-                      }),
-                      _: 1
-                    })
-                  ]),
-                  _: 1
-                }),
-                ((_c = (_b2 = (_a2 = engagement.value) == null ? void 0 : _a2.source) == null ? void 0 : _b2.reviews) == null ? void 0 : _c.status) === "captured" && engagement.value.reviews.items.length ? (openBlock(), createBlock(_component_v_uni_view, {
-                  key: 0,
-                  class: "review-list",
-                  "data-review-state": "captured-content"
-                }, {
-                  default: withCtx(() => [
-                    (openBlock(true), createElementBlock(Fragment, null, renderList(engagement.value.reviews.items, (review) => {
-                      return openBlock(), createBlock(_component_v_uni_view, {
-                        key: review.id,
-                        class: "review-card",
-                        "data-review-id": review.id
-                      }, {
-                        default: withCtx(() => [
-                          createVNode(_component_v_uni_view, { class: "review-author" }, {
-                            default: withCtx(() => [
-                              createVNode(_component_v_uni_image, {
-                                src: engagementImage(review.avatar, review.avatarRemoteUrl),
-                                mode: "aspectFill"
-                              }, null, 8, ["src"]),
-                              createVNode(_component_v_uni_view, null, {
-                                default: withCtx(() => [
-                                  createVNode(_component_v_uni_text, null, {
-                                    default: withCtx(() => [
-                                      createTextVNode(toDisplayString(review.nickName || "微信用户"), 1)
-                                    ]),
-                                    _: 2
-                                  }, 1024),
-                                  createVNode(_component_v_uni_text, null, {
-                                    default: withCtx(() => [
-                                      createTextVNode(toDisplayString(formatReviewDate(review.createdAt)) + toDisplayString(review.address ? ` · ${review.address}` : ""), 1)
-                                    ]),
-                                    _: 2
-                                  }, 1024)
-                                ]),
-                                _: 2
-                              }, 1024)
-                            ]),
-                            _: 2
-                          }, 1024),
-                          createVNode(_component_v_uni_text, { class: "review-content" }, {
-                            default: withCtx(() => [
-                              createTextVNode(toDisplayString(review.content), 1)
-                            ]),
-                            _: 2
-                          }, 1024),
-                          review.images.length ? (openBlock(), createBlock(_component_v_uni_view, {
-                            key: 0,
-                            class: "review-images"
-                          }, {
-                            default: withCtx(() => [
-                              (openBlock(true), createElementBlock(Fragment, null, renderList(review.images, (image, imageIndex) => {
-                                var _a3;
-                                return openBlock(), createBlock(_component_v_uni_image, {
-                                  key: image,
-                                  src: engagementImage(image, (_a3 = review.imageRemoteUrls) == null ? void 0 : _a3[imageIndex]),
-                                  mode: "aspectFill",
-                                  "data-action-id": `detail:review-image:${review.id}:${imageIndex}`,
-                                  onClick: ($event) => previewReview(review, image, imageIndex)
-                                }, null, 8, ["src", "data-action-id", "onClick"]);
-                              }), 128))
-                            ]),
-                            _: 2
-                          }, 1024)) : createCommentVNode("", true),
-                          createVNode(_component_v_uni_view, { class: "review-meta" }, {
-                            default: withCtx(() => [
-                              createVNode(_component_v_uni_text, null, {
-                                default: withCtx(() => [
-                                  createTextVNode("♡ " + toDisplayString(review.likes), 1)
-                                ]),
-                                _: 2
-                              }, 1024),
-                              createVNode(_component_v_uni_text, null, {
-                                default: withCtx(() => [
-                                  createTextVNode(toDisplayString(review.replies.length) + " 条回复", 1)
-                                ]),
-                                _: 2
-                              }, 1024)
-                            ]),
-                            _: 2
-                          }, 1024),
-                          review.replies.length ? (openBlock(), createBlock(_component_v_uni_view, {
-                            key: 1,
-                            class: "review-replies"
-                          }, {
-                            default: withCtx(() => [
-                              (openBlock(true), createElementBlock(Fragment, null, renderList(review.replies, (reply) => {
-                                return openBlock(), createBlock(_component_v_uni_text, {
-                                  key: reply.id
-                                }, {
-                                  default: withCtx(() => [
-                                    createVNode(_component_v_uni_text, { class: "reply-name" }, {
-                                      default: withCtx(() => [
-                                        createTextVNode(toDisplayString(reply.nickName || "御虎") + "：", 1)
-                                      ]),
-                                      _: 2
-                                    }, 1024),
-                                    createTextVNode(toDisplayString(reply.content), 1)
-                                  ]),
-                                  _: 2
-                                }, 1024);
-                              }), 128))
-                            ]),
-                            _: 2
-                          }, 1024)) : createCommentVNode("", true)
-                        ]),
-                        _: 2
-                      }, 1032, ["data-review-id"]);
-                    }), 128)),
-                    !engagement.value.reviews.complete ? (openBlock(), createBlock(_component_v_uni_text, {
-                      key: 0,
-                      class: "review-more"
-                    }, {
-                      default: withCtx(() => [
-                        createTextVNode("首屏已采集 " + toDisplayString(engagement.value.reviews.captured) + " 条，共 " + toDisplayString(engagement.value.reviews.total) + " 条", 1)
-                      ]),
-                      _: 1
-                    })) : createCommentVNode("", true)
-                  ]),
-                  _: 1
-                })) : ((_f = (_e = (_d = engagement.value) == null ? void 0 : _d.source) == null ? void 0 : _e.reviews) == null ? void 0 : _f.status) === "captured" ? (openBlock(), createBlock(_component_v_uni_text, {
-                  key: 1,
-                  class: "engagement-empty",
-                  "data-review-state": "captured-empty"
-                }, {
-                  default: withCtx(() => [
-                    createTextVNode("暂无用户评价")
-                  ]),
-                  _: 1
-                })) : (openBlock(), createBlock(_component_v_uni_text, {
-                  key: 2,
-                  class: "engagement-error",
-                  "data-review-state": "missing"
-                }, {
-                  default: withCtx(() => [
-                    createTextVNode("用户评价数据未采集")
-                  ]),
-                  _: 1
-                }))
-              ];
-            }),
+            default: withCtx(() => [
+              product.value.videos.length ? (openBlock(true), createElementBlock(Fragment, { key: 0 }, renderList(product.value.videos, (video) => {
+                return openBlock(), createBlock(_component_v_uni_video, {
+                  key: video.id,
+                  class: "detail-video",
+                  src: imageSource(video.sourceUrl),
+                  poster: video.cover ? imageSource(video.cover) : "",
+                  controls: "",
+                  autoplay: false,
+                  preload: "none",
+                  "object-fit": "contain"
+                }, null, 8, ["src", "poster"]);
+              }), 128)) : (openBlock(), createBlock(_component_v_uni_text, {
+                key: 1,
+                class: "engagement-empty"
+              }, {
+                default: withCtx(() => [
+                  createTextVNode("视频整理中，敬请期待")
+                ]),
+                _: 1
+              }))
+            ]),
             _: 1
           })),
           cpPreview.value ? (openBlock(), createBlock(_component_v_uni_view, {

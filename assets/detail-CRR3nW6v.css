@@ -166,3 +166,6 @@
 .nav-left[data-v-e8834f0d],.wechat-capsule[data-v-e8834f0d]{height:2rem!important;transform:none!important;margin:0!important}
 .wechat-capsule[data-v-e8834f0d]{width:5.4375rem!important}
 .nav-title[data-v-e8834f0d]{transform:translateX(-50%)!important}
+
+.media-section .detail-image[data-v-e8834f0d] + .detail-image[data-v-e8834f0d], .media-section .detail-video[data-v-e8834f0d] + .detail-video[data-v-e8834f0d] { margin-top: 0.5rem; }
+.media-section .detail-video[data-v-e8834f0d] { height: 70vh; }
