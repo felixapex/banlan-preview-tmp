@@ -99,7 +99,7 @@ const _sfc_main = {
                 ]),
                 _: 1
               }),
-              createVNode(_component_v_uni_text, { class: "store-address" }, {
+              createVNode(_component_v_uni_text, { class: "store-address", style: "cursor:pointer", onClick: () => { nav.value = 1; } }, {
                 default: withCtx(() => [
                   createTextVNode(toDisplayString(store.value.address), 1)
                 ]),

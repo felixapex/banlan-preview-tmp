@@ -15,6 +15,11 @@ const _sfc_main = {
       let source = item.images[0];
       return OV[source] || source;
     }
+    /* 2026-11-27 客户要求：点地址直接跳导航（高德地图，按地址搜索；和门店详情页「导航到店」同一个网址） */
+    function openNav(item) {
+      const u = "https://uri.amap.com/search?keyword=" + encodeURIComponent(item.address) + "&callnative=1";
+      window.open(u, "_blank") || (location.href = u);
+    }
     function enterStore(item) {
       setStorageSync("currentStore", item);
       setStorageSync("currentStoreId", item.id);
@@ -126,12 +131,13 @@ const _sfc_main = {
                           ]),
                           _: 2
                         }, 1024),
-                        createVNode(_component_v_uni_text, { class: "store-address" }, {
+                        createVNode(_component_v_uni_text, { class: "store-address", style: "cursor:pointer", onClick: ($event) => openNav(item) }, {
                           default: withCtx(() => [
                             createTextVNode(toDisplayString(item.address), 1)
                           ]),
                           _: 2
                         }, 1024),
+                        createVNode("div", { style: "margin-top:6px;color:#9E815D;font-size:14px;cursor:pointer", onClick: ($event) => openNav(item) }, "⌖ 导航到店 ›"),
                         createVNode(_component_v_uni_view, {
                           class: "enter",
                           "data-action-id": `store:enter:${item.id}`,

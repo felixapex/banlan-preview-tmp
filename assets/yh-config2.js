@@ -39,6 +39,8 @@ const css = `
 .yc-chip{border:.03125rem solid #ccc;border-radius:.25rem;padding:.5rem .125rem;text-align:center;font-size:.75rem}
 .yc-chip.on{border:.0625rem solid #C9AE85;color:${GOLD}}
 .yc-chip.off{color:#bbb;border-color:#eee}
+.yc-setc{display:flex;align-items:center;gap:.375rem;padding:.25rem .375rem;text-align:left}
+.yc-setc img{width:2.5rem;height:2.5rem;object-fit:contain;background:#fafafa;flex:0 0 auto}
 .yc-seat{display:flex;align-items:center;gap:.625rem}
 .yc-seat img{width:2.5rem;height:2.5rem;object-fit:contain;background:#fafafa}
 .yc-col{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-top:.5rem}
@@ -216,7 +218,7 @@ export function mountConfig(el, product, s) {
     const priced = s.mat === "imit" || (s.mat && s.grade);
     const seatLabel = setHit ? setHit.name.split(" ")[0] : nSeat ? `定制 ${nSeat}位` : "";
     const nOpt = cfg.options.filter((o, k) => optQty(cfg, s, k)).length;
-    const seatsBody = `<div class="yc-grid" style="grid-template-columns:repeat(${cfg.sets.length},1fr);margin-bottom:.25rem">${cfg.sets.map((x, k) => `<div class="yc-chip ${setHit === x ? "on" : ""}" data-set="${k}">${x.name}</div>`).join("")}</div>
+    const seatsBody = `<div class="yc-grid" style="grid-template-columns:repeat(${cfg.sets.length},1fr);margin-bottom:.25rem">${cfg.sets.map((x, k) => `<div class="yc-chip yc-setc ${setHit === x ? "on" : ""}" data-set="${k}">${x.img ? `<img src="${x.img}">` : ""}<span>${x.name}</span></div>`).join("")}</div>
 ${cfg.seats.map((x, i) => `<div class="yc-row ${s.q[i] ? "sel" : ""}"><div class="yc-seat">${x.img ? `<img src="${x.img}">` : `<img style="visibility:hidden">`}<div>${x.desc}<div class="yc-sub">${x.L ? `${x.L}×${x.W}×${x.H} · ` : ""}${x.func}${seatPrice(cfg, i, s) ? " · " + yuan(seatPrice(cfg, i, s)) : ""}</div></div></div><div class="yc-st"><b data-q="${i}" data-d="-1">−</b><i>${s.q[i]}</i><b data-q="${i}" data-d="1">+</b></div></div>`).join("")}`;
     const matBody = `<div class="yc-grid" style="grid-template-columns:repeat(3,1fr);margin-top:.25rem">${MATS.map(([k, n]) => (n = k === "imit" ? IMIT : n, mAvail(cfg, k)) ? `<div class="yc-chip ${s.mat === k ? "on" : ""}" data-mat="${k}">${n}</div>` : `<div class="yc-chip off">${n}<div class="yc-sub">详询顾问</div></div>`).join("")}</div>
 ${!s.mat || s.mat === "imit" ? "" : `<div class="yc-h">皮料等级</div>
